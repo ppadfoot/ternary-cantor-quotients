@@ -19,16 +19,16 @@ Both results and their complete proofs first appear in this repository's **v1.0.
 
 Write $\mathcal D^+$ for the positive integers with ternary digits **0 and 1**:
 
-$$
+```math
 \mathcal D^+=\{1,3,4,9,10,12,13,27,28,\ldots\}.
-$$
+```
 
 We ask which positive integers can be written as $M=b/a$ with $a,b\in\mathcal D^+$. The quotient itself may contain the digit 2. For example,
 
-$$
+```math
 7=\frac{28}{4}=\frac{(1001)_3}{(11)_3},
 \qquad 7=(21)_3.
-$$
+```
 
 Thus division produces integers beyond the original digit set. How many additional integers can it produce? And which integers remain impossible?
 
@@ -40,30 +40,30 @@ Let $M_C(X)$ count the positive integers $M\le X$ admitting such a representatio
 
 Theorem 1.1 proves that there are constants $c>0$ and $X_0$ such that
 
-$$
+```math
 \boxed{M_C(X)\ge cX^{\beta}\quad(X\ge X_0),
 \qquad\beta=0.666058529778\ldots>\log_3 2.}
-$$
+```
 
 The exponent is explicit. With $\varphi=(1+\sqrt5)/2$ and $g=\log_3\varphi$,
 
-$$
+```math
 \beta=s+(2s-1)\frac{s-g}{1+g}.
-$$
+```
 
 **Why this matters.** The improvement is in the power of $X$: the exponent increases by approximately **0.0351288**. The argument obtains many distinct quotients by varying the Cantor denominator and controlling how often different denominators produce the same integer.
 
 There is also a fractal consequence. Let $\Sigma\subset\mathbb Z_3$ be the set of 3-adic integers with digits 0 and 1, and put
 
-$$
+```math
 C(1,M)=\{x\in\mathbb Z_3:x\in\Sigma,\ Mx\in\Sigma\}.
-$$
+```
 
 Every positive finite integer witness yields a positive-dimensional subset of $C(1,M)$ by repeating separated digit blocks. Consequently the count
 
-$$
+```math
 M_H(X)=\#\{1\le M\le X:\dim_H C(1,M)>0\}
-$$
+```
 
 also satisfies **$M_H(X)\ge cX^{\beta}$** for sufficiently large $X$.
 
@@ -77,9 +77,9 @@ There are two easy ways to rule out a quotient: a restriction on its lowest nonz
 
 Theorem 1.2 proves
 
-$$
+```math
 \boxed{621\cdot3^{4k}-20\text{ is a sporadic exception for every integer }k\ge0.}
-$$
+```
 
 Its first members are **601, 50,281 and 4,074,361**. For every member, there are no positive $a,b\in\mathcal D^+$ with $b=(621\cdot3^{4k}-20)a$. Every member also avoids the two elementary obstruction classes. Hence the sporadic exceptional set is infinite.
 
@@ -87,9 +87,9 @@ Its first members are **601, 50,281 and 4,074,361**. For every member, there are
 
 The proof rewrites a hypothetical representation as
 
-$$
+```math
 b+20a=23\cdot3^{4k+3}a.
-$$
+```
 
 The resulting digit recurrence has a finite carry range and a register storing earlier digits. An explicit set of states is closed under every valid predecessor step and separates the starting state from the state a positive representation would have to reach. The certificate has **$38k+50$ states for $k\ge1$**, with a separate **65-state** certificate for $k=0$.
 
