@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-06",
+  "status": "PASS",
+  "latex_sha256": "b08f8687e1e2a027d66a0d15a1718520b81f2fbceee9e50f9517cb2f49141cf7",
+  "proof_sha256": "a7626ca0428479fa32a0211c71ca5755140d8594ee33d2ee3a595536d0454f5d",
+  "build": "Tectonic 0.17.0, clean final compilation",
+  "pdf_pages": 6,
+  "visual_review": "all final pages inspected",
+  "checks": [
+    "complete root mathematical review",
+    "independent complete hostile proof review",
+    "independent model/base/literature review",
+    "exact final-LaTeX cross-review",
+    "symbolic finite-carry and affine-polynomial certificate",
+    "independent symbolic checker rerun from packaged directory",
+    "independent base/model checker rerun from packaged directory"
+  ],
+  "limits": [
+    "Internal reviews, not external peer review",
+    "Exact symbolic certificate is not Lean formalization",
+    "No inference from finitely many parameter values",
+    "Literature priority not certified"
+  ]
+}

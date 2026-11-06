@@ -1,0 +1,21 @@
+{
+  "source": "outputs/github_final_2026-11-06/ternary-cantor-quotients/paper/ternary_cantor_quotients.tex",
+  "sha256": "a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e",
+  "labels": 28,
+  "duplicate_labels": [],
+  "undefined_refs": [],
+  "bibkeys": [
+    "Lagarias",
+    "AL",
+    "ABL",
+    "BMRS",
+    "ADRS",
+    "Konyagin",
+    "MS",
+    "Jandhyala"
+  ],
+  "undefined_cites": [],
+  "tables": 3,
+  "normalized_counting_diff": "",
+  "normalized_family_diff": "--- \n+++ \n@@ -116,8 +116,9 @@\n  K_0&=\\{-10,-9,-7,-6,8,9\\},&\n  N&=U.\n \\end{align*}\n-Distinct row names will identify different registers, even when\n-their carry sets agree.\n+The carry-set symbols in this display are local to the certificate.\n+Distinct row names identify different registers, even when their\n+carry sets agree.\n \n \\begin{table}[htbp]\n \\centering\\small\n"
+}

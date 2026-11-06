@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "symbolic_rows": 18,
+  "symbolic_carry_choices": 384,
+  "formal_variables": [
+    "X=16^k",
+    "Y=T_j"
+  ],
+  "base_k0_states": 65,
+  "base_choices": 260,
+  "redundant_instantiations": [
+    {
+      "k": 1,
+      "states": 88,
+      "predecessor_choices": 352
+    },
+    {
+      "k": 2,
+      "states": 126,
+      "predecessor_choices": 504
+    },
+    {
+      "k": 3,
+      "states": 164,
+      "predecessor_choices": 656
+    },
+    {
+      "k": 4,
+      "states": 202,
+      "predecessor_choices": 808
+    },
+    {
+      "k": 5,
+      "states": 240,
+      "predecessor_choices": 960
+    },
+    {
+      "k": 10,
+      "states": 430,
+      "predecessor_choices": 1720
+    },
+    {
+      "k": 25,
+      "states": 1000,
+      "predecessor_choices": 4000
+    },
+    {
+      "k": 100,
+      "states": 3850,
+      "predecessor_choices": 15400
+    }
+  ],
+  "scope": "finite symbolic carry images and polynomial register identities; high-bit inequalities and witness bridge proved in text",
+  "proof_sha256": "a7626ca0428479fa32a0211c71ca5755140d8594ee33d2ee3a595536d0454f5d"
+}

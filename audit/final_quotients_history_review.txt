@@ -1,0 +1,171 @@
+FULL MERGED-SOURCE REVIEW: TERNARY CANTOR QUOTIENTS
+6 November 2026. Reviewer: history_theorems_20261106.
+
+VERDICT: PASS. No blocking mathematical or integration issue found.
+
+Reviewed entire source:
+ outputs/github_final_2026-11-06/ternary-cantor-quotients/paper/ternary_cantor_quotients.tex
+SHA256:
+ a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e
+
+This is a complete read of the merged paper, including both proofs,
+all three certificate tables, shared definitions, introduction, scope,
+and references. I also compared all proof environments against the
+frozen source papers and independently recalculated the finite carry
+images and base certificate. The original counting argument was developed
+in this reviewer thread; thus this is an independent review of the merge
+and a fresh proof audit, not a claim that this reviewer is independent
+of the original development of that counting argument. Separate original
+counting reviews by root, pointwise and core are retained elsewhere.
+The family proof was developed by another agent.
+
+1. Faithful integration and notation
+
+All ten counting proof environments are unchanged after normalizing
+labels and cross-references. The four family proofs are likewise unchanged
+except that the old elementary obstruction symbols D and E are now
+Obloc and Obreal. Their definitions are preserved. This eliminates a
+potentially serious collision with the common digit-integer set D.
+The positive integer quotient set V is shared consistently by both parts.
+Positive witnesses are required; the text explicitly excludes the vacuous
+zero witness. The original 0/2 Cantor integers are twice the present 0/1
+integers, so their positive quotient sets are identical.
+
+The merged introduction correctly states two logically autonomous results.
+The nonrepresentation family does not supply an upper bound matching the
+counting lower bound, and it does not imply zero dimension for C(1,M).
+A finite positive witness is only a sufficient condition for positive
+dimension. These distinctions are preserved in the abstract and scope.
+The sole author is Timofei Iuzhakov, and the version is 1.0.0.
+
+2. Counting proof: growing-parameter uniformity
+
+The sampling lemma includes 0<delta<=1, including the singleton-set edge
+case. Disjoint half-open arcs and the L2 derivative estimate give its
+stated constant. The second and fourth moments are exact; addition of
+two binary ternary words creates digits0,1,2 without carry, giving6^h
+unnormalized additive energy.
+
+Reduced fractions of denominator at most D and prime to3 are D^-2
+separated. Sampling the second and fourth moments and interpolating gives
+the third-moment exponent eta=log_3(27/16)<log_3 2. Multiplication by3^h
+is a permutation of the same reduced-fraction set, which is essential:
+Holder gives the unnormalized sum of pth powers with no extra factor
+from its cardinality. Each fixed nonzero rational orbit is periodic and
+avoids zero, so the fixed-D limit decays.
+
+The divisor multiplicity bound uses intervals of diameter strictly less
+than d and remains valid for d=1. The domain Y>=3 avoids the former small-Y
+word-length ambiguity. On dyadic denominator bins, eta<s makes the bounds
+summable; fixed-bin decay and a vanishing final partial bin establish the
+average-discrepancy estimate in the stated growing Y,L range.
+
+Good denominators are selected using common L=floor(log_3 X). The actual
+witness count uses L_N=floor(log_3 NX); Fourier-modulus monotonicity
+transfers goodness from L to L_N. Orthogonality then counts zero as well,
+which is explicitly subtracted. The negative exponent s-1 is handled
+in the correct direction when N is replaced by Y. The assumption
+X^sY^(s-1)->infinity absorbs this subtraction uniformly.
+
+3. Finite-word Fibonacci bound and valuation average
+
+For r=1+3^e u, the displayed four-row carry table is exact. On admissible
+paths its next carry depends only on B_q, not on which allowed x_q was
+chosen. Induction therefore makes the offset at position i+e depend only
+on the prefix before i and on x_i, even when intervening input digits
+vary. At least one branch at i forces the later position, in the sense
+of at most one continuation digit, without requiring the same digit
+on all later prefixes.
+
+The marking-tree comparison uses precisely this weaker forcing statement.
+At a marked position there is one continuation; at an unmarked branching
+position the two branches are bounded by deletion and neighbor-forcing
+counts in the distance-e graph. Extra restrictions can safely be dropped.
+Thus all locally admissible finite words, including dead ends, are bounded.
+The path product gives phi^(n+e), also for e>=n.
+
+Unit Cantor denominators have valuation e>=1 when distinct. Their residue
+classes give pair counts O(Y^(2s) 2^-e). Summing phi^e over those classes
+converges because phi<2. The injection M->NM then yields the complete
+pair-overlap bound with the stated (XY)^g factor; no worst-case e bound
+is substituted for the weighted average.
+
+The choice alpha=(s-g)/(1+g)<1/6 meets the discrepancy condition. Choosing
+small fixed c0 in Y=c0 X^alpha controls overlaps by half the first moment,
+including the endpoint exponent beta. The nonoverlapping block Cantor
+construction turns every positive integer witness into a positive-
+Hausdorff-dimensional intersection. These steps prove both counting
+inequalities, but no asymptotic or positive density statement.
+
+4. Delayed carry model and positive-witness path bridge
+
+M=621*3^(4k)-20 equals23*3^(4k+3)-20. For a putative finite witness,
+the identity b+20a=23*3^m a gives the exact recurrence in the paper.
+Its partial-sum formula proves integrality and eventual carry zero.
+Divisibility by3 sharpens the raw numerator range[-34,31] to[-33,30],
+so the 22-state carry interval[-11,10] is invariant.
+
+The queue register is explicitly BINARY, not a ternary value. Flushing
+the finite input gives a return to(0,0). Since M is1mod3, dividing out
+the common power of3 makes a_0=b_0=1, so the first transition is to
+(2^(m-1),7), not the initial state. At its first subsequent return,
+a predecessor with oldest bit1 would need carry22or23, impossible.
+The remaining possibilities are(0,0) and(0,-1); the first-return choice
+rules out the former. Thus a positive witness must reach(0,-1).
+A predecessor-closed set containing this seed but excluding the initial
+state gives the claimed contradiction. No empty-path or positivity
+loophole remains.
+
+5. Arbitrary-k certificate and the base case
+
+I recalculated all18 interior/boundary carry-row variants, totaling384
+choices of carry and binary digits. Each image in Table2 is exact,
+including the smaller base-U/base-W qualifiers and the four exceptional
+boundary images. The two wrap identities were independently checked as
+identities of affine polynomials in formal X=16^k with rational
+coefficients, not merely at numerical k values.
+
+The high-bit inequalities are valid for all X>=16. The interior register
+ordering and the final boundary ordering hold for T>=51. They prove
+that all rows lie in the state space and are distinct. Summing the carry
+sets yields38k+50. No register aliases hide(0,0). Closure for all k>=1
+uses these symbolic identities, fixed finite carry sets, and the
+interior recurrence T_(j+1)=16T_j+3. Numerical instantiations alone
+would not suffice; they are not the justification here.
+
+For k=0, I independently entered the displayed65 states and checked all
+260 predecessor choices. Every valid predecessor belongs to the table;
+(0,-1) is present and(0,0) is absent. For redundancy, direct register
+instantiations at k=1,2,3,7,17 also gave respectively88,126,164,316,696
+closed states, matching38k+50. The new check summary is
+ work/github_final_2026-11-06/reviews/quotients_history_checks.json.
+
+Finally M is1mod3 and lies strictly between the endpoints
+2*3^(m+2) and(3/2)*3^(m+3). Thus it avoids both specified elementary
+obstruction sets. Distinct k give unbounded distinct M, proving that
+the sporadic set is infinite. This part does not classify infinite
+3-adic witnesses or their Hausdorff dimension.
+
+6. Scope, sources and limitations of this review
+
+Both statements and their complete proof routes are present. The
+normalization from0/2 to0/1 quotients is explicit. The later balanced
++/-1 quotient work is correctly described as a different problem;
+its finite k=4 check is not credited as an all-k proof. The manuscript
+claims an improvement over the immediate X^(log_3 2) lower bound, not
+an exhaustively verified best-possible literature result. No new
+priority certification was performed in this integration review.
+
+Both proofs are independent of the dimension paper's general causal
+container and ESS inputs. Their inclusion in one quotient paper is
+mathematically coherent, without implying that one main theorem proves
+the other. The pointwise power-of-two exponent count and Erdos406 remain
+explicitly outside the conclusions.
+
+All source labels are unique and cross-references resolve. Mathematical
+source review and the fresh exact finite checks do not constitute
+external peer review or proof-assistant verification. PDF layout and
+publication mechanics are managed separately by the parent task; this
+review does not claim they have been completed.
+
+END OF REVIEW

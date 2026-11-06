@@ -1,0 +1,32 @@
+{
+  "source_sha256": "a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e",
+  "symbolic_carry_row_variants": 18,
+  "carry_choices_checked": 384,
+  "base_certificate_states": 65,
+  "base_predecessor_choices": 260,
+  "formal_boundary_identities": "PASS over rational coefficients in X",
+  "redundant_instantiations": [
+    {
+      "k": 1,
+      "states": 88
+    },
+    {
+      "k": 2,
+      "states": 126
+    },
+    {
+      "k": 3,
+      "states": 164
+    },
+    {
+      "k": 7,
+      "states": 316
+    },
+    {
+      "k": 17,
+      "states": 696
+    }
+  ],
+  "references": "all resolve; unique labels",
+  "scope": "finite carry identities plus two exact formal register identities; arbitrary-k high-bit and distinctness inequalities separately read in full"
+}

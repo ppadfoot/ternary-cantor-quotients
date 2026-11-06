@@ -1,0 +1,918 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\D}{\mathcal D}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\MC}{M_{\mathrm C}}
+\newcommand{\MH}{M_{\mathrm H}}
+\newcommand{\ee}[1]{\mathrm e(#1)}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\Obloc}{\mathcal O_3}
+\newcommand{\Obreal}{\mathcal O_\infty}
+\newcommand{\F}{\mathcal F}
+\newcommand{\I}{\mathcal I}
+\newcommand{\Sc}{\mathcal S}
+\newcommand{\bits}{\{0,1\}}
+\title{Integer quotients of ternary Cantor numbers:\\
+a power lower bound and an infinite exceptional family}
+\author{Timofei Iuzhakov}
+\date{6 November 2026\\Version 1.0.0}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $\D$ be the nonnegative integers whose ternary digits belong to
+$\{0,1\}$. We prove two results about positive integer quotients of
+members of $\D$. First, the number $\MC(X)$ of integers $1\le M\le X$
+with $N,MN\in\D$ for some positive integer $N$ satisfies
+$\MC(X)\gg X^\beta$, where, writing $s=\log_3 2$ and
+$g=\log_3((1+\sqrt5)/2)$,
+\[
+ \beta=s+(2s-1)\frac{s-g}{1+g}=0.6660585297\ldots>s.
+\]
+The same bound holds for the number of positive-dimensional
+intersections of the $3$-adic Cantor set with its inverse integer
+dilates. Second, for every $k\ge0$, the integer
+$621\cdot3^{4k}-20$ is not such a quotient, although it avoids the
+standard lowest-digit and leading-digit obstructions. This proves
+that the sporadic exception set of Bai, Meleshko, Riasat and Shallit
+is infinite. The first proof combines Fourier sampling over
+Cantor-restricted denominators with a finite-word Fibonacci estimate
+and a sum over $3$-adic distances. The second constructs an explicit
+predecessor-closed carry certificate of $38k+50$ states for $k\ge1$,
+with a separate certificate for $k=0$. Both arguments are given in full.
+\end{abstract}
+
+\section{The quotient problem and the two main results}
+
+Put
+\[
+ \D=\left\{\sum_{j\ge0}\epsilon_j3^j:
+   \epsilon_j\in\{0,1\},\ \epsilon_j=0\text{ for all large }j\right\},
+ \qquad \D^+=\D\setminus\{0\},
+\]
+and let
+\[
+ \Sigma=\left\{\sum_{j\ge0}\epsilon_j3^j:
+                    \epsilon_j\in\{0,1\}\right\}\subset\Z_3.
+\]
+Here $\N$ denotes the positive integers. Define the set of positive
+integer quotients and its counting function by
+\[
+ \mathcal V=\N\cap(\D^+/\D^+),\qquad
+ \MC(X)=\#(\mathcal V\cap[1,X])\quad(X\ge1).
+\]
+Equivalently, $M\in\mathcal V$ if some positive integer $N$ has
+$N,MN\in\D$. Positivity of the witness is essential: allowing $N=0$
+would make this condition vacuous. For a positive integer $M$, also put
+\[
+ C(1,M)=\{x\in\Z_3:x,Mx\in\Sigma\},\qquad
+ \MH(X)=\#\{1\le M\le X:\dim_H C(1,M)>0\}.
+\]
+
+\subsection{A power lower bound}
+
+Lagarias asks for upper and lower bounds for these two counting
+functions in Problems 1.10 and 1.11 of~\cite{Lagarias}, numbered
+Problems 1 and 2 in the arXiv version. Taking $N=1$ gives the immediate
+lower bound of order $X^{\log_3 2}$. A positive integer witness also
+implies positive Hausdorff dimension by the nonoverlapping-block
+construction in~\cite{Lagarias}; we include this construction below.
+The inclusion of the integer-witness multipliers in the
+positive-dimensional multipliers is strict in general.
+
+\begin{theorem}\label{thm:power}
+Let
+\[
+ s=\log_3 2,\qquad \varphi=\frac{1+\sqrt5}{2},\qquad
+ g=\log_3\varphi,\qquad
+ \alpha=\frac{s-g}{1+g},\qquad
+ \beta=s+(2s-1)\alpha.
+\]
+There are absolute constants $c>0$ and $X_0$ such that
+\[
+ \MC(X)\ge cX^\beta,\qquad \MH(X)\ge cX^\beta
+ \quad (X\ge X_0).
+\]
+In particular,
+\[
+ \alpha=0.1341512347\ldots,
+ \qquad \beta=0.6660585297\ldots>\log_3 2.
+\]
+\end{theorem}
+
+The result improves the exponent in the immediate lower bound. It does
+not determine the sharp asymptotic size or positive density of either
+counting function. The distribution estimates used in its proof are
+proved directly, with their dependence on growing denominators explicit.
+
+\subsection{An infinite exceptional family}
+
+Following Bai, Meleshko, Riasat and Shallit~\cite[\S1.4]{BMRS}, define
+\begin{align*}
+ \Obloc&=\{N\in\N:N\equiv2\cdot3^{i-1}\pmod{3^i}
+                             \text{ for some }i\ge1\},\\
+ \Obreal&=\N\cap\bigcup_{i\ge0}
+                    [\tfrac32\,3^i,\,2\cdot3^i],\\
+ \F&=\N\setminus(\mathcal V\cup\Obloc\cup\Obreal).
+\end{align*}
+The first two sets encode the lowest nonzero digit and leading-digit
+obstructions to being a quotient. They are denoted $\mathcal D$ and
+$\mathcal E$ in~\cite{BMRS}; our different symbols avoid conflict with
+$\D$, the digit-integer set. The original Cantor integers in that paper
+have digits $0,2$. Their positive members form $2\D^+$, so their
+positive quotient set is exactly $\D^+/\D^+$. The sporadic set $\F$
+therefore agrees with theirs.
+
+Bai et al. ask whether $\F$ is infinite and propose the family in the
+following theorem.
+
+\begin{theorem}\label{thm:family}
+For every integer $k\ge0$,
+\[
+                  621\cdot3^{4k}-20\in\F.
+\]
+In particular, there are no $a,b\in\D^+$ with
+$b=(621\cdot3^{4k}-20)a$, and $\F$ is infinite.
+\end{theorem}
+
+The case $k=4$ is verified in Jandhyala's versioned
+preprint~\cite[\S6]{Jandhyala}, which leaves the all-$k$ assertion open.
+Its main theorems concern the different quotient problem for zero-free
+balanced digits $\{-1,1\}$. Our proof of Theorem~\ref{thm:family}
+uses the identity $b+20a=23\cdot3^{4k+3}a$ to obtain a binary delay
+register with a carry in a fixed set of $22$ integers. An explicit
+predecessor-closed set separates the initial state from the only
+nontrivial predecessor of an accepting state.
+
+\subsection{Relation between the two arguments}
+
+The quotient problem is also studied directly by Anders, Dawsey,
+Reznick and Sisneros-Thiry~\cite{ADRS}. Multiplicative intersections
+and their automata are treated in~\cite{AL,ABL}. The analytic part
+of our counting proof is related to work on the distribution of
+integers with missing digits~\cite{Konyagin,MS}, but no external
+uniformity estimate is used without proof.
+
+The two main theorems are logically independent. The first proves
+abundance among all positive integers; the second gives specified
+integers which fail to be quotients despite the elementary necessary
+conditions. The exceptional family is not a matching upper bound for
+$\MC(X)$, and its nonrepresentation does not by itself determine
+$\dim_H C(1,M)$ for those multipliers.
+
+Neither theorem concerns the number of exponents $n$ for which
+$2^n\in\D$. In particular, neither proves the pointwise assertion in
+Erd\H{o}s problem 406, excludes $1$ from the infinite-visit exceptional
+set, or determines a finite-visit dimension limit. The arguments below
+use neither a general causal-container theorem nor a finite-rank
+unit-equation theorem. We make no claim of exhaustive priority
+verification.
+
+\section{Fourier sampling over reduced fractions}
+
+For $l\ge0$, let
+\[
+ \D_l=\left\{\sum_{j=0}^{l-1}\epsilon_j3^j:
+                     \epsilon_j\in\{0,1\}\right\},
+ \quad
+ F_l(t)=2^{-l}\sum_{z\in\D_l}\ee{zt},\quad f_l(t)=|F_l(t)|,
+\]
+where $\ee{t}=\exp(2\pi it)$ and $t\in\T=\mathbb R/\mathbb Z$.
+The product identity gives
+\begin{equation}\label{count:eq:product}
+ F_l(t)=\prod_{j=0}^{l-1}\frac{1+\ee{3^jt}}2,
+ \qquad
+ f_{l+l'}(t)=f_l(t)f_{l'}(3^lt),\qquad 0\le f_l(t)\le1.
+\end{equation}
+
+\begin{lemma}[Elementary sampling]\label{count:lem:sampling}
+Let $0<\delta\le1$ and let $T\subset\T$ be finite, with circular
+separation at least $\delta$.
+If $P(t)=\sum_{j=0}^K c_j\ee{jt}$, then
+\[
+ \sum_{t\in T}|P(t)|^2
+ \le (\delta^{-1}+4\pi K)\sum_{j=0}^K|c_j|^2.
+\]
+\end{lemma}
+\begin{proof}
+Center pairwise disjoint half-open arcs $I_t$ of length $\delta$ at the
+points of $T$. For $G=|P|^2$ and $u\in I_t$,
+\[
+ G(t)\le G(u)+\int_{I_t}|G'(v)|\,dv.
+\]
+Integrating in $u$ and summing in $t$ bounds the left side by
+$\delta^{-1}\|P\|_2^2+\int_\T|G'|$.
+Since $\int|G'|\le2\|P\|_2\|P'\|_2\le4\pi K\|P\|_2^2$,
+Parseval proves the assertion.
+\end{proof}
+
+\begin{lemma}\label{count:lem:moments}
+For every $h\ge0$,
+\[
+ \int_\T|F_h|^2=2^{-h},\qquad
+ \int_\T|F_h|^4=(3/8)^h.
+\]
+The degrees of $F_h$ and $F_h^2$ are $(3^h-1)/2$ and $3^h-1$.
+\end{lemma}
+\begin{proof}
+The second moment follows from the distinct frequencies in $\D_h$.
+For the fourth moment, the coefficients of $F_h^2$ count sums of two
+elements of $\D_h$. At each ternary position the sums $0,1,2$ have
+multiplicities $1,2,1$. There is no carry, so the sum of the squares
+of the unnormalized coefficients is $(1^2+2^2+1^2)^h=6^h$.
+The normalization is $16^h$. The degree statements follow from
+$\max\D_h=(3^h-1)/2$.
+\end{proof}
+
+For real $D\ge2$, write
+\[
+ T_D=\{v/d\bmod1:2\le d\le D,\ (d,3)=1,
+                       \ 1\le v<d,\ (v,d)=1\}.
+\]
+Distinct points of $T_D$ have circular separation at least $D^{-2}$.
+
+\begin{lemma}[Farey Fourier bound]\label{count:lem:farey}
+Put $\eta=\log_3(27/16)<s$. There is an absolute constant $C$ such that,
+if $D\ge2$ and $L\ge3\lceil2\log_3D\rceil$, then
+\begin{equation}\label{count:eq:farey}
+ \sum_{t\in T_D}f_L(t)\le CD^\eta.
+\end{equation}
+For each fixed $D$, the sum on the left tends to zero as $L\to\infty$.
+\end{lemma}
+\begin{proof}
+Take $h=\lceil2\log_3D\rceil$, so $D^2\le3^h<3D^2$.
+Lemmas \ref{count:lem:sampling} and \ref{count:lem:moments} give
+\[
+ \sum_{t\in T_D}f_h(t)^2\le C(3/2)^h,
+ \qquad
+ \sum_{t\in T_D}f_h(t)^4\le C(9/8)^h.
+\]
+Cauchy--Schwarz yields
+\begin{equation}\label{count:eq:third}
+ \sum_{t\in T_D}f_h(t)^3
+ \le C(27/16)^{h/2}\le C'D^\eta.
+\end{equation}
+Let $p=\lfloor L/h\rfloor\ge3$. By \eqref{count:eq:product}, after discarding
+the remainder of length $L-ph$, H\"older's inequality gives
+\begin{align*}
+ \sum_{t\in T_D}f_L(t)
+ &\le\prod_{j=0}^{p-1}
+   \left(\sum_{t\in T_D}f_h(3^{jh}t)^p\right)^{1/p}\\
+ &=\sum_{t\in T_D}f_h(t)^p
+ \le\sum_{t\in T_D}f_h(t)^3.
+\end{align*}
+Multiplication by $3^{jh}$ permutes $T_D$, since its reduced
+denominators are coprime to $3$. This proves \eqref{count:eq:farey}.
+For a fixed nonzero $v/d\in T_D$, the orbit under multiplication by $3$
+is periodic and avoids zero. The product in \eqref{count:eq:product} therefore
+tends to zero in modulus. Summing over the fixed finite set proves the
+last assertion.
+\end{proof}
+
+\section{Distribution for most Cantor denominators}
+
+For $Y\ge3$, set
+\[
+ S_Y=\{N\in\D:1\le N\le Y,\ N\equiv1\pmod3\}.
+\]
+Elementary digit counting gives
+\begin{equation}\label{count:eq:SY}
+ \tfrac14Y^s\le |S_Y|\le2Y^s.
+\end{equation}
+For the lower bound use all words of length $\lfloor\log_3Y\rfloor$
+whose low digit is $1$. For the upper bound use all words of length
+$K=\lfloor\log_3Y\rfloor+1$.
+
+\begin{lemma}[Divisor multiplicity]\label{count:lem:divisors}
+For integers $1\le d\le Y$,
+\[
+ T_Y(d):=\#\{N\in S_Y:d\mid N\}\le4(Y/d)^s.
+\]
+\end{lemma}
+\begin{proof}
+Put $j=\lfloor\log_3d\rfloor$. Fixing the digits at positions
+$j,\ldots,K-1$ covers $\D_K$ by $2^{K-j}$ intervals, each of length
+$(3^j-1)/2<d$. Each interval contains at most one multiple of $d$.
+The inequalities $3^K\le3Y$ and $3^j>d/3$ give
+$2^{K-j}<4(Y/d)^s$.
+\end{proof}
+
+For $3\nmid N$, define
+\[
+ R_N(L)=\sum_{v=1}^{N-1}f_L(v/N),\qquad R_1(L)=0.
+\]
+
+\begin{proposition}[Average discrepancy on restricted denominators]
+\label{count:prop:mixing}
+As $Y,L\to\infty$ subject to $L\ge3\lceil2\log_3Y\rceil$,
+\begin{equation}\label{count:eq:mixing}
+ \sum_{N\in S_Y}R_N(L)=o(Y^s).
+\end{equation}
+Consequently, for all sufficiently large such $Y,L$, at least
+$Y^s/8$ elements $N\in S_Y$ satisfy $R_N(L)\le1/2$.
+\end{proposition}
+\begin{proof}
+Reducing the fractions $v/N$ gives the exact identity
+\[
+ \sum_{N\in S_Y}R_N(L)
+ =\sum_{\substack{2\le d\le Y\\(d,3)=1}}
+   T_Y(d)\sum_{\substack{1\le v<d\\(v,d)=1}}f_L(v/d).
+\]
+Use dyadic bins $(2^{j-1},2^j]$ for $1\le j\le J=\lfloor\log_2Y\rfloor$,
+followed by the possibly empty bin $(2^J,Y]$. By Lemmas
+\ref{count:lem:divisors} and \ref{count:lem:farey}, the contribution of a complete
+bin, divided by $Y^s$, is bounded by
+\[
+ C2^{-js}\sum_{t\in T_{2^j}}f_L(t)
+ \le C'2^{-j(s-\eta)}.
+\]
+The latter bounds are summable, since $\eta<s$. For each fixed $j$,
+the actual contribution tends to zero, by the last assertion of
+Lemma \ref{count:lem:farey}. First make the tail of the summable bounds small,
+and then take $L$ large enough for the finitely many remaining bins.
+The final partial bin is at most $CY^{\eta-s}$ after division by $Y^s$,
+and also tends to zero. This proves \eqref{count:eq:mixing}.
+At most $2\sum_NR_N(L)=o(Y^s)$ denominators have $R_N(L)>1/2$;
+combine this with \eqref{count:eq:SY}.
+\end{proof}
+
+\begin{proposition}[First moment]\label{count:prop:first}
+Let $L=\lfloor\log_3X\rfloor$, and suppose $Y\to\infty$ with
+$L\ge3\lceil2\log_3Y\rceil$ and $X^sY^{s-1}\to\infty$.
+There is a subset $G\subset S_Y$ such that
+\[
+ \sum_{N\in G}|A_N(X)|\ge\tfrac1{64}X^sY^{2s-1},
+ \qquad A_N(X)=\{1\le M\le X:NM\in\D\},
+\]
+for all sufficiently large $X$.
+\end{proposition}
+\begin{proof}
+Choose $G=\{N\in S_Y:R_N(L)\le1/2\}$, which has size at least $Y^s/8$.
+For each $N\in G$ put $L_N=\lfloor\log_3(NX)\rfloor\ge L$.
+By \eqref{count:eq:product}, $R_N(L_N)\le R_N(L)\le1/2$.
+Orthogonality of additive characters modulo $N$ gives
+\[
+ \#\{z\in\D_{L_N}:N\mid z\}
+ \ge\frac{2^{L_N}}N(1-R_N(L_N))\ge\frac{2^{L_N-1}}N.
+\]
+Every such $z$ is at most $NX$. Removing zero and dividing by $N$ yields
+\[
+ |A_N(X)|\ge\tfrac14X^sN^{s-1}-1.
+\]
+Since $s<1$, summing and using \eqref{count:eq:SY} gives
+\[
+ \sum_{N\in G}|A_N(X)|
+ \ge\tfrac1{32}X^sY^{2s-1}-2Y^s
+ \ge\tfrac1{64}X^sY^{2s-1}.
+\]
+\end{proof}
+
+\section{A finite Fibonacci bound for overlaps}
+
+For $r\in1+3\Z_3$, $r\ne1$, put $e=v_3(r-1)\ge1$. Define
+\[
+ W_n(r)=\{x\in\D_n:rx\bmod3^n\in\D_n\},
+\]
+using representatives in $[0,3^n)$ for reduction. Let $H_n(e)$ be the
+number of independent sets of the graph on $\{0,\ldots,n-1\}$ whose
+edges join positions at distance $e$.
+
+\begin{lemma}[Finite-word bound]\label{count:lem:golden}
+For every $n\ge0$,
+\[
+ |W_n(r)|\le H_n(e)\le\varphi^{n+e}.
+\]
+The bound applies to all locally admissible words, including those
+which have no infinite admissible continuation.
+\end{lemma}
+\begin{proof}
+Write $r=1+3^eu$, where $u\in\Z_3^\times$. Write the input digits as
+$x_j\in\{0,1\}$ and the digits of $ux$ as $y_j\in\{0,1,2\}$.
+In the addition $x+3^eux$, let $\gamma_q\in\{0,1\}$ be the incoming
+carry at position $q$. For $q\ge e$, put $B_q=y_{q-e}+\gamma_q$.
+The allowed values and next carries are exactly
+\[
+\begin{array}{c|c|c}
+ B_q&\text{allowed }x_q&\gamma_{q+1}\\\hline
+ 0&0,1&0\\1&0&0\\2&1&1\\3&0,1&1
+\end{array}
+\]
+Thus $\gamma_{q+1}=\mathbf1_{B_q\ge2}$ on admissible paths,
+independently of the chosen admissible value of $x_q$. For $q<e$ the
+carry is zero.
+
+Fix $x_{<i}$. The preceding identity determines $\gamma_{i+e}$ from
+$y_0,\ldots,y_{i-1}$, hence from $x_{<i}$, independently of the
+intermediate admissible digits. Also
+$y_i\equiv u_0x_i+R_i(x_{<i})\pmod3$, with $u_0\in\{1,2\}$.
+The output at position $i+e$ consequently has the form
+\begin{equation}\label{count:eq:forcing}
+ x_{i+e}+u_0x_i+Q_i(x_{<i})\pmod3.
+\end{equation}
+At least one of $x_i=0,1$ makes the offset in \eqref{count:eq:forcing}
+nonzero modulo $3$, leaving at most one allowed value of $x_{i+e}$,
+regardless of the intermediate admissible digits.
+
+Mark that future position as forced. A mark means that each subsequent
+admissible prefix on the branch has at most one child at the marked
+position; it does not specify a digit common to different branches.
+Maintain the set $S$ of future marks. At a marked position there is
+at most one child. At an unmarked position with one child, retaining
+$S$ suffices for an upper bound. At an unmarked position $i$ with two
+children, one child retains $S$, while the other has the additional
+mark $i+e$, if that position is less than $n$. Additional restrictions
+may be discarded.
+
+Backward induction now compares the number of completions with
+independent sets of the remaining distance-$e$ graph, with positions
+in $S$ required absent. At an unmarked vertex $i$, its deletion
+recursion is the sum of the counts without and with the additional
+mark $i+e$; at a marked vertex there is a single continuation.
+Requiring additional positions absent can only decrease the count.
+This proves $|W_n(r)|\le H_n(e)$, starting with no marks.
+
+The graph is a union of at most $e$ paths, one in each residue class
+modulo $e$. A path of $m$ vertices has $F_{m+2}$ independent sets,
+and $F_{m+2}\le\varphi^{m+1}$ by the Fibonacci recurrence.
+Multiplying these inequalities gives $H_n(e)\le\varphi^{n+e}$.
+\end{proof}
+
+\begin{lemma}[Valuation summation]\label{count:lem:valuation}
+For $Y\ge3$,
+\[
+ \sum_{\substack{N<N'\\N,N'\in S_Y}}
+       \varphi^{v_3(N'-N)}\ll Y^{2s}.
+\]
+\end{lemma}
+\begin{proof}
+Put $K=\lfloor\log_3Y\rfloor+1$. For fixed $N\in S_Y$ and $1\le e<K$,
+\[
+ \#\{N'\in S_Y:N'\equiv N\pmod{3^e}\}
+ \le2^{K-e}\le2Y^s2^{-e}.
+\]
+No distinct pair has valuation at least $K$. Bounding the number of
+pairs of valuation exactly $e$ by the number with valuation at least
+$e$, and using $|S_Y|\le2Y^s$, proves
+\[
+ \sum_{N<N'}\varphi^{v_3(N'-N)}
+ \le2Y^{2s}\sum_{e\ge1}(\varphi/2)^e\ll Y^{2s}.
+\]
+\end{proof}
+
+\begin{proposition}[Overlap bound]\label{count:prop:overlap}
+For $X\ge1$, $Y\ge3$ and any $G\subset S_Y$,
+\[
+ \sum_{\substack{N<N'\\N,N'\in G}}|A_N(X)\cap A_{N'}(X)|
+ \ll X^gY^{2s+g}.
+\]
+\end{proposition}
+\begin{proof}
+For a distinct pair, put $r=N'/N$ and $e=v_3(N'-N)=v_3(r-1)\ge1$.
+If $M\in A_N\cap A_{N'}$, then $x=NM\le XY$ and $x,rx\in\D$.
+The assignment $M\mapsto x$ is injective. Taking
+$n=\lceil\log_3(XY+1)\rceil$ and applying Lemma \ref{count:lem:golden} gives
+\[
+ |A_N\cap A_{N'}|\le\varphi^{n+e}
+ \ll (XY)^g\varphi^e.
+\]
+Sum this using Lemma \ref{count:lem:valuation}.
+\end{proof}
+
+\section{Proof of the power lower bound}
+
+\begin{proof}[Proof of Theorem \ref{thm:power}]
+Take $Y=c_0X^\alpha$, where $c_0>0$ is a sufficiently small fixed
+constant. We have $0<\alpha<1/6$. To check the latter without numerical
+rounding, note that $s<7/11$ since $2^{11}<3^7$, and $g>3/7$ since
+$\varphi^7=13\varphi+8>27$. The ratio $(s-g)/(1+g)$ is increasing
+in $s$ and decreasing in $g$, so $\alpha<8/55<1/6$.
+Consequently $L=\lfloor\log_3X\rfloor\ge3\lceil2\log_3Y\rceil$
+for large $X$. Also $X^sY^{s-1}\to\infty$, since $s>1/2$ and
+$\alpha<1/6$.
+
+Proposition \ref{count:prop:first} provides a set $G\subset S_Y$ with first
+moment at least $X^sY^{2s-1}/64$. By Proposition \ref{count:prop:overlap},
+the sum of pairwise overlaps is at most $C_0X^gY^{2s+g}$.
+The ratio of this upper bound to the first-moment lower bound is
+\[
+ 64C_0X^{g-s}Y^{1+g}=64C_0c_0^{1+g}.
+\]
+Choose $c_0$ so that this is at most $1/2$. Bonferroni's inequality gives
+\[
+ \MC(X)\ge\left|\bigcup_{N\in G}A_N(X)\right|
+ \ge\frac1{128}X^sY^{2s-1}
+ =\frac{c_0^{2s-1}}{128}X^\beta.
+\]
+
+Finally, if $N,MN\in\D$ with $N>0$, choose $B$ with
+$3^B>\max(N,MN)$. For every sequence $(\epsilon_j)\in\{0,1\}^{\N_0}$,
+\[
+ x=N\sum_{j\ge0}\epsilon_j3^{Bj}
+\]
+and $Mx$ consist of nonoverlapping copies of the finite digit blocks
+for $N$ and $MN$. Thus both belong to $\Sigma$. This embeds a scaled
+block Cantor set, of dimension $\log2/(B\log3)>0$, into $C(1,M)$.
+Hence $\MH(X)\ge\MC(X)$, proving the second bound.
+\end{proof}
+
+\section{A delayed digit equation}
+Fix $k\ge0$ and put
+\[
+             m=4k+3,\qquad M=23\cdot3^m-20.
+\]
+Suppose, for a contradiction, that $Ma=b$ with $a,b\in\D^+$.
+Write their finite ternary expansions as
+$a=\sum_{j\ge0}a_j3^j$ and $b=\sum_{j\ge0}b_j3^j$, extending both
+digit sequences by zeros. For negative indices set $a_j=0$.
+The identity $b+20a=23\cdot3^m a$ gives the delayed digits
+$x_j=a_{j-m}$ and the recurrence
+\begin{equation}\label{family:eq:forward-carry}
+ d_0=0,\qquad
+ d_{j+1}=\frac{d_j+20a_j+b_j-23x_j}{3}.
+\end{equation}
+
+\begin{lemma}\label{family:lem:carry}
+Every $d_j$ in \eqref{family:eq:forward-carry} is an integer in
+$\I=\{-11,-10,\ldots,10\}$, and $d_j=0$ for all sufficiently
+large $j$.
+\end{lemma}
+\begin{proof}
+Set $f_h=20a_h+b_h-23a_{h-m}$. The finite identity
+$\sum_{h\ge0}f_h3^h=0$ implies
+\[
+       d_j=3^{-j}\sum_{h<j}f_h3^h\in\Z,
+\]
+since the omitted terms are divisible by $3^j$. This formula gives
+\eqref{family:eq:forward-carry} and is zero once the partial sum includes
+every nonzero term. If $d_j\in\I$, its next numerator lies between
+$-34$ and $31$. Since the numerator is divisible by $3$, it lies
+between $-33$ and $30$, so $d_{j+1}\in\I$. Induction starts at $0$.
+\end{proof}
+
+Encode the last $m$ input digits by the \emph{binary} register
+\[
+        A_j=\sum_{i=0}^{m-1}a_{j-m+i}2^i.
+\]
+The oldest digit is in bit $0$, so
+\begin{equation}\label{family:eq:register}
+ x_j=A_j\bmod2,\qquad
+ A_{j+1}=\lfloor A_j/2\rfloor+a_j2^{m-1}.
+\end{equation}
+This binary encoding is only a convenient label for a queue of
+digits. It is not the ordinary ternary value of that queue.
+The state space is
+\[
+             \{0,\ldots,2^m-1\}\times\I.
+\]
+The initial state is $(0,0)$; a finite witness gives a finite path
+back to $(0,0)$ containing an input digit $1$.
+
+\begin{lemma}\label{family:lem:predecessor}
+Any positive witness gives a path from $(0,0)$ to $(0,-1)$.
+Consequently, no positive witness exists if there is a set of states
+containing $(0,-1)$, closed under all predecessors, and omitting
+$(0,0)$.
+\end{lemma}
+\begin{proof}
+Because $M\equiv1\pmod3$, the same power of $3$ divides $a$ and $b$.
+Dividing it out preserves their allowed digits, so we may assume
+$a_0=b_0=1$. The first state after $(0,0)$ is then
+$(2^{m-1},7)$, which is different from $(0,0)$.
+
+Consider the first subsequent return to $(0,0)$. A transition into
+this state has $a_j=0$ and $A_j=x_j\in\bits$ by
+\eqref{family:eq:register}. Equation~\eqref{family:eq:forward-carry} gives
+$d_j=23x_j-b_j$. If $x_j=1$, this value is $22$ or $23$, outside
+$\I$. If $x_j=0$, the predecessor is $(0,0)$ or $(0,-1)$.
+The first possibility is excluded at the first return. Thus the
+path passes through $(0,-1)$. A predecessor-closed set containing
+that state must contain every earlier state on the path, including
+$(0,0)$, giving the asserted contradiction.
+\end{proof}
+
+For use in an explicit certificate, all predecessors can be written
+without a search. For a current state $(A,d)$ put
+$\alpha=\lfloor A/2^{m-1}\rfloor\in\bits$. For each $x,\beta\in\bits$
+the potential predecessor is
+\begin{equation}\label{family:eq:inverse}
+ A^-=2A-\alpha2^m+x,\qquad
+ d^-=3d-20\alpha-\beta+23x.
+\end{equation}
+It is a valid predecessor exactly when $d^-\in\I$.
+Here $\alpha$ is the input digit of the forward transition and
+$\beta$ is its output digit. Formula~\eqref{family:eq:inverse} enumerates
+all choices; automatically $0\le A^-<2^m$.
+
+\section{The predecessor certificate for all \texorpdfstring{$k\ge1$}{k>=1}}
+Assume now $k\ge1$. Define
+\begin{equation}\label{family:eq:T}
+ T_j=\frac{16^j-1}{5}\quad(j\ge1),\qquad
+ V=\frac{3T_{k+1}-1}{2}.
+\end{equation}
+The numbers $T_j$ are integers satisfying $T_{j+1}=16T_j+3$;
+their binary expansions are repetitions of the block $0011$ after
+padding to length $4j$.
+
+The following finite sets specify the allowed carries in the
+certificate:
+\begin{align*}
+ Z&=\{-10,-9,-4,-3,-1\},&
+ O&=\{-8,-7,-5,-4,10\},\\
+ P&=\{-2,-1,1,2,7,8,10\},&
+ P^+&=P\cup\{4,5\},\\
+ Q&=\{-7,-6,-4,-3,2,3,5,6\},&
+ R&=\{-10,-9,5,6,8,9\},\\
+ S&=\{1,2,4,5,10\},&
+ U&=\{-8,-7,-5,-4\},\\
+ U^+&=U\cup\{-6,-3\},&
+ W&=\{2,3,5,6\},\\
+ W^+&=W\cup\{4,7\},&
+ H&=\{5,6,8,9\},\\
+ I_0&=\{-10,-9\},&
+ J_0&=\{-11,-6,-5,-3,-2\},\\
+ K_0&=\{-10,-9,-7,-6,8,9\},&
+ N&=U.
+\end{align*}
+The carry-set symbols in this display are local to the certificate.
+Distinct row names identify different registers, even when their
+carry sets agree.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Definition of $\Sc_m$. Empty index ranges are omitted.}
+\label{family:tab:states}
+\begin{tabular}{llll}
+\toprule
+Row & Index range & Register $A$ & Carry set\\
+\midrule
+$Z_0$ & & $0$ & $Z$\\
+$O_0$ & & $1$ & $O$\\
+$P_j$ & $1\le j\le k$ & $T_j$ & $P$\\
+$P_{k+1}$ & & $T_{k+1}$ & $P^+$\\
+$Q_j$ & $1\le j\le k+1$ & $2T_j$ & $Q$\\
+$R_j$ & $1\le j\le k$ & $4T_j$ & $R$\\
+$S_j$ & $1\le j\le k$ & $4T_j+1$ & $S$\\
+$U_j$ & $1\le j<k$ & $8T_j+1$ & $U$\\
+$U_k$ & & $8T_k+1$ & $U^+$\\
+$W_j$ & $1\le j<k$ & $8T_j+2$ & $W$\\
+$W_k$ & & $8T_k+2$ & $W^+$\\
+$H_j$ & $1\le j\le k$ & $T_{j+1}+1$ & $H$\\
+$I_0^{\rm row}$ & & $T_{k+1}-1$ & $I_0$\\
+$I_1^{\rm row}$ & & $V-1$ & $I_0$\\
+$J^{\rm row}$ & & $V$ & $J_0$\\
+$K^{\rm row}$ & & $V+1$ & $K_0$\\
+$N^{\rm row}$ & & $2T_{k+1}-1$ & $N$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proposition}\label{family:prop:certificate}
+The set $\Sc_m$ defined in Table~\ref{family:tab:states} is closed under all
+predecessors in \eqref{family:eq:inverse}. It contains $(0,-1)$ and omits
+$(0,0)$. Its cardinality is $38k+50$.
+\end{proposition}
+\begin{proof}
+We first determine the most significant bit of every register.
+Put $X=16^k\ge16$, so $2^{m-1}=4X$ and $2^m=8X$.
+For $j\le k$, $T_j<X/5$. All rows with most significant bit zero
+are bounded by
+\[
+ T_{k+1}+1=\frac{16X+4}{5}<4X;
+ \qquad 8T_j+2\le\frac{8X+2}{5}<4X.
+\]
+The rows $Q_{k+1},I_1^{\rm row},J^{\rm row},K^{\rm row},N^{\rm row}$
+have respective registers
+\[
+ \frac{32X-2}{5},\quad \frac{24X-9}{5},\quad
+ \frac{24X-4}{5},\quad \frac{24X+1}{5},\quad \frac{32X-7}{5}.
+\]
+Each lies in $[4X,8X)$, so its most significant bit is one. This
+also verifies that every row defines a state in the prescribed space.
+
+Table~\ref{family:tab:inverse} gives the complete predecessor calculation.
+An unannotated destination means its whole carry set. A qualifier
+such as ``base $U$'' means the displayed smaller carry set, even
+when the destination row uses $U^+$. A dash denotes an empty image.
+Every entry allows both values $\beta=0,1$ and retains only
+$d^-\in\I$.
+
+\begin{table}[htbp]
+\centering\small
+\caption{All predecessor images from \eqref{family:eq:inverse}.}
+\label{family:tab:inverse}
+\begin{tabular}{llll}
+\toprule
+Current row & $\alpha$ & $x=0$ & $x=1$\\
+\midrule
+$Z_0$ & $0$ & $Z_0:\{-10,-9,-4,-3\}$ & $O_0$\\
+$O_0$ & $0$ & --- & $P_1$ (base $P$)\\
+$P_j$, all $j$ & $0$ & $Q_j$ & ---\\
+$Q_j$, $j\le k$ & $0$ & $R_j$ & $S_j$\\
+$Q_{k+1}$ & $1$ & $J^{\rm row}$ & $K^{\rm row}$\\
+$R_j$ & $0$ & --- & $U_j$ (base $U$)\\
+$S_j$ & $0$ & $W_j$ (base $W$) & ---\\
+$U_j$, $j<k$ & $0$ & --- & $P_{j+1}$ (base $P$)\\
+$U_k$ & $0$ & $I_0^{\rm row}$ & $P_{k+1}$ ($P^+$)\\
+$W_j$, all $j$ & $0$ & $H_j$ & ---\\
+$H_j$ & $0$ & --- & ---\\
+$I_0^{\rm row}$ & $0$ & --- & $N^{\rm row}$\\
+$I_1^{\rm row}$ & $1$ & --- & ---\\
+$J^{\rm row}$ & $1$ & --- & $U_k:\{-7,-6,-4,-3\}$\\
+$K^{\rm row}$ & $1$ & $W_k:\{3,4,6,7\}$ & ---\\
+$N^{\rm row}$ & $1$ & --- & $I_1^{\rm row}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For the carry column, each entry is the finite calculation
+\[
+ \{3d-20\alpha-\beta+23x:
+               d\text{ in the current carry set},\ \beta\in\bits\}
+                    \cap\I.
+\]
+The register column follows from $T_{j+1}=16T_j+3$ and the two
+boundary identities
+\begin{equation}\label{family:eq:wrap}
+        4T_{k+1}-2^m=V,\qquad 2V-2^m=8T_k.
+\end{equation}
+For example, the row $Q_{k+1}$ has register $2T_{k+1}$ and
+$\alpha=1$. Its predecessor registers are $V,V+1$, and its carry
+images are $J_0,K_0$, respectively. The row $J^{\rm row}$ has
+$\alpha=1$; for $x=1$ it maps to register $8T_k+1$ and carries
+$\{-7,-6,-4,-3\}\subseteq U^+$. These boundary images explain the
+extra carries in $P^+,U^+,W^+$.
+
+Thus every possible predecessor lies in a listed row. This verifies
+closure for all $k\ge1$ using fixed finite carry sets and the exact
+identities \eqref{family:eq:T} and \eqref{family:eq:wrap}. No upper bound on $k$
+is used. Since $Z$ contains $-1$ and excludes $0$, and no other row
+has register zero, the two required inclusions follow.
+
+For the cardinality, the registers are distinct. In the interior,
+\[
+ T_j<2T_j<4T_j<4T_j+1<8T_j+1<8T_j+2<T_{j+1},
+\]
+and $T_{j+1}+1$ lies strictly between $T_{j+1}$ and $2T_{j+1}$.
+At the final boundary, writing $T=T_{k+1}\ge51$, the additional
+order is
+\[
+       T-1<T<T+1<V-1<V<V+1<2T-1<2T.
+\]
+The register $1$ lies below $T_1=3$. Summing the sizes of the carry
+sets in Table~\ref{family:tab:states} now gives $38k+50$.
+\end{proof}
+
+Lemma~\ref{family:lem:predecessor} and Proposition~\ref{family:prop:certificate}
+exclude a positive witness for every $k\ge1$.
+
+\section{The base case and the sporadic exceptional set}
+For $k=0$ we have $m=3$ and $M=601$. The small certificate in
+Table~\ref{family:tab:base} replaces Table~\ref{family:tab:states}.
+
+\begin{table}[htbp]
+\centering\small
+\caption{A predecessor-closed certificate of $65$ states for $m=3$.}
+\label{family:tab:base}
+\begin{tabular}{cl}
+\toprule
+Register $A$ & Carry values\\
+\midrule
+$0$ & $\{-10,-9,-4,-3,-1,3,4,6,7,8,9\}$\\
+$1$ & $\{-8,-7,-6,-5,-4,-3,10\}$\\
+$2$ & $\{-10,-9,3,4,6,7\}$\\
+$3$ & $\{-10,-9,-2,-1,1,2,4,5,7,8,10\}$\\
+$4$ & $\{-11,-6,-5,-3,-2,8,9\}$\\
+$5$ & $\{-10,-9,-8,-7,-6,-5,-4,8,9\}$\\
+$6$ & $\{-7,-6,-4,-3,2,3,5,6\}$\\
+$7$ & $\{-10,-9,-8,-7,-5,-4\}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Indeed, for each entry $(A,d)$ and $x,\beta\in\bits$, put
+\[
+ \alpha=\lfloor A/4\rfloor,\qquad
+ A^-=2A-8\alpha+x,\qquad d^-=3d-20\alpha-\beta+23x.
+\]
+Whenever $-11\le d^-\le10$, the value $d^-$ occurs in the row
+$A^-$ of Table~\ref{family:tab:base}. This is a direct check of $260$
+integer expressions. The table contains $(0,-1)$ and omits $(0,0)$,
+so Lemma~\ref{family:lem:predecessor} also excludes a witness for $k=0$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:family}]
+The certificates prove $M\notin\mathcal V$ for every $k\ge0$.
+Since $M\equiv1\pmod3$, it does not belong to $\Obloc$: an element of
+$\Obloc$ coprime to $3$ would have to be congruent to $2$ modulo $3$.
+For $m\ge3$,
+\[
+       2\cdot3^{m+2}<23\cdot3^m-20<\tfrac32\,3^{m+3}.
+\]
+These are the upper and lower endpoints of two consecutive intervals
+in the definition of $\Obreal$, so $M\notin\Obreal$. Hence $M\in\F$.
+The numbers $621\cdot3^{4k}-20$ are distinct and unbounded, proving
+that $\F$ is infinite.
+\end{proof}
+
+\section{Verification and scope}
+
+All estimates for the power lower bound, including the required
+uniformity and limiting arguments, are proved in the text. The
+finite-word estimate counts every locally admissible word; it does
+not assume an infinite continuation. The accompanying elementary
+program \texttt{verify\_power\_gain\_lemmas.py} checks exact finite
+digital energies, the finite-word bound for unit ratios modulo $3^n$
+through $n=9$, and the stated divisor-cylinder and valuation-bucket
+bounds at finite scales. These checks supplement the proofs. They
+cannot establish their asymptotic conclusions by themselves.
+
+The nonrepresentation proof consists of the delayed-digit argument
+and the explicit predecessor certificates. Its parameter-dependent
+part is a symbolic calculation, rather than an extrapolation from
+finitely many tested values of $k$. The program
+\texttt{verify\_\allowbreak{}parametric\_\allowbreak{}certificate.py}
+checks every carry image in
+Table~\ref{family:tab:inverse}. Splitting the combined rows into
+interior and boundary variants gives $18$ symbolic rows and $384$
+choices of carry and binary digits. The register identities are checked
+as affine polynomials in formal variables $X=16^k$ and $Y=T_j$, with
+exact rational coefficients. The most significant bit inequalities
+are proved in Proposition~\ref{family:prop:certificate}. The program
+also checks all $260$ predecessor choices in the separate $k=0$
+certificate and makes redundant integer instantiations to detect
+indexing or transcription errors. Both programs use only the Python
+standard library and exact integer or rational arithmetic.
+
+Theorems~\ref{thm:power} and~\ref{thm:family} give a power lower bound
+and an explicit infinite sporadic family, respectively. They do not
+give a full asymptotic, a density theorem, or a classification of all
+nonrepresentable multipliers. The known positive-witness construction
+is sufficient, not necessary, for positive Hausdorff dimension.
+
+ChatGPT was used in developing and editing the arguments, implementing
+checks, and conducting internal AI-assisted reviews from several
+mathematical perspectives. Those reviews are not external peer review
+or proof-assistant verification. Authorship is attributed solely to
+Timofei Iuzhakov.
+
+\begin{thebibliography}{9}
+\bibitem{Lagarias}
+J. C. Lagarias,
+\emph{Ternary expansions of powers of 2},
+J. London Math. Soc. (2) \textbf{79} (2009), 562--588.
+\href{https://doi.org/10.1112/jlms/jdn080}{doi:10.1112/jlms/jdn080}.
+\bibitem{AL}
+W. C. Abram and J. C. Lagarias,
+\emph{Intersections of multiplicative translates of 3-adic Cantor sets},
+J. Fractal Geom. \textbf{1} (2014), 349--390.
+\url{https://ems.press/content/serial-article-files/37215}.
+\bibitem{ABL}
+W. C. Abram, A. Bolshakov and J. C. Lagarias,
+\emph{Intersections of multiplicative translates of 3-adic Cantor sets II:
+two infinite families},
+Experimental Math. \textbf{26} (2017), 468--489.
+\href{https://doi.org/10.1080/10586458.2016.1205532}{doi:10.1080/10586458.2016.1205532}.
+\bibitem{BMRS}
+J. H. Bai, J. Meleshko, S. Riasat and J. Shallit,
+\emph{Quotients of palindromic and antipalindromic numbers},
+Integers \textbf{22} (2022), A96.
+\href{https://math.colgate.edu/~integers/w96/w96.pdf}{Journal article};
+\href{https://arxiv.org/abs/2202.13694}{arXiv:2202.13694}.
+\bibitem{ADRS}
+K. Anders, M. L. Dawsey, B. Reznick and S. Sisneros-Thiry,
+\emph{Representations of integers as quotients of sums of distinct powers
+of three}, preprint, 2023.
+\url{https://arxiv.org/abs/2308.07252}.
+\bibitem{Konyagin}
+S. Konyagin,
+\emph{Arithmetic properties of integers with missing digits:
+distribution in residue classes},
+Period. Math. Hungar. \textbf{42} (2001), 145--162.
+\href{https://doi.org/10.1023/A:1015256809636}{doi:10.1023/A:1015256809636}.
+\bibitem{MS}
+N. G. Moshchevitin and I. D. Shkredov,
+\emph{On the multiplicative properties modulo $m$ of numbers with missing
+digits}, Math. Notes \textbf{81} (2007), 338--355.
+\url{https://www.mi-ras.ru/~ishkredov/Papers/9.pdf}.
+
+\bibitem{Jandhyala}
+V. Jandhyala,
+\emph{Infinitely many integers that are not quotients of zero-free
+balanced ternary numbers}, preprint, version~3, 24 October 2026.
+\href{https://github.com/jvvk/mathematics/tree/main/balanced-ternary-quotients}{Author's paper and companion repository}.
+\end{thebibliography}
+\end{document}

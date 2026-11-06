@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript version and theorem; identify the code commit for computational reproduction."
+title: "Integer quotients of ternary Cantor numbers: a power lower bound and an infinite exceptional family"
+authors:
+  - family-names: Iuzhakov
+    given-names: Timofei
+version: 1.0.0
+date-released: 2026-11-06
+repository-code: "https://github.com/ppadfoot/ternary-cantor-quotients"
+preferred-citation:
+  type: unpublished
+  title: "Integer quotients of ternary Cantor numbers: a power lower bound and an infinite exceptional family"
+  authors:
+    - family-names: Iuzhakov
+      given-names: Timofei
+  year: 2026
+  version: 1.0.0
+  url: "https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v1.0.0"
+  notes: "Research preprint, version 1.0.0; internal reviews, not external peer review."

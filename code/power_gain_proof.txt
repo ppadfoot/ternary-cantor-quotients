@@ -1,0 +1,299 @@
+POWER GAIN FOR THE TWO LAGARIAS MULTIPLIER COUNTS
+6 November 2026. Complete candidate proof for independent review.
+Attribution for any eventual manuscript: Timofei Iuzhakov only.
+Internal research note: no publication or priority claim is made here.
+
+0. STATEMENT
+
+Let D be the nonnegative integers with ordinary ternary digits in {0,1}.
+For real X>=1 define
+ MC(X)=#{1<=M<=X: some integer N>0 has N,MN in D},
+ MH(X)=#{1<=M<=X: dim_H{x in Z3:x,Mx in Sigma}>0},
+where Sigma is the 3-adic {0,1} Cantor set. Put
+ s=log_3 2, phi=(1+sqrt(5))/2, g=log_3 phi,
+ alpha=(s-g)/(1+g),
+ beta=s+(2s-1)*alpha.
+Then there are absolute constants c>0 and X0 such that
+
+ MC(X) >= c X^beta,     MH(X) >= c X^beta       (X>=X0).       (T)
+
+Numerically alpha=0.1341512347221138... and
+ beta=0.6660585297784036... > s=0.6309297535714574... .
+
+This is a bound for integer multipliers M, not the count of powers 2^n
+whose digits omit 2. All analytic and combinatorial ingredients needed
+below are proved explicitly. The proof does not invoke the causal
+container theorem, finite-rank unit equations, or a conjectural mixing
+statement. One input is the one-distance forcing mechanism already
+present in the archived audit; its full finite-word proof is supplied.
+
+1. FINITE CANTOR WORDS AND AN ELEMENTARY SAMPLING INEQUALITY
+
+Let D_l={sum_(j=0)^(l-1) epsilon_j 3^j:epsilon_j in {0,1}}, and set
+ F_l(t)=2^(-l) sum_(z in D_l) exp(2*pi*i*z*t), f_l(t)=|F_l(t)|.
+Then
+ F_l(t)=product_(j=0)^(l-1) (1+exp(2*pi*i*3^j*t))/2,
+ 0<=f_l<=1,
+ f_(l+l')(t)=f_l(t)*f_l'(3^l t).                              (1)
+
+Sampling lemma. If 0<delta<=1, T is a finite subset of R/Z with circular
+separation at least delta, and P(t)=sum_(j=0)^K c_j exp(2*pi*i*j*t), then
+
+ sum_(t in T)|P(t)|^2 <= (delta^(-1)+4*pi*K) sum_j |c_j|^2.     (2)
+
+Proof. Center disjoint half-open arcs I_t of length delta at the points.
+For G=|P|^2 and u in I_t, G(t)<=G(u)+integral_(I_t)|G'|.
+Integrating in u and summing gives
+ sum G(t)<=delta^(-1) integral G + integral |G'|.
+The latter integral is at most 2||P||_2 ||P'||_2, which by Parseval is
+at most 4*pi*K||P||_2^2. This proves (2). Endpoint overlaps have measure
+zero and do not affect the argument.
+
+The exact coefficient identities are
+ integral_0^1 |F_h|^2 = 2^(-h),
+ integral_0^1 |F_h|^4 = (3/8)^h.                            (3)
+For the second, the coefficients of F_h^2 count sums of two D_h words.
+In each ternary position the possible sums 0,1,2 have multiplicities
+1,2,1; there is no carry. The sum of squared unnormalized coefficients
+is therefore (1^2+2^2+1^2)^h=6^h, and normalization is 16^h.
+The degrees of F_h and F_h^2 are (3^h-1)/2 and 3^h-1 respectively.
+
+2. A FAREY FOURIER BOUND AT POLYNOMIAL LENGTH
+
+For real D>=2 let
+ T_D={v/d modulo1:2<=d<=D, gcd(d,3)=1, 1<=v<d, gcd(v,d)=1}.
+Its distinct points have circular separation at least D^(-2).
+Put h=ceil(2 log_3 D). Thus D^2<=3^h<3D^2.
+Applying (2)-(3), with a universal constant C, gives
+ sum_(t in T_D) f_h(t)^2 <= C(3/2)^h,
+ sum_(t in T_D) f_h(t)^4 <= C(9/8)^h.
+By Cauchy--Schwarz,
+ sum_(t in T_D) f_h(t)^3 <= C(27/16)^(h/2) <= C' D^eta,
+ eta=log_3(27/16)<s,                                      (4)
+because 27/16<2.
+
+If L>=3h, put p=floor(L/h)>=3. Discarding the remaining factors in (1)
+and applying Holder with p blocks yields
+ sum_(t in T_D) f_L(t)
+ <= product_(j=0)^(p-1) (sum_(t in T_D) f_h(3^(jh)t)^p)^(1/p)
+ = sum_(t in T_D) f_h(t)^p
+ <= sum_(t in T_D) f_h(t)^3 <= C' D^eta.                    (5)
+The equality holds because multiplication by 3^(jh) permutes T_D: each
+denominator d is coprime to 3 and the numerator remains coprime to d.
+No factor |T_D| is lost in this unnormalized Holder inequality.
+
+For every fixed D, the left side in (5) tends to zero as L tends to
+infinity. Indeed, each t=v/d in the finite set has a finite periodic
+orbit under multiplication by 3, avoiding zero. Every factor is at most
+1, and at least one (in fact every) orbit factor |cos(pi*3^j v/d)| is
+strictly below 1, so the product tends to zero. This also covers d=2,
+where a factor may equal zero exactly.
+
+3. MOST CANTOR DENOMINATORS MIX AT THIS POLYNOMIAL LENGTH
+
+Let Y>=3 and
+ S_Y={N in D:1<=N<=Y, N=1 mod3}.
+Elementary word counting gives
+  (1/4)Y^s <= |S_Y| <= 2Y^s.                              (6)
+For the lower bound take all words of length floor(log_3 Y) with low
+digit 1. For the upper bound allow all words of length
+K=floor(log_3 Y)+1.
+
+For any integer 1<=d<=Y, let T_Y(d)=#{N in S_Y:d divides N}. Then
+
+ T_Y(d) <= 4 (Y/d)^s.                                    (7)
+
+To see this, put j=floor(log_3 d). Fixing the ternary digits at positions
+j through K-1 covers D_K by 2^(K-j) intervals, each with length
+(3^j-1)/2<d. Each interval contains at most one multiple of d.
+Since 3^K<=3Y and 3^j>d/3, 2^(K-j)<4(Y/d)^s, proving the bound.
+
+For N prime to 3 set
+ R_N(L)=sum_(v=1)^(N-1) f_L(v/N), with R_1(L)=0.
+Grouping each nonzero fraction v/N by its reduced denominator d gives
+the exact identity
+ sum_(N in S_Y) R_N(L)
+ =sum_(2<=d<=Y,3 does not divide d) T_Y(d)
+    sum_(1<=v<d,gcd(v,d)=1) f_L(v/d).                      (8)
+
+Claim. As Y,L tend to infinity with
+ L>=3 ceil(2 log_3 Y),
+ one has
+  sum_(N in S_Y) R_N(L) = o(Y^s).                         (9)
+
+Proof. Write J=floor(log_2 Y), and use the bins (2^(j-1),2^j] for
+1<=j<=J, followed, if nonempty, by (2^J,Y]. For the j-th complete bin,
+(7) and (5) bound its contribution divided by Y^s by
+ C 2^(-js) sum_(t in T_(2^j)) f_L(t) <= C' 2^(-j(s-eta)).
+This is summable over j since eta<s. For each fixed j its actual
+contribution divided by Y^s tends to zero, by the fixed-D observation
+after (5). Given epsilon, first choose a fixed cutoff j0 making the
+sum of the uniform bounds for j>j0 less than epsilon, then take L
+large enough for the finitely many remaining terms. The final partial
+bin is bounded by C Y^(eta-s), since 2^J>=Y/2, and also tends to zero.
+This proves (9). All constants are uniform in the particular Y,L.
+
+Consequently, for all sufficiently large Y,L in this range, the good set
+ G={N in S_Y:R_N(L)<=1/2}
+satisfies
+ |G| >= (1/8)Y^s.                                       (10)
+Indeed the number of excluded N is at most 2 sum_N R_N(L)=o(Y^s).
+
+4. MANY MULTIPLIERS FROM EACH GOOD DENOMINATOR
+
+Set L=floor(log_3 X). Suppose Y tends to infinity and
+ L>=3 ceil(2 log_3 Y).
+For N in G choose L_N=floor(log_3(NX)). Then L_N>=L and (1) gives
+R_N(L_N)<=R_N(L)<=1/2. Character orthogonality gives
+ #{z in D_(L_N):N divides z} >= (2^(L_N)/N)(1-R_N(L_N))
+                              >=2^(L_N-1)/N.
+Each such z satisfies z<=3^(L_N)<=NX and determines M=z/N<=X;
+removing z=0 therefore yields, for
+ A_N(X)={1<=M<=X:NM in D},
+ |A_N(X)| >= (1/4)X^s N^(s-1)-1.                         (11)
+As s<1, (10)-(11) give
+ sum_(N in G)|A_N(X)|
+ >=(1/32)X^s Y^(2s-1)-2Y^s
+ >=(1/64)X^s Y^(2s-1)                                   (12)
+provided X^s Y^(s-1) tends to infinity. This condition will hold for
+our choice Y=c0 X^alpha below.
+
+5. THE GOLDEN FINITE-WORD OVERLAP BOUND
+
+Let r in 1+3Z3, r!=1, e=v3(r-1)>=1. For n>=0 define
+ W_n(r)={x in D_n: rx mod3^n belongs to D_n}.
+Let H_n(e) count binary words of length n with no two 1s distance e
+apart. Then
+ |W_n(r)| <= H_n(e) <= phi^(n+e).                         (13)
+This holds for all locally admissible words, whether or not extendable.
+
+Full forcing proof. Write r=1+3^e u, with u a 3-adic unit. If the input
+digits are x_j, write u*x=sum y_j3^j, y_j in {0,1,2}. In the addition
+x+3^e ux let gamma_q be the incoming carry at digit q. It is 0 or 1.
+At q>=e put B_q=y_(q-e)+gamma_q in {0,1,2,3}. Among choices x_q in
+{0,1}, admissibility of (B_q+x_q) mod3 gives the following exact table:
+ B=0: both choices, next carry0;
+ B=1: only x_q=0, next carry0;
+ B=2: only x_q=1, next carry1;
+ B=3: both choices, next carry1.
+Thus, on admissible paths, gamma_(q+1)=1_(B_q>=2), independent of the
+chosen admissible value of x_q. For q<e the carry is zero.
+
+Fix a prefix x_<i. The preceding identity implies that gamma_(i+e)
+is determined by y_0,...,y_(i-1), hence by x_<i, independently of all
+admissible choices in positions i,...,i+e-1. Also
+ y_i = u_0*x_i + R_i(x_<i) modulo3, where u_0=1 or2.
+Therefore the output digit at i+e is
+ x_(i+e)+u_0*x_i+Q_i(x_<i) modulo3.                       (14)
+Among x_i=0,1 at least one makes its offset nonzero modulo3, which
+allows at most one admissible choice of x_(i+e), regardless of the
+intermediate admissible digits. Mark that future position as forced.
+
+For completeness, the tree comparison does not assume a common forced
+digit across branches. A mark means only that each later admissible
+prefix on that branch has at most one child at the marked position.
+Maintain the set S of such future marks. At a marked current position
+there is at most one child. At an unmarked position with only one child
+we may simply keep S. If two children exist, at least one has the
+additional mark i+e, when i+e<n; the other retains S. Other actual
+restrictions may be discarded in an upper bound. Backwards induction
+compares the number of completions with the number of independent sets
+of the distance-e graph on remaining positions, with positions in S
+required absent. Indeed the graph's deletion recursion at an unmarked
+i is precisely the sum of the counts without and with the additional
+mark i+e, and at a marked i it has a single continuation. Deleting an
+additional mark can only increase this comparison count. Thus the
+initial empty-mark count is H_n(e), proving the first inequality.
+
+The distance-e graph is the disjoint union of at most e paths, one for
+each residue modulo e. A path of m vertices has F_(m+2) independent
+sets, and F_(m+2)<=phi^(m+1), by the Fibonacci recurrence with base
+cases 1<=phi and 2<=phi^2. Multiplying yields the second inequality
+in (13), including n<e by using at most min(e,n) paths.
+
+6. SUMMING THE ACTUAL 3-ADIC DISTANCES
+
+For distinct N,N' in S_Y put e=v3(N'-N)>=1 and r=N'/N.
+If M belongs to A_N intersect A_N', then x=NM<=XY and x,rx are
+ordinary Cantor integers. The map M->x is injective. With
+ n=ceil(log_3(XY+1)), (13) gives
+ |A_N intersect A_N'| <=phi^(n+e)<=C (XY)^g phi^e.          (15)
+
+The factor phi^e must be summed, not replaced by its worst-case value.
+Fix N in S_Y and use K=floor(log_3 Y)+1. For every e>=1 with e<K,
+ #{N' in S_Y:N'=N modulo3^e}<=2^(K-e)<=2Y^s 2^(-e).
+No distinct N' has v3(N'-N)>=K. As |S_Y|<=2Y^s,
+ sum_(unordered distinct N,N' in S_Y) phi^v3(N'-N)
+ <=2Y^(2s) sum_(e>=1) (phi/2)^e <= C Y^(2s),              (16)
+where using the count for v3>=e instead of v3=e only increases the
+bound. The series converges because phi<2.
+Combining (15)-(16), even after restricting to G, yields
+ sum_(N<N' in G)|A_N intersect A_N'| <=C0 X^g Y^(2s+g).    (17)
+
+7. PARAMETER CHOICE AND BONFERRONI
+
+Take alpha=(s-g)/(1+g), Y=c0 X^alpha with a sufficiently small fixed
+c0>0. We have 0<alpha<1/6. For an exact elementary check of the latter,
+s<7/11 since 2^11<3^7, and g>3/7 since phi^7=13phi+8>27. The function
+(s-g)/(1+g) increases in s and decreases in g, so alpha<8/55<1/6.
+It follows that L=floor(log_3 X)>=3 ceil(2 log_3 Y) for large X.
+Also X^sY^(s-1) tends to infinity, since alpha<1/6 and s>1/2.
+Thus (12) and (17) apply.
+
+Their ratio is at most
+ 64C0 X^(g-s)Y^(1+g)=64C0 c0^(1+g),
+by the definition of alpha. Choose c0 so that this is at most1/2.
+Bonferroni now gives
+ MC(X)>=|union_(N in G) A_N(X)|
+ >=(1/128) X^sY^(2s-1)
+ = (c0^(2s-1)/128) X^(s+(2s-1)alpha).
+This proves the claimed MC lower bound.
+
+8. PASSAGE TO MH AND DEPENDENCIES
+
+If N,MN are positive Cantor integers, choose B with 3^B>max(N,MN).
+Then for every sequence epsilon_j in {0,1},
+ x=N sum_(j>=0) epsilon_j 3^(Bj)
+has only digits0/1, as does Mx: both consist of nonoverlapping copies
+of the respective finite block. This embeds a scaled B-block Cantor
+set, of dimension log2/(B log3)>0, into C(1,M). Consequently MH>=MC,
+and (T) follows for MH as well.
+
+Dependency graph:
+ exact digital energy (3) + elementary sampling (2)
+   -> Farey Fourier moment (4) + Holder permutation (5)
+   -> Cantor divisor multiplicity (7) + dyadic summation
+   -> most-denominator mixing (9) -> first moment (12);
+ archived one-distance carry forcing, reproved in section5
+   -> golden finite-prefix count (13)
+   -> valuation-level summation (16) -> overlap bound (17);
+ first moment + overlaps -> Bonferroni -> MC -> spaced-copy Cantor -> MH.
+
+The general causal-container theorem is not an assumption. The relation
+to that core is the shared causal carry property: future admissibility
+depends on an already-read prefix, which is used here only in a
+one-distance tree. The reverse automaton for 621*3^(4k)-20 is a separate
+negative witness criterion; it is compatible with this abundance result
+and supplies no bound used here. Neither argument settles the dimensions
+of the finite-visit limit Gamma or the specific orbit starting at1.
+
+9. LITERATURE SCOPE TO BE COMPLETED
+
+Konyagin (2001), Arithmetic properties of integers with missing digits:
+distribution in residue classes, Period. Math. Hungar.42,145--162,
+establishes strong average distribution results. Moshchevitin--Shkredov
+(2007), On the multiplicative properties modulo m of numbers with missing
+digits, Math. Notes81,338--355, section3, reproduces a related Fourier
+bound. The foregoing proof uses no unverified quotation from either:
+all exact estimates needed are given in sections1--3. The analytic
+mechanism is standard sampling/Holder and is not claimed to be new.
+Primary URL checked:
+ https://www.mi-ras.ru/~ishkredov/Papers/9.pdf
+Original metadata:
+ https://doi.org/10.1023/A:1015256809636
+
+The proposed contribution is their explicit elementary implementation
+for Cantor-restricted witness denominators, combined with the archived
+golden overlap bound and valuation summation to yield (T). Whether the
+same multiplier-count exponent already appears elsewhere remains a
+separate literature question. No worldwide priority assertion is made.

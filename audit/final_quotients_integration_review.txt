@@ -1,0 +1,161 @@
+FINAL INDEPENDENT INTEGRATION REVIEW — INTEGER QUOTIENTS
+Date: 6 November 2026
+Reviewer: hostile_core_20261106 (internal AI-assisted review)
+
+VERDICT: PASS for the exact source identified below.
+No unresolved substantive mathematical defect, lost theorem, or
+incorrect interaction between the two proof branches was found.
+This is internal review, not external peer review, proof-assistant
+verification, or certification of novelty or worldwide priority.
+
+1. EXACT REVIEWED SOURCE
+
+outputs/github_final_2026-11-06/ternary-cantor-quotients/paper/ternary_cantor_quotients.tex
+SHA256 a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e
+
+Title: Integer quotients of ternary Cantor numbers: a power lower bound
+and an infinite exceptional family. Sole author: Timofei Iuzhakov.
+Version 1.0.0, 6 November 2026.
+
+The entire merged source was read, including both complete proof bodies,
+all three tables, the new common introduction and definitions, the two
+main theorem statements, verification scope and combined bibliography.
+The review supplements earlier independent full mathematical reviews of
+the separate arguments; it does not merely accept their prior status.
+
+2. INDEPENDENT PRESERVATION AND STATIC CHECKS
+
+Frozen counting input:
+outputs/lagarias_finite_visit_results_2026-11-06/counting/paper/cantor_multiplier_power_gain.tex
+SHA256 cd18ee536c9fd1433b41a480c0020da67da7f1f5e802499a85f3a04bcbba3975
+
+Frozen family input:
+outputs/ternary-exceptional-quotients/paper/exceptional_quotients.tex
+SHA256 b08f8687e1e2a027d66a0d15a1718520b81f2fbceee9e50f9517cb2f49141cf7
+
+Independent normalized comparisons are recorded in
+quotients_static_checks.json. The entire counting proof body is
+identical after count: label/ref prefixes, the main-theorem reference
+rename, and the section title identifying the power lower bound.
+The family proof body is identical after family: label/ref prefixes,
+the main theorem rename, C_01 -> D^+, and elementary-obstruction symbols
+D,E -> O_3,O_infinity, except for a harmless sentence explicitly making
+the carry-set notation local. Every table entry, boundary annotation,
+index range and formula survives this comparison.
+
+There are 28 unique labels, no duplicate labels, no unresolved references,
+and no unresolved citations. All three tables remain present. The eight
+keys are Lagarias, AL, ABL, BMRS, ADRS, Konyagin, MS and Jandhyala.
+The change from initial merged source 150379e... to the reviewed
+a316227... source only inserts legal line-break opportunities in a
+verification-program filename and reflows the adjacent prose; it does
+not alter any statement, equation or certificate.
+
+3. SHARED DEFINITIONS AND THE TWO CONCLUSIONS
+
+D contains ordinary nonnegative integers with finite ternary digits
+0 and 1, and D^+ removes zero. The quotient set uses positive numerator
+and denominator. Its positive integer members are exactly those counted
+by M_C. M_H instead counts positive-dimensional 3-adic intersections.
+The distinction is preserved. The original 0/2 integer-digit convention
+has positive members 2 D^+, so it gives the same quotient set; zero
+does not accidentally enter a denominator.
+
+The first theorem gives an eventual lower bound c X^beta for both
+counts, with beta=s+(2s-1)(s-g)/(1+g), s=log_3(2), g=log_3(phi),
+beta approximately 0.6660585297784. It is not stated as a full asymptotic,
+a density theorem, or a bound on exceptional dyadic exponents.
+
+The second theorem concerns every k>=0:
+621*3^(4k)-20 = 23*3^(4k+3)-20 is not a quotient of positive finite
+0/1-digit integers. These integers also avoid the two named elementary
+obstruction classes, so the claim is an infinite exceptional family in
+the stated sense. It does not assert that the corresponding 3-adic
+intersection is empty or has Hausdorff dimension zero.
+
+4. POWER LOWER-BOUND PROOF
+
+The elementary sampling estimate, exact second and fourth Fourier
+moments, interpolation and Holder block-permutation step retain their
+hypotheses, including denominators coprime to 3. Reduced-denominator
+sampling uses Farey separation, and the divisor multiplicity over Cantor
+denominators is controlled before summing dyadic ranges. The dominated
+tail argument keeps Y and L coupled in the required range rather than
+mistakenly using pointwise convergence uniformly. N=1 and the harmless
+Y>=3 endpoint convention are retained.
+
+The common product length is passed to each L_N using monotonicity of
+Fourier moduli. Orthogonality, floor losses and removal of the zero
+numerator give the claimed positive-witness first moment. The count of
+good unit denominators and its Y^(2s-1) contribution are preserved.
+
+The overlap estimate is for all locally valid finite words. The carry
+analysis and marked-tree exclusion justify the golden-ratio path count;
+it does not assume a common forced digit or infinite extendability.
+The pair sum averages the actual valuation v_3(N-M), using the Cantor
+prefix count, rather than replacing it by the largest possible distance.
+This gives the stated X^g Y^(2s+g) bound.
+
+With alpha=(s-g)/(1+g), alpha<1/6 supplies the previously required
+Fourier-length margin. At Y=c0 X^alpha the powers of X balance at beta;
+choosing a fixed sufficiently small c0 controls the Bonferroni term.
+The dyadic rounding and eventual constants are harmless. Positive finite
+witnesses give positive-dimensional intersections by spaced copies,
+which justifies M_H>=M_C. No causal-container or ESS input is imported
+into this proof during the merger.
+
+5. ALL-PARAMETER EXCEPTIONAL FAMILY
+
+The delayed recurrence follows the exact finite integer identity. The
+partial-sum inequalities give the carry interval [-11,10]. The binary
+register stores digit history; it is not the ternary value of that
+history. Removing common powers of 3 normalizes a_0=b_0=1. A nonzero
+finite witness would yield a path from the start and, at its first
+relevant return, a predecessor (0,-1). Backward closure containing that
+bad predecessor but excluding (0,0) therefore rules out the witness in
+the correct direction. The reverse formula enumerates all four binary
+choices and retains exactly the carries in the interval.
+
+For k>=1 the invariant uses the 13 register types and two boundary
+variants with the stated carries, with T_j=(16^j-1)/5 and the stated V.
+The 16 displayed table rows encode 18 symbolic variants. I checked the
+carry-set memberships, restricted destination annotations, additions in
+P_+,U_+,W_+, and empty index ranges at k=1. The register high-bit bounds
+are explicit for X=16^k>=16; the row registers are distinct. The three
+identities T_(j+1)=16 T_j+3 and the two wrap identities yield the
+destinations for every k. The invariant contains 38k+50 states,
+contains (0,-1), excludes (0,0), and is closed under every legal reverse
+transition. The separate k=0 table has 65 states and exhausts its 260
+binary predecessor choices.
+
+Thus the all-k assertion comes from a symbolic invariant and exact
+identities for a parameter, not from testing a long finite list of k.
+The supplied all-parameter symbolic checker complements the written
+proof. Redundant numerical instances are correctly identified as
+redundant instances. The elementary-obstruction avoidance uses the
+modulo-3 property and the stated strict real interval; it does not
+silently strengthen nonrepresentation to a 3-adic dimension assertion.
+
+6. INTEGRATION, DEPENDENCIES AND LIMITATIONS
+
+The two theorems share a natural integer-quotient subject but retain
+independent proofs. There is no circular argument between the counting
+and certificate parts. The notation changes prevent confusion between
+the digit set and the first elementary obstruction; the carry-set names
+are explicitly local, as are reused indices and small Greek variables.
+The new introduction accurately explains the positive and negative
+sides without claiming a complete classification or matching upper bound.
+
+Both main results are complete and prominent; neither has been relegated
+to an unproved remark or replaced by a finite scan. The paper contains
+no unrelated structural note, exploratory finite-visit scan or weaker
+standalone intermediate theorem inserted as extra publication material.
+The manuscript distinguishes exact computation, internal AI-assisted
+review and external mathematical proof inputs. It does not claim to
+settle Erdős 406, exclude 1 from E2, or certify priority by timestamps.
+
+All checklist items Q01-Q14 and the mathematical portions of I01-I07
+are satisfied. Compilation and PDF visual inspection are root's separate
+responsibility. Metadata and release-file reconciliation are addressed
+in release_metadata_review.txt. No manuscript, repository or release
+was changed by this reviewer.

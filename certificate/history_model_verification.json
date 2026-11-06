@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "proof_sha256": "a7626ca0428479fa32a0211c71ca5755140d8594ee33d2ee3a595536d0454f5d",
+  "valid_local_carry_choices": 58,
+  "tested_delays_incoming_zero": {
+    "1": [
+      [
+        0,
+        -1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "2": [
+      [
+        0,
+        -1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "3": [
+      [
+        0,
+        -1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "7": [
+      [
+        0,
+        -1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "k0_backward_certificate_states": 65,
+  "k0_certificate_equals_full_backward_reachable": true,
+  "scope": "exact model range, zero-return predecessor, first input, and k=0 certificate; symbolic all-k closure reviewed separately by core"
+}

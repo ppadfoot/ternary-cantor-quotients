@@ -1,0 +1,90 @@
+{
+  "proof_sha256": "f7275f233fe9506d2b20aef6d552de1dbbf42ab32b3466f204d9bcdd718812dd",
+  "exact_fourth_moments": [
+    {
+      "h": 0,
+      "energy": 1,
+      "fourth_moment": "1"
+    },
+    {
+      "h": 1,
+      "energy": 6,
+      "fourth_moment": "3/8"
+    },
+    {
+      "h": 2,
+      "energy": 36,
+      "fourth_moment": "9/64"
+    },
+    {
+      "h": 3,
+      "energy": 216,
+      "fourth_moment": "27/512"
+    },
+    {
+      "h": 4,
+      "energy": 1296,
+      "fourth_moment": "81/4096"
+    },
+    {
+      "h": 5,
+      "energy": 7776,
+      "fourth_moment": "243/32768"
+    },
+    {
+      "h": 6,
+      "energy": 46656,
+      "fourth_moment": "729/262144"
+    },
+    {
+      "h": 7,
+      "energy": 279936,
+      "fourth_moment": "2187/2097152"
+    },
+    {
+      "h": 8,
+      "energy": 1679616,
+      "fourth_moment": "6561/16777216"
+    },
+    {
+      "h": 9,
+      "energy": 10077696,
+      "fourth_moment": "19683/134217728"
+    }
+  ],
+  "golden_bound": {
+    "residue_systems": 9832,
+    "word_checks": 4030056,
+    "attained_cases": 36
+  },
+  "cantor_divisor_cases": 11021,
+  "valuation_bucket_cases": 46,
+  "finite_distribution_examples": [
+    {
+      "Y": 40,
+      "L": 24,
+      "denominators": 8,
+      "at_least_half_mean_in_zero_class": 8
+    },
+    {
+      "Y": 121,
+      "L": 30,
+      "denominators": 16,
+      "at_least_half_mean_in_zero_class": 16
+    },
+    {
+      "Y": 364,
+      "L": 36,
+      "denominators": 32,
+      "at_least_half_mean_in_zero_class": 32
+    },
+    {
+      "Y": 1093,
+      "L": 42,
+      "denominators": 64,
+      "at_least_half_mean_in_zero_class": 64
+    }
+  ],
+  "status": "PASS",
+  "scope": "exact digit energies, all finite local golden systems through length9, divisor cylinders and valuation bins; finite distribution examples only"
+}

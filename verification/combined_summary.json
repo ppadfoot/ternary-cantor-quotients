@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "Finite checks, not formal proof certification",
+  "results": [
+    {
+      "program": "code/verify_power_gain_lemmas.py",
+      "returncode": 0,
+      "sha256": "330a6eb9182134bac8439c819125aae57354f26c0f755b4e2c9a831bb789f307"
+    },
+    {
+      "program": "certificate/verify_parametric_certificate.py",
+      "returncode": 0,
+      "sha256": "b5802302da13c2722f6dc1f05184143515d88d2f905c6787f659dfdbdce89980"
+    },
+    {
+      "program": "certificate/hostile_symbolic_check.py",
+      "returncode": 0,
+      "sha256": "f361df62f7683148125625bab873401e99a92241208152c753ee6473fe0a9244"
+    },
+    {
+      "program": "certificate/history_model_verifier.py",
+      "returncode": 0,
+      "sha256": "42e15b7967d38cae107d6960914e35836da1ed9459c95119c294afbc27ec8d6a"
+    }
+  ]
+}

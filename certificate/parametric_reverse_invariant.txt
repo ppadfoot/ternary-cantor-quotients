@@ -1,0 +1,134 @@
+PARAMETRIC REVERSE CARRY INVARIANT — 6 November 2026
+Candidate theorem for independent hostile review. Internal research proof, not externally refereed.
+
+THEOREM. For every integer k>=0, M_k=621*3^(4k)-20 cannot equal b/a for positive integers a,b whose ordinary ternary digits all belong to {0,1}. Moreover M_k lies outside the elementary exceptional sets D,E in Bai--Meleshko--Riasat--Shallit, so M_k belongs to their sporadic-exception set F. In particular F is infinite.
+
+Notation warning: the register label A below is a BINARY encoding of an m-digit queue. It is NOT its ordinary ternary value, and no identity c=23A-d for the ordinary multiplication carry is asserted. The proof uses the digit identity directly.
+
+1. Exact delayed carry model
+Put m=4k+3, so M_k=23*3^m-20. If M_k*a=b with ternary digits a_j,b_j in {0,1}, then
+  b+20a=23*3^m*a.
+Set x_j=a_(j-m), with a_h=0 for h<0. The integer carries satisfy
+  d_0=0,
+  d_(j+1)=(d_j+20a_j+b_j-23x_j)/3.                  (1)
+These are integers: the partial sum of the digit identity below position j is divisible by 3^j. Equivalently, sum_(h<j)(20a_h+b_h-23a_(h-m))*3^h=3^j*d_j. For j beyond all digit supports and the delay, this partial sum is the full zero sum, so d_j=0.
+
+Every carry lies in I={-11,-10,...,10}. Indeed, for d in I and binary a,b,x the numerator in (1) lies between -34 and 31. When it is divisible by 3 it lies between -33 and 30; induction gives the assertion.
+
+Let A_j=sum_(i=0)^(m-1) a_(j-m+i)*2^i, the binary queue of the most recent m input digits, with the oldest digit in bit 0. Then x_j=A_j mod2 and
+  A_(j+1)=floor(A_j/2)+a_j*2^(m-1).                (2)
+The initial state is (A_0,d_0)=(0,0). Any finite witness gives a finite path back to (0,0), containing an input digit a_j=1. Since M_k is a 3-adic unit, a common power of 3 can first be divided out, so we may assume a_0=b_0=1. Its first step has d_1=7 and A_1=2^(m-1), hence leaves (0,0).
+
+Consider a transition into (0,0). Equation (2) forces a_j=0 and A_j=x_j in {0,1}. Equation (1) forces d_j=23x_j-b_j. If x_j=1 this is 22 or23, outside I. If x_j=0, the predecessor is either (0,0) or (0,-1). The first return to (0,0) after the nontrivial initial step must therefore pass through (0,-1). To exclude a positive witness it suffices to exhibit a set S_m containing (0,-1), closed under ALL predecessors in the state space {0,...,2^m-1} x I, and omitting (0,0).
+
+2. Exact inverse transition
+For a current state (A,d), let a=floor(A/2^(m-1)) be its most significant bit. For each choice x,b in {0,1}, its potential predecessor is
+  A^- = 2A-a*2^m+x,
+  d^- = 3d-20a-b+23x,                              (3)
+and it is a valid predecessor exactly when d^- belongs to I. The binary label A^- automatically belongs to {0,...,2^m-1}. Formula (3) enumerates ALL predecessors; b is the output digit of the original forward transition.
+
+3. Explicit set for k>=1
+Let
+  T_j=(16^j-1)/5  (j>=1),   V=(3T_(k+1)-1)/2.
+Thus T_j has hexadecimal digits 33...3, or binary digits (0011)^j after padding to length 4j. The recurrence is T_(j+1)=16T_j+3. Define the following sets of carry values:
+  Z = {-10,-9,-4,-3,-1}
+  O = {-8,-7,-5,-4,10}
+  P = {-2,-1,1,2,7,8,10},       P+ = P union {4,5}
+  Q = {-7,-6,-4,-3,2,3,5,6}
+  R = {-10,-9,5,6,8,9}
+  S = {1,2,4,5,10}
+  U = {-8,-7,-5,-4},            U+ = U union {-6,-3}
+  W = {2,3,5,6},                W+ = W union {4,7}
+  H = {5,6,8,9}
+  I0= {-10,-9}
+  J0= {-11,-6,-5,-3,-2}
+  K0= {-10,-9,-7,-6,8,9}
+  N = {-8,-7,-5,-4}.
+(The final N equals U; separate names distinguish register positions.)
+
+S_m consists of exactly the following register/carry pairs:
+row             register A                   carries d
+Z0              0                            Z
+O0              1                            O
+P_j,1<=j<=k     T_j                          P
+P_(k+1)         T_(k+1)                      P+
+Q_j,1<=j<=k+1   2T_j                         Q
+R_j,1<=j<=k     4T_j                         R
+S_j,1<=j<=k     4T_j+1                       S
+U_j,1<=j<k      8T_j+1                       U
+U_k             8T_k+1                       U+
+W_j,1<=j<k      8T_j+2                       W
+W_k             8T_k+2                       W+
+H_j,1<=j<=k     T_(j+1)+1                    H
+I0row           T_(k+1)-1                    I0
+I1row           V-1                          I0
+Jrow            V                            J0
+Krow            V+1                          K0
+Nrow            2T_(k+1)-1                   N.
+
+Empty index ranges when k=1 are omitted. Here are explicit bounds for the high-bit column used below. Put X=16^k>=16, so the bit threshold is 2^(m-1)=4X and the maximum register is less than8X. For j<=k, T_j< X/5. The largest zero-high-bit chain values obey 8T_j+2<=(8X+2)/5<4X and T_(j+1)+1<=(16X+4)/5<4X. Also T_(k+1)=(16X-1)/5<4X. The rows with high bit1 are Q_(k+1), I1row, Jrow, Krow, Nrow: their registers are 2T_(k+1)=(32X-2)/5, V-1=(24X-9)/5, V=(24X-4)/5, V+1=(24X+1)/5, and2T_(k+1)-1=(32X-7)/5. Each lies in [4X,8X) for X>=16. Every remaining register is nonnegative and below4X, and only Z0 has register0.
+
+The registers are pairwise distinct. For each j, T_j<2T_j<4T_j<4T_j+1<8T_j+1<8T_j+2<T_(j+1); the additional H_j=T_(j+1)+1 lies strictly between T_(j+1) and2T_(j+1). At the final boundary, the new registers are ordered T_(k+1)-1<T_(k+1)<T_(k+1)+1<V-1<V<V+1<2T_(k+1)-1<2T_(k+1), with T_(k+1)>=51. The register1 precedes T_1=3. Distinctness is not needed for predecessor closure or exclusion; it yields the descriptive cardinality |S_m|=38k+50.
+
+4. Complete symbolic predecessor table
+The next table lists the entire image of each row under (3) for fixed x, allowing b=0 or1 and retaining d^- in I. '-' means the image is empty. When only a subset of a destination row occurs, its carry subset is shown in braces. All unannotated destinations mean exactly their carry set (using P vs P+ etc as specified).
+
+current row        high bit a    x=0 predecessors                       x=1 predecessors
+Z0                 0             Z0:{-10,-9,-4,-3}                     O0
+O0                 0             -                                     P_1 (base P)
+P_j all j          0             Q_j                                   -
+Q_j, j<=k          0             R_j                                   S_j
+Q_(k+1)            1             Jrow                                  Krow
+R_j                0             -                                     U_j (base U)
+S_j                0             W_j (base W)                          -
+U_j, j<k           0             -                                     P_(j+1) (base P)
+U_k                0             I0row                                 P_(k+1) (P+)
+W_j all j          0             H_j                                   -
+H_j                0             -                                     -
+I0row              0             -                                     Nrow
+I1row              1             -                                     -
+Jrow               1             -                                     U_k:{-7,-6,-4,-3}
+Krow               1             W_k:{3,4,6,7}                         -
+Nrow               1             -                                     I1row
+
+Every entry follows by substituting the finite listed carry sets in d^-=3d-20a-b+23x. Register identities in the interior use T_(j+1)=16T_j+3. The only boundary register identities needed, writing X=16^k and 2^m=8X, are
+  4T_(k+1)-2^m=V,
+  2V-2^m=8T_k.
+For example Q_(k+1) has A=2T_(k+1) and high bit1, so its x=0,1 predecessor registers are V,V+1. Jrow has high bit1 and x=1 predecessor register8T_k+1. The additional carries in P+,U+,W+ are precisely those needed for these boundary transitions.
+
+This is a finite symbolic verification independent of k: the carry sets have at most nine elements and the register identities hold for all k>=1. It proves that S_m is closed under all predecessors. Z contains -1 and excludes0; no other row has register0. Therefore (0,-1) belongs to S_m and (0,0) does not. Section1 excludes every positive finite witness for all k>=1.
+
+5. The base case k=0, m=3, M_0=601
+For completeness, the following 65-state table is a predecessor-closed set for formula (3) with m=3. It contains (0,-1) and omits (0,0).
+A=0: {-10,-9,-4,-3,-1,3,4,6,7,8,9}
+A=1: {-8,-7,-6,-5,-4,-3,10}
+A=2: {-10,-9,3,4,6,7}
+A=3: {-10,-9,-2,-1,1,2,4,5,7,8,10}
+A=4: {-11,-6,-5,-3,-2,8,9}
+A=5: {-10,-9,-8,-7,-6,-5,-4,8,9}
+A=6: {-7,-6,-4,-3,2,3,5,6}
+A=7: {-10,-9,-8,-7,-5,-4}.
+Checking each row against the four (x,b) choices in (3) establishes closure by finite integer arithmetic. The accompanying certificate verifier performs exactly that check; no spectral estimate or floating-point calculation is involved.
+
+6. Membership in the sporadic set F
+Use the definitions in Bai et al., section1.4:
+ The original C consists of positive ordinary ternary0/2 integers. If C_01 denotes the positive ternary0/1 integers used here, then C=2*C_01 and C/C=C_01/C_01. Thus V_int=N intersect(C/C)=N intersect(C_01/C_01),
+ D={N:N congruent2*3^(i-1) mod3^i for some i>=1},
+ E=N intersect union_(i>=0)[(3/2)3^i,2*3^i], F=N\(V_int union D union E).
+The theorem above gives M_k notin V_int. Since M_k congruent1 mod3, it does not lie in D. For m>=3,
+  2*3^(m+2) < 23*3^m-20 < (3/2)*3^(m+3).
+This is the gap between consecutive intervals defining E, so M_k notin E. Therefore M_k in F for all k>=0. The M_k are distinct and tend to infinity.
+
+7. Relation to the primary literature and limits
+Bai--Meleshko--Riasat--Shallit (2022), arXiv2202.13694, section1.4, ask whether F is infinite and suggest the family621*3^(4k)-20. The latest primary text located in this audit is Vamshi Jandhyala, 'Infinitely many integers that are not quotients of zero-free balanced ternary numbers', version3 dated24October2026, section6. It verifies k=4 and explicitly does not claim an all-k proof for this0/1 family. Its principal balanced +/-1 theorems concern a different digit set.
+Primary source URLs:
+ https://math.colgate.edu/~integers/w96/w96.pdf (Bai et al., journal 2022)
+ https://arxiv.org/pdf/2202.13694 (Bai et al., arXiv)
+ https://raw.githubusercontent.com/jvvk/mathematics/main/balanced-ternary-quotients/paper/quotients.tex (Jandhyala, actual version3 source)
+ https://github.com/jvvk/mathematics/tree/main/balanced-ternary-quotients (companion repository).
+The Jandhyala TeX source is saved locally as jandhyala2026_v3.tex. Its date line says version3,24October2026; section6 explicitly says no all-k proof is claimed. The author's overview webpage still says version1 and its PDF link points to a figure, so the actual repository paper is the relevant versioned primary source.
+
+The proof above uses a reverse set of linear size even though the forward reachable set has Cantor-type size. It would close this particular integer quotient family and infinitude of F if the symbolic certificate survives independent review. It does not imply Erdős406, 1 notin E_2, or Gamma=0.
+
+8. Exact certificate check
+verify_parametric_certificate.py checks all symbolic carry images in section4, as well as the register identities as affine polynomials in independent formal variables X=16^k and Y=T_j using rational coefficients. It separately checks the k=0 table and includes redundant integer instantiations as transcription checks. The symbolic table, analytic high-bit bounds, and witness argument establish the all-k conclusion; no inference from a finite set of k is used. The checker uses only the Python standard library and exact integer/Fraction arithmetic.

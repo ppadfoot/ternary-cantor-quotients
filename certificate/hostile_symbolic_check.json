@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "symbolic_rows": 18,
+  "symbolic_carry_assignments": 384,
+  "base_states": 65,
+  "base_valid_predecessors": 67,
+  "instantiations": [
+    {
+      "k": 1,
+      "m": 7,
+      "registers": 16,
+      "states": 88,
+      "valid_predecessors": 91
+    },
+    {
+      "k": 2,
+      "m": 11,
+      "registers": 23,
+      "states": 126,
+      "valid_predecessors": 129
+    },
+    {
+      "k": 3,
+      "m": 15,
+      "registers": 30,
+      "states": 164,
+      "valid_predecessors": 167
+    },
+    {
+      "k": 4,
+      "m": 19,
+      "registers": 37,
+      "states": 202,
+      "valid_predecessors": 205
+    },
+    {
+      "k": 5,
+      "m": 23,
+      "registers": 44,
+      "states": 240,
+      "valid_predecessors": 243
+    },
+    {
+      "k": 10,
+      "m": 43,
+      "registers": 79,
+      "states": 430,
+      "valid_predecessors": 433
+    },
+    {
+      "k": 25,
+      "m": 103,
+      "registers": 184,
+      "states": 1000,
+      "valid_predecessors": 1003
+    },
+    {
+      "k": 100,
+      "m": 403,
+      "registers": 709,
+      "states": 3850,
+      "valid_predecessors": 3853
+    }
+  ],
+  "scope": "Symbolic rational-coefficient register identities and all finite carry images certify the parameterized predecessor table; high-bit inequalities and the exclusion argument are independently proved in hostile_review.txt."
+}

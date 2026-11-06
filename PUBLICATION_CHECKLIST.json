@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "sole_author": "Timofei Iuzhakov",
+  "scope": "Pre-publication package checks; remote publication verified separately",
+  "mathematical_reviews": [
+    {
+      "path": "audit/final_quotients_history_review.txt",
+      "sha256": "788935c9d3f07377ef53cb5b7c6449f5917e78f9c390d9b614f4c25274899875"
+    },
+    {
+      "path": "audit/final_quotients_integration_review.txt",
+      "sha256": "0cc13952336abca440ad191b318a9e09cf7a89cca30991c3eaec6675630487ac"
+    }
+  ],
+  "complete_proofs_preserved": true,
+  "unfinished_research_excluded": true,
+  "all_packaged_programs": "PASS",
+  "pdf_pages": 13,
+  "pdf_visual_review": "All pages inspected; no clipping, overflow or unresolved references found",
+  "source_cross_references": "PASS",
+  "citation_and_version_consistency": "PASS",
+  "prior_v1_files_preserved": false,
+  "manuscript_sha256": {
+    "paper/ternary_cantor_quotients.pdf": "562b7d4f91bec65968c57ffd599aaaf6c9539a3254bde7e33a8a83b2296f7ca0",
+    "paper/ternary_cantor_quotients.tex": "a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e"
+  },
+  "metadata_review": {
+    "path": "audit/final_release_metadata_review.txt",
+    "sha256": "f681e52054c27315ca3ba7cc9cf035e78fca27bd17182e103fef869faf25a85d"
+  }
+}
