@@ -4,10 +4,10 @@
 
 The updated [dimension article, v3.0.0](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0), Theorem 14.1, now proves
 
-$$
+```math
 M_H(X)\asymp X,\qquad
 \#((\mathcal M_H\setminus\mathcal M_C)\cap[1,X])\gg X.
-$$
+```
 
 This determines the linear order in Lagarias's second counting problem and shows that finite integer witnesses omit linearly many positive-dimensional intersections. The proof uses summable rational Cantor denominators and a divisibility sieve.
 
@@ -23,20 +23,20 @@ The quotient article below remains **v1.0.0**, with the same title and citation 
 
 | Result | What the paper proves | Why it matters |
 | --- | --- | --- |
-| **More representable integers — Theorem 1.1** | At least $cX^{\beta}$ representable integers up to $X$ for all sufficiently large $X$, with $\beta=0.6660585297\ldots$. | Raises the elementary lower-bound exponent from $\log_3 2=0.6309297535\ldots$. The same bound holds for the number of positive-dimensional 3-adic Cantor intersections. |
-| **Infinitely many sporadic exceptions — Theorem 1.2** | Every $621\cdot3^{4k}-20$, for $k\ge0$, is unrepresentable, despite passing the two standard elementary obstruction tests. | Proves the proposed family and answers the infinitude question in Bai, Meleshko, Riasat and Shallit's paper. |
+| **More representable integers — Theorem 1.1** | At least $`cX^{\beta}`$ representable integers up to $`X`$ for all sufficiently large $`X`$, with $`\beta=0.6660585297\ldots`$. | Raises the elementary lower-bound exponent from $`\log_3 2=0.6309297535\ldots`$. The same bound holds for the number of positive-dimensional 3-adic Cantor intersections. |
+| **Infinitely many sporadic exceptions — Theorem 1.2** | Every $`621\cdot3^{4k}-20`$, for $`k\ge0`$, is unrepresentable, despite passing the two standard elementary obstruction tests. | Proves the proposed family and answers the infinitude question in Bai, Meleshko, Riasat and Shallit's paper. |
 
 Both results and their complete proofs first appear in this repository's **v1.0.0** manuscript. Their proof methods are independent: Fourier estimates and finite-word combinatorics for the first, an explicit carry invariant for the second.
 
 ## The problem, with an example
 
-Write $\mathcal D^+$ for the positive integers with ternary digits **0 and 1**:
+Write $`\mathcal D^+`$ for the positive integers with ternary digits **0 and 1**:
 
 ```math
 \mathcal D^+=\{1,3,4,9,10,12,13,27,28,\ldots\}.
 ```
 
-We ask which positive integers can be written as $M=b/a$ with $a,b\in\mathcal D^+$. The quotient itself may contain the digit 2. For example,
+We ask which positive integers can be written as $`M=b/a`$ with $`a,b\in\mathcal D^+`$. The quotient itself may contain the digit 2. For example,
 
 ```math
 7=\frac{28}{4}=\frac{(1001)_3}{(11)_3},
@@ -45,40 +45,40 @@ We ask which positive integers can be written as $M=b/a$ with $a,b\in\mathcal D^
 
 Thus division produces integers beyond the original digit set. How many additional integers can it produce? And which integers remain impossible?
 
-Some literature defines Cantor integers using digits **0 and 2**. Those positive integers are exactly $2\mathcal D^+$, so their ratios give the same quotient problem.
+Some literature defines Cantor integers using digits **0 and 2**. Those positive integers are exactly $`2\mathcal D^+`$, so their ratios give the same quotient problem.
 
 ## Result 1: a larger exponent for the counting problem
 
-Let $M_C(X)$ count the positive integers $M\le X$ admitting such a representation. Taking denominator $a=1$ gives the immediate lower bound of order $X^s$, where $s=\log_3 2$.
+Let $`M_C(X)`$ count the positive integers $`M\le X`$ admitting such a representation. Taking denominator $`a=1`$ gives the immediate lower bound of order $`X^s`$, where $`s=\log_3 2`$.
 
-Theorem 1.1 proves that there are constants $c>0$ and $X_0$ such that
+Theorem 1.1 proves that there are constants $`c>0`$ and $`X_0`$ such that
 
 ```math
 \boxed{M_C(X)\ge cX^{\beta}\quad(X\ge X_0),
 \qquad\beta=0.666058529778\ldots>\log_3 2.}
 ```
 
-The exponent is explicit. With $\varphi=(1+\sqrt5)/2$ and $g=\log_3\varphi$,
+The exponent is explicit. With $`\varphi=(1+\sqrt5)/2`$ and $`g=\log_3\varphi`$,
 
 ```math
 \beta=s+(2s-1)\frac{s-g}{1+g}.
 ```
 
-**Why this matters.** The improvement is in the power of $X$: the exponent increases by approximately **0.0351288**. The argument obtains many distinct quotients by varying the Cantor denominator and controlling how often different denominators produce the same integer.
+**Why this matters.** The improvement is in the power of $`X`$: the exponent increases by approximately **0.0351288**. The argument obtains many distinct quotients by varying the Cantor denominator and controlling how often different denominators produce the same integer.
 
-There is also a fractal consequence. Let $\Sigma\subset\mathbb Z_3$ be the set of 3-adic integers with digits 0 and 1, and put
+There is also a fractal consequence. Let $`\Sigma\subset\mathbb Z_3`$ be the set of 3-adic integers with digits 0 and 1, and put
 
 ```math
 C(1,M)=\{x\in\mathbb Z_3:x\in\Sigma,\ Mx\in\Sigma\}.
 ```
 
-Every positive finite integer witness yields a positive-dimensional subset of $C(1,M)$ by repeating separated digit blocks. Consequently the count
+Every positive finite integer witness yields a positive-dimensional subset of $`C(1,M)`$ by repeating separated digit blocks. Consequently the count
 
 ```math
 M_H(X)=\#\{1\le M\le X:\dim_H C(1,M)>0\}
 ```
 
-also satisfies **$M_H(X)\ge cX^{\beta}$** for sufficiently large $X$.
+also satisfies **$`M_H(X)\ge cX^{\beta}`$** for sufficiently large $`X`$.
 
 These are improved lower bounds for the two counting questions in **Problems 1.10 and 1.11** of [Lagarias's journal paper](https://doi.org/10.1112/jlms/jdn080), called Problems 1 and 2 in its [arXiv version](https://arxiv.org/abs/math/0512006). The sharp growth rates remain open in this work.
 
@@ -94,7 +94,7 @@ Theorem 1.2 proves
 \boxed{621\cdot3^{4k}-20\text{ is a sporadic exception for every integer }k\ge0.}
 ```
 
-Its first members are **601, 50,281 and 4,074,361**. For every member, there are no positive $a,b\in\mathcal D^+$ with $b=(621\cdot3^{4k}-20)a$. Every member also avoids the two elementary obstruction classes. Hence the sporadic exceptional set is infinite.
+Its first members are **601, 50,281 and 4,074,361**. For every member, there are no positive $`a,b\in\mathcal D^+`$ with $`b=(621\cdot3^{4k}-20)a`$. Every member also avoids the two elementary obstruction classes. Hence the sporadic exceptional set is infinite.
 
 **Why this matters.** This establishes the suggested family for all parameters and gives an affirmative answer to the infinitude question. The obstruction must use more of the digit arithmetic than the two elementary tests capture.
 
@@ -104,15 +104,15 @@ The proof rewrites a hypothetical representation as
 b+20a=23\cdot3^{4k+3}a.
 ```
 
-The resulting digit recurrence has a finite carry range and a register storing earlier digits. An explicit set of states is closed under every valid predecessor step and separates the starting state from the state a positive representation would have to reach. The certificate has **$38k+50$ states for $k\ge1$**, with a separate **65-state** certificate for $k=0$.
+The resulting digit recurrence has a finite carry range and a register storing earlier digits. An explicit set of states is closed under every valid predecessor step and separates the starting state from the state a positive representation would have to reach. The certificate has **$`38k+50`$ states for $`k\ge1`$**, with a separate **65-state** certificate for $`k=0`$.
 
-**Where to read the proof:** **Sections 6–8**, especially **Proposition 7.1 and Tables 1–3**. Symbolic identities establish the certificate for every $k$; exact verification code checks the carry images and register identities.
+**Where to read the proof:** **Sections 6–8**, especially **Proposition 7.1 and Tables 1–3**. Symbolic identities establish the certificate for every $`k`$; exact verification code checks the carry images and register identities.
 
 ## Scope and relation to the companion paper
 
-The two theorems address abundance and explicit nonrepresentation within the same integer quotient problem. The power bound is a lower bound; the exceptional family does not classify all unrepresentable integers or determine their density. Failure to have a finite integer witness also does not imply that $C(1,M)$ has dimension zero.
+The two theorems address abundance and explicit nonrepresentation within the same integer quotient problem. The power bound is a lower bound; the exceptional family does not classify all unrepresentable integers or determine their density. Failure to have a finite integer witness also does not imply that $`C(1,M)`$ has dimension zero.
 
-Our [companion paper on Lagarias's exceptional sets](https://github.com/ppadfoot/lagarias-zero-dimension) studies repeated multiplication by powers of two and proves dimension results. This paper counts arbitrary integer multipliers and studies finite digit witnesses. Erdős Problem 406 and the assertion $1\notin E_2$ remain unresolved here.
+Our [companion paper on Lagarias's exceptional sets](https://github.com/ppadfoot/lagarias-zero-dimension) studies repeated multiplication by powers of two and proves dimension results. This paper counts arbitrary integer multipliers and studies finite digit witnesses. Erdős Problem 406 and the assertion $`1\notin E_2`$ remain unresolved here.
 
 ## Paper, certificate and verification
 
