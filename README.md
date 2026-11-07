@@ -1,5 +1,18 @@
 # Ternary Cantor quotients: more representations, infinitely many exceptions
 
+## New related result — dimension manuscript v3
+
+The updated [dimension article, v3.0.0](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0), Theorem 14.1, now proves
+
+$$
+M_H(X)\asymp X,\qquad
+\#((\mathcal M_H\setminus\mathcal M_C)\cap[1,X])\gg X.
+$$
+
+This determines the linear order in Lagarias's second counting problem and shows that finite integer witnesses omit linearly many positive-dimensional intersections. The proof uses summable rational Cantor denominators and a divisibility sieve.
+
+The quotient article below remains **v1.0.0**, with the same title and citation key `iuzhakov2026cantorquotients`. Cite **`iuzhakov2026lagarias`, version 3.0.0**, for the new result. Both existing citation identities are preserved. The exact asymptotic for the multiplier count, the sharp finite-quotient count and Erdős Problem 406 remain open.
+
 **Timofei Iuzhakov** · Research preprint · **Version 1.0.0 — 6 November 2026**
 
 **Which integers are ratios of two positive integers whose base-3 digits are all 0 or 1? This paper proves a stronger power lower bound for how many integers have such a representation, and proves an explicit infinite family of exceptions proposed by Bai, Meleshko, Riasat and Shallit.**
@@ -144,3 +157,4 @@ Cite **v1.0.0**, specifying **Theorem 1.1** for the power lower bound or **Theor
 ```
 
 For computational reproduction, also identify the code commit. No DOI or arXiv identifier has been assigned to this preprint.
+
