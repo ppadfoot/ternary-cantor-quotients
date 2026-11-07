@@ -3,6 +3,11 @@
   "scope": "Finite checks, not formal proof certification",
   "results": [
     {
+      "program": "code/endpoint/run_checks.py",
+      "returncode": 0,
+      "sha256": "fcc9c1a27b8fef010527365f38a8e7306d69aae77d3e673c2225365997c031c7"
+    },
+    {
       "program": "code/verify_power_gain_lemmas.py",
       "returncode": 0,
       "sha256": "330a6eb9182134bac8439c819125aae57354f26c0f755b4e2c9a831bb789f307"

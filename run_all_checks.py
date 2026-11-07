@@ -5,7 +5,7 @@ if sys.version_info<(3,10) or not __debug__:raise SystemExit('Requires Python>=3
 root=Path(__file__).resolve().parent
 out=root/'verification';out.mkdir(exist_ok=True)
 results=[]
-programs=['code/verify_power_gain_lemmas.py', 'certificate/verify_parametric_certificate.py', 'certificate/hostile_symbolic_check.py', 'certificate/history_model_verifier.py']
+programs=['code/endpoint/run_checks.py', 'code/verify_power_gain_lemmas.py', 'certificate/verify_parametric_certificate.py', 'certificate/hostile_symbolic_check.py', 'certificate/history_model_verifier.py']
 for rel in programs:
  p=root/rel
  r=subprocess.run([sys.executable,str(p)],cwd=root,capture_output=True,text=True)

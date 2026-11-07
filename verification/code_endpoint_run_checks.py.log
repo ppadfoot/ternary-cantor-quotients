@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "energy": {
+      "states": 113,
+      "block_length": 128,
+      "energy": "2848039325767103655925435712986932980549021547392299357785070566911039704321748559183306903592",
+      "independent_direct_cases": 30,
+      "independent_pair_products": 4194300,
+      "exact_sign_certificates": 4,
+      "full_depth_backward_verification": true,
+      "unrestricted_negative_control": true
+    },
+    "block_lifting": {
+      "prefix_cases": 400,
+      "extension_equivalences": 486400
+    },
+    "affine_fibonacci": {
+      "affine_cases": 21780,
+      "digit_products": 657576
+    }
+  },
+  "endpoint_algebra": {
+    "formal_polynomial_identities": 5,
+    "exact_sign_checks": 4,
+    "sampling_scale_checks": 5508,
+    "rational_rounding_cases": 450,
+    "scope": "Algebra/rounding only; the endpoint mean bound is proved analytically."
+  },
+  "status": "PASS"
+}

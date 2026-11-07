@@ -1,38 +1,9 @@
 {
-  "date": "2026-11-06",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "date": "2026-11-08",
   "author": "Timofei Iuzhakov",
-  "title": "Integer quotients of ternary Cantor numbers: a power lower bound and an infinite exceptional family",
-  "output": "outputs/github_final_2026-11-06/ternary-cantor-quotients/paper/ternary_cantor_quotients.tex",
-  "output_sha256": "a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e",
-  "source_sha256": {
-    "outputs/lagarias_finite_visit_results_2026-11-06/counting/paper/cantor_multiplier_power_gain.tex": "cd18ee536c9fd1433b41a480c0020da67da7f1f5e802499a85f3a04bcbba3975",
-    "outputs/ternary-exceptional-quotients/paper/exceptional_quotients.tex": "b08f8687e1e2a027d66a0d15a1718520b81f2fbceee9e50f9517cb2f49141cf7"
-  },
-  "mathematical_core_transfer": "Both full proof bodies retained, with label prefixes and notation changes only; counting proof section title renamed; one explanatory sentence about local carry-set symbols added.",
-  "notation_changes": {
-    "family_C01": "D^+",
-    "family_D_obstruction": "O_3",
-    "family_E_obstruction": "O_infinity",
-    "main_theorem_labels": [
-      "thm:power",
-      "thm:family"
-    ]
-  },
-  "scope": "No earlier weaker counting estimates or exploratory multiplier scans included. Exact finite proof-certificate tables retained.",
-  "checks": {
-    "labels": 28,
-    "references": 42,
-    "bibliography_entries": 8,
-    "undefined_references": [],
-    "counting_core_exact_after_notation_normalization": true,
-    "family_core_exact_after_notation_normalization": true,
-    "both_main_theorems_exact_after_notation_normalization": true,
-    "all_three_certificate_tables_exact_after_label_normalization": true,
-    "counting_core_normalized_sha256": "839f6a6a96337d4b3f4c78e84b38596f923e368df97382cdcefbc12ce019acaf",
-    "family_core_normalized_sha256": "6aa0454fa815c70343a5a1d18401a4a0a9c5ecfcc6305064932a8b02b842da3d"
-  },
-  "pdf_status": "Parent agent compiles and visually verifies PDF.",
-  "layout_edit": "Added legal discretionary breaks inside the long certificate-verifier filename; no mathematical changes.",
-  "compile": "tectonic --keep-logs: exit 0; no overfull or underfull boxes after filename fix."
+  "citation_key": "iuzhakov2026cantorquotients",
+  "retained_v1_sections_2_through_8_byte_identical": true,
+  "new_result": "Theorem 9.1: M_C(X) >= c X^((1+s)^2/(7-5s)) without epsilon loss",
+  "historical_review_scope": "Prior analytical review; fresh exact certificate rerun and focused English integration review, not external peer review"
 }

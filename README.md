@@ -1,25 +1,30 @@
 # Ternary Cantor quotients: more representations, infinitely many exceptions
 
-## New related result — dimension manuscript v3
-
-The updated [dimension article, v3.0.0](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0), Theorem 14.1, now proves
-
-```math
-M_H(X)\asymp X,\qquad
-\#((\mathcal M_H\setminus\mathcal M_C)\cap[1,X])\gg X.
-```
-
-This determines the linear order in Lagarias's second counting problem and shows that finite integer witnesses omit linearly many positive-dimensional intersections. The proof uses summable rational Cantor denominators and a divisibility sieve.
-
-The quotient article below remains **v1.0.0**, with the same title and citation key `iuzhakov2026cantorquotients`. Cite **`iuzhakov2026lagarias`, version 3.0.0**, for the new result. Both existing citation identities are preserved. The exact asymptotic for the multiplier count, the sharp finite-quotient count and Erdős Problem 406 remain open.
-
-**Timofei Iuzhakov** · Research preprint · **Version 1.0.0 — 6 November 2026**
+**Timofei Iuzhakov** · Research preprint · **Version 2.0.0 — 8 November 2026**
 
 **Which integers are ratios of two positive integers whose base-3 digits are all 0 or 1? This paper proves a stronger power lower bound for how many integers have such a representation, and proves an explicit infinite family of exceptions proposed by Bai, Meleshko, Riasat and Shallit.**
 
-[**Read the paper · 13 pages**](https://github.com/ppadfoot/ternary-cantor-quotients/releases/download/v1.0.0/ternary_cantor_quotients.pdf) · [Release and complete archive](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v1.0.0) · [LaTeX source](paper/ternary_cantor_quotients.tex) · [How to cite](#citation)
+[**Read the current paper · 16 pages**](https://github.com/ppadfoot/ternary-cantor-quotients/releases/download/v2.0.0/ternary_cantor_quotients.pdf) · [Release and complete archive](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v2.0.0) · [LaTeX source](paper/ternary_cantor_quotients.tex) · [How to cite](#citation)
 
-## Two main results at a glance
+## What version 2 adds
+
+**The same article, a stronger counting theorem.** The title, sole author and citation key `iuzhakov2026cantorquotients` are retained. The original exceptional-family theorem and its complete proof are unchanged.
+
+| Version | Counting lower bound | First appearance |
+| --- | --- | --- |
+| **v1.0.0** | $`M_C(X)\gg X^{0.6660585297\ldots}`$ | Theorem 1.1; 6 November 2026 |
+| **v2.0.0** | $`M_C(X)\gg X^{\beta_*}`$, $`\beta_*=(1+s)^2/(7-5s)=0.691726633148796\ldots`$, $`s=\log_3 2`$ | **Theorem 9.1**; 8 November 2026 |
+
+**The exact exponent is attained, without an epsilon loss.** Section 9 supplies the full proof: an endpoint mean-discrepancy estimate, an affine Fibonacci bound valid after fixing prefixes, and an exact 113-state energy certificate for the fixed residue class $`112\pmod{3^{128}}`$. Together they control both the number of representations and collisions between them. The exponent increases by approximately **0.0256681** over v1.
+
+This strengthens the lower bound in Lagarias's finite-quotient counting problem (journal Problem 1.10). It does **not** determine the sharp growth rate or prove Erdős Problem 406. The block length is fixed before the limit; the implicit constants and threshold may be very large.
+
+[Original v1 release](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v1.0.0) · [Full version history](CHANGELOG.md) · [New proof source](paper/endpoint_bound.tex) · [Exact checks](code/endpoint/) · [Focused internal review](audit/v2/integration_review.txt)
+
+## Results introduced in version 1
+
+The following results and their original numbering are preserved. Theorem 9.1 above strengthens the counting exponent of Theorem 1.1.
+
 
 | Result | What the paper proves | Why it matters |
 | --- | --- | --- |
@@ -47,7 +52,7 @@ Thus division produces integers beyond the original digit set. How many addition
 
 Some literature defines Cantor integers using digits **0 and 2**. Those positive integers are exactly $`2\mathcal D^+`$, so their ratios give the same quotient problem.
 
-## Result 1: a larger exponent for the counting problem
+## The original v1 counting argument (retained)
 
 Let $`M_C(X)`$ count the positive integers $`M\le X`$ admitting such a representation. Taking denominator $`a=1`$ gives the immediate lower bound of order $`X^s`$, where $`s=\log_3 2`$.
 
@@ -84,7 +89,7 @@ These are improved lower bounds for the two counting questions in **Problems 1.1
 
 **Where to read the proof:** **Sections 2–5**. Fourier sampling controls distribution over Cantor denominators; a Fibonacci bound controls finite-word overlaps; averaging the actual 3-adic distances gives the final counting estimate.
 
-## Result 2: the proposed exceptional family works for every parameter
+## The exceptional-family theorem (retained)
 
 There are two easy ways to rule out a quotient: a restriction on its lowest nonzero ternary digit, and a restriction on its size coming from the leading digits. Bai, Meleshko, Riasat and Shallit found further exceptions that escape both tests. In [Section 1.4 of their 2022 paper](https://arxiv.org/abs/2202.13694), they asked whether there are infinitely many such **sporadic exceptions** and proposed the family below.
 
@@ -108,6 +113,19 @@ The resulting digit recurrence has a finite carry range and a register storing e
 
 **Where to read the proof:** **Sections 6–8**, especially **Proposition 7.1 and Tables 1–3**. Symbolic identities establish the certificate for every $`k`$; exact verification code checks the carry images and register identities.
 
+## New related result — dimension manuscript v3
+
+The updated [dimension article, v3.0.0](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0), Theorem 14.1, now proves
+
+```math
+M_H(X)\asymp X,\qquad
+\#((\mathcal M_H\setminus\mathcal M_C)\cap[1,X])\gg X.
+```
+
+This determines the linear order in Lagarias's second counting problem and shows that finite integer witnesses omit linearly many positive-dimensional intersections. The proof uses summable rational Cantor denominators and a divisibility sieve.
+
+These results belong to the dimension article, cited as `iuzhakov2026lagarias`, v3.0.0. They are distinct from the improved finite-quotient bound in this article's v2.0.0. The exact multiplier asymptotic, the sharp finite-quotient count and Erdős Problem 406 remain open.
+
 ## Scope and relation to the companion paper
 
 The two theorems address abundance and explicit nonrepresentation within the same integer quotient problem. The power bound is a lower bound; the exceptional family does not classify all unrepresentable integers or determine their density. Failure to have a finite integer witness also does not imply that $`C(1,M)`$ has dimension zero.
@@ -118,12 +136,12 @@ Our [companion paper on Lagarias's exceptional sets](https://github.com/ppadfoot
 
 | Resource | Contents |
 | --- | --- |
-| [Paper](paper/ternary_cantor_quotients.pdf) and [source](paper/ternary_cantor_quotients.tex) | Both complete proofs, the exact exponent and all three certificate tables |
+| [Paper](paper/ternary_cantor_quotients.pdf) and [source](paper/ternary_cantor_quotients.tex) | All v1 proofs and certificate tables, plus the stronger v2 bound and complete Section 9 |
 | [Counting checks](code/verify_power_gain_lemmas.py) | Exact finite checks of digital energies, finite-word bounds and divisor/valuation estimates |
 | [Parametric certificate](certificate/verify_parametric_certificate.py) | 18 symbolic row variants, 384 carry/digit choices, formal register identities and all 260 predecessor choices in the base case |
 | [Independent symbolic check](certificate/hostile_symbolic_check.py) and [model verifier](certificate/history_model_verifier.py) | Additional checks of the exceptional-family certificate |
 | [Recorded results](verification/combined_summary.json) and [internal reviews](audit/README.md) | Program outcomes, review scope and exact source hashes |
-| [Version history](CHANGELOG.md) and [publication checklist](PUBLICATION_CHECKLIST.json) | The v1 manuscript contents and release checks |
+| [Version history](CHANGELOG.md) and [publication checklist](PUBLICATION_CHECKLIST.json) | Versioned manuscript contents and release checks |
 
 Run all checks with **Python 3.10 or newer**, standard library only, with assertions enabled:
 
@@ -138,11 +156,11 @@ cd paper
 tectonic ternary_cantor_quotients.tex
 ```
 
-Finite tests supplement the written proofs. The exceptional-family certificate uses exact symbolic identities for the parameter; numerical examples are additional checks. AI assistance was used in mathematical development, editing, code and internal review. The reviews are **not external peer review or proof-assistant verification**. Sole author: **Timofei Iuzhakov**.
+The v2 run passes five verification programs, including a fresh exact 113-state certificate calculation and endpoint algebra checks. A focused internal reviewer checked the new English section and independently recomputed its energy and sign certificates. Earlier review files retain their original scope. Finite tests supplement the written proofs. The exceptional-family certificate uses exact symbolic identities for the parameter; numerical examples are additional checks. AI assistance was used in mathematical development, editing, code and internal review. The reviews are **not external peer review or proof-assistant verification**. Sole author: **Timofei Iuzhakov**.
 
 ## Citation
 
-Cite **v1.0.0**, specifying **Theorem 1.1** for the power lower bound or **Theorem 1.2** for the infinite exceptional family. The [versioned release](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v1.0.0) fixes the paper and accompanying archive. The main README may receive explanatory updates between manuscript releases.
+**Keep the citation key `iuzhakov2026cantorquotients` and specify the version.** Cite **v2.0.0, Theorem 9.1**, for the exponent 0.691726633148796…; cite **v1.0.0, Theorem 1.1**, for the original exponent. The exceptional-family theorem is Theorem 1.2 in both versions. Each versioned release fixes its own PDF and archive; the main README can receive explanatory updates.
 
 [CITATION.cff](CITATION.cff) and [CITATION.bib](CITATION.bib) provide the citation:
 
@@ -151,10 +169,11 @@ Cite **v1.0.0**, specifying **Theorem 1.1** for the power lower bound or **Theor
   author = {Timofei Iuzhakov},
   title = {Integer quotients of ternary Cantor numbers: a power lower bound and an infinite exceptional family},
   year = {2026},
-  note = {Version 1.0.0; research preprint},
-  url = {https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v1.0.0}
+  note = {Version 2.0.0; research preprint},
+  url = {https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v2.0.0}
 }
 ```
 
 For computational reproduction, also identify the code commit. No DOI or arXiv identifier has been assigned to this preprint.
+
 

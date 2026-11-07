@@ -1,0 +1,245 @@
+\section{An improved exponent without an epsilon loss}\label{ep:section}
+
+This section is new in version 2. The original power bound and the
+exceptional-family proof above are retained with their original numbering.
+Write $s=\log_3 2$, $\varphi=(1+\sqrt5)/2$, and $g=\log_3\varphi$.
+
+\begin{theorem}\label{ep:main}
+There are absolute constants $c_*>0$ and $X_0$ such that
+\[
+ \MC(X)\ge c_*X^{\beta_*}\quad(X\ge X_0),\qquad
+ \beta_*={ (1+s)^2\over7-5s}=0.691726633148796\ldots.
+\]
+The same lower bound holds for $\MH(X)$. No subtraction of an arbitrary
+positive epsilon from $\beta_*$ is required.
+\end{theorem}
+
+\subsection{A boundary estimate for the mean Fourier discrepancy}
+Use $F_l,f_l,\D_l$ from Section 2. Their second and fourth moments are
+$2^{-l}$ and $(3/8)^l$. Let $T_D$ be all nonzero reduced fractions on
+$\T$ with denominator at most $D$ coprime to 3, and put
+$S_D(L)=\sum_{z\in T_D}f_L(z)$ and $h=\lceil2\log_3D\rceil$.
+Multiplication by 3 permutes $T_D$, whose separation is at least $D^{-2}$.
+The sampling lemma gives, uniformly for $0\le m\le h$,
+\[
+ \sum_{T_D}f_m^2\ll D^2 2^{-m},\qquad
+ \sum_{T_D}f_m^4\ll D^2(3/8)^m.
+\]
+Indeed $3^h<3D^2$, so the degrees in both applications are $O(D^2)$.
+Set
+\[
+ a_*={3s-1\over4},\quad A_*={2(3-s)\over3s-1},\quad
+ \eta_0=3-4s,\quad r_*={3-s\over2}=a_*A_*.
+\]
+Here $4<A_*<6$, $0<\eta_0<s$, and $r_*>1$.
+For $2h\le L<3h$ write $l=L-2h$ and apply Holder's inequality
+with exponents $2,4,4$ to blocks of lengths $h,h,l$. This yields
+\begin{equation}\label{ep:farey}
+ S_D(L)\ll D^2 2^{-h/2}(3/8)^{(h+l)/4}
+ \le C D^{(3+s)/2}3^{-a_*L}.
+\end{equation}
+The last inequality uses $s-1<0$ and $h\ge2\log_3D$.
+For $L\ge3h$, dropping extra factors instead gives
+\begin{equation}\label{ep:long}
+ S_D(L)\le S_D(3h)\ll D^{\eta_0}.
+\end{equation}
+For each fixed $D$, also $S_D(L)\to0$: every nonzero fraction has a
+finite orbit under multiplication by 3, with all factors
+$|(1+\exp(2\pi iz))/2|<1$.
+
+Let $S_Y=\{N\le Y:N\in\D,\ N\equiv1\pmod3\}$ and
+$R_N(L)=\sum_{u=1}^{N-1}f_L(u/N)$.
+\begin{lemma}\label{ep:mean}
+There is an absolute $C_*$ such that, for every fixed $H\ge0$ and
+every integer choice $L=L(Y)\ge A_*\log_3Y+H$,
+\[
+ \limsup_{Y\to\infty}Y^{-s}\sum_{N\in S_Y}R_N(L)
+ \le C_*3^{-a_*H}.
+\]
+\end{lemma}
+\begin{proof}
+Fixing the high ternary digits shows that
+$T_Y(d)=\#\{N\in S_Y:d\mid N\}\le4(Y/d)^s$ for $1\le d\le Y$:
+choose a low block with $3^j\le d<3^{j+1}$; its values lie in an
+interval of length less than $d$, hence contribute at most one multiple
+for each high block. Reducing $u/N$ gives the exact identity
+\[
+ \sum_{N\in S_Y}R_N(L)=
+ \sum_{\substack{2\le d\le Y\\(d,3)=1}}T_Y(d)
+       \sum_{\substack{1\le u<d\\(u,d)=1}}f_L(u/d).
+\]
+In a fixed dyadic range $D/2<d\le D$, its contribution divided by
+$Y^s$ is $O(D^{-s}S_D(L))$. One may take $D$ to be powers of 2,
+with the final partial range bounded by $D<2Y$.
+For ranges with $3h\le L$, equation~\eqref{ep:long} supplies the
+summable majorant $CD^{\eta_0-s}$. Each fixed range tends to zero,
+so dominated convergence makes their total $o(1)$.
+For all remaining ranges, $2h\le L$ once $Y$ is sufficiently large,
+because $A_*>4$. Equation~\eqref{ep:farey} gives
+\[
+ D^{-s}S_D(L)\ll D^{r_*}3^{-a_*L}
+ \le 3^{-a_*H}(D/Y)^{r_*}.
+\]
+The sum of $(D/Y)^{r_*}$ over these dyadic ranges is bounded absolutely.
+This proves the stated limsup. In particular the estimate asserts an
+arbitrarily small fixed proportion, not necessarily $o(Y^s)$ at fixed $H$.
+\end{proof}
+
+\subsection{Affine tails and a fixed residue class}
+\begin{lemma}\label{ep:affine}
+If $r\in1+3\Z_3$, $r\ne1$, $e=v_3(r-1)$, and $\xi\in\Z_3$, then
+\[
+ \#\{z\in\D_m:[rz+\xi]_m\in\D_m\}
+ \le H_m(e)\le\varphi^m(2/\varphi)^e,
+\]
+where $[x]_m$ is the residue in $[0,3^m)$ and $H_m(e)$ counts the
+independent sets of the graph on $0,\ldots,m-1$ with edges of length $e$.
+\end{lemma}
+\begin{proof}
+Write $r=1+3^eu$, with $u$ a unit. In the addition
+$z+3^euz+\xi$, let $B_j$ be the sum of the incoming carry,
+the digit of $\xi$, and the shifted digit of $uz$.
+On an admissible path the outgoing carry is
+$\lfloor(B_j+1)/3\rfloor$, independent of the admissible choice of
+$z_j$. Residues $B_j=0,1,2\pmod3$ allow, respectively, two choices,
+only $z_j=0$, or only $z_j=1$.
+At position $i+e$, after fixing $z_{<i}$, the output digit is
+$z_{i+e}+u_0z_i+Q_i(z_{<i})\pmod3$, with $u_0\in\{1,2\}$.
+Thus one of the two choices at $i$ forces the digit at $i+e$,
+independently of intermediate admissible digits. Backward induction
+on the remaining positions bounds the tree by the independent-set
+recursion: at a free vertex one either removes that vertex, or removes
+it together with its future neighbor; an already forced vertex has
+only one branch. Discarding further restrictions only enlarges the
+bound. The graph splits into $e$ chains, including empty chains.
+A chain of length $l$ has $F_{l+2}\le2\varphi^{l-1}$ independent sets,
+also for $l=0$. Multiplying proves the second inequality.
+\end{proof}
+
+Fix $c=112=(11011)_3$ and $d=128$ throughout the rest of the proof.
+Define
+\[
+ C_d(c)=\#\{a,b,a',b'\in\D_d:
+              c(a-a')+(b-b')\equiv0\pmod{3^d}\}.
+\]
+For every right-hand side the corresponding count is at most $C_d(c)$,
+by Cauchy--Schwarz applied to the autocorrelation of
+$h(z)=\#\{(a,b)\in\D_d^2:ca+b\equiv z\pmod{3^d}\}$.
+Also $C_d(c)\ge(16/3)^d$.
+
+The following finite certificate specifies the constant used here
+without a numerical spectral-radius approximation. On states
+$-56,\ldots,56$ put $T_{u,v}=w(3v-u)$, where
+\[
+ w(0)=4,\quad w(\pm1)=2,\quad w(\pm111)=1,\quad
+ w(\pm112)=2,\quad w(\pm113)=1
+\]
+and all other weights vanish. These are precisely the digit-difference
+multiplicities. The state interval is closed under every integral
+transition. Starting with $v_0(u)=\mathbf1_{u=0}$, iterate
+$v_{j+1}(v)=\sum_u v_j(u)T_{u,v}$. Then
+$C=C_d(c)=\sum_u v_{128}(u)$, with unrestricted final carry, equals
+\[
+\begin{split}
+ C={}&2848039325767103655925435712986932980549021547392299357785\\[-2pt]
+     &\hspace{8mm}070566911039704321748559183306903592
+\end{split}
+\]
+where the two lines are concatenated decimal digits.
+The exact integer checks supplied with the article give
+\begin{equation}\label{ep:cert}
+ C^{1161}3^{148608}\varphi^{491392}<2^{937216},\qquad
+ 2^{20805}<3^{13127}.
+\end{equation}
+These comparisons require integers only: for $m=491392$, write
+$\varphi^m=F_m\varphi+F_{m-1}$, multiply by
+$C^{1161}3^{148608}$ to obtain $A\varphi+B$, and check
+$D=2^{937217}-A-2B>0$ and $D^2>5A^2$.
+The executable certificate recomputes the matrix both forwards and
+backwards and performs these comparisons exactly.
+Set $\lambda=C^{1/d}$ and $\tau=\log_3\lambda$.
+
+\begin{lemma}\label{ep:pairs}
+Let $Y=3^k$, $k>d$, and $G\subset\{N\in\D_k:N\equiv1\pmod{3^d}\}$.
+For $Y<X$ put
+$A_N(X)=\{1\le M\le X:M\equiv c\pmod{3^d},\ NM\in\D\}$.
+Then
+\[
+ \sum_{N<N'\in G}|A_N(X)\cap A_{N'}(X)|\ll_d X^gY^{\tau-g}.
+\]
+\end{lemma}
+\begin{proof}
+For four prefixes $N',x,N,y$ of length $m\ge d$ with low blocks
+$1,c,1,c$ and $N'x\equiv Ny\pmod{3^m}$, adding four blocks of
+length $d$ reduces the next congruence to
+\[
+ R+c(a-a')+(b-b')\equiv0\pmod{3^d},\qquad R=(N'x-Ny)/3^m.
+\]
+The quadratic terms vanish since $m\ge d$. There are at most $C$
+extensions. If the first distinct denominator digit occurs at $e$,
+there are at most $4^{e-d}$ common prefixes and two choices at $e$.
+Applying full blocks and bounding a remaining partial block trivially
+by $16^d$ proves that the number of length-$k$ quadruples is
+$O_d(4^e\lambda^{k-e})$.
+
+Choose $n\ge k$ with $X<3^n\le3X$. For each pair, the map
+$M\mapsto[NM]_n$ is injective, since $N$ is a unit. Conditional on a
+prefix $x_0$ of length $k$, its remaining digits satisfy an affine
+condition with ratio $r=N'/N$ and shift
+$\xi=(rx_0-[rx_0]_k)/3^k$. Lemma~\ref{ep:affine} bounds these tails.
+Summing over $e$ therefore gives
+\[
+ O_d\left(\varphi^{n-k}\lambda^k
+       \sum_{e\ge d}\left({8\over\varphi\lambda}\right)^e\right).
+\]
+The ratio is at most $3/(2\varphi)<1$, since $\lambda\ge16/3$.
+This proves the assertion, including arbitrarily close distinct pairs.
+\end{proof}
+
+\subsection{The first moment and completion of the proof}
+Put
+\[
+ \alpha_*={1\over A_*-1}={3s-1\over7-5s},\qquad
+ Y=3^k=3^{\lfloor\log_3(c_0X^{\alpha_*})\rfloor},
+\]
+where $c_0>0$ will be fixed before $X\to\infty$.
+The shell
+$\mathcal S_{k,d}=\{N\in\D_k:N\equiv1\pmod{3^d},\ N\ge3^{k-1}\}$
+has exactly $2^{-d-1}Y^s$ members, all in $[Y/3,Y/2)$.
+Choose a fixed $H$ with $C_*3^{-a_*H}<2^{-d-5}$, and then
+$c_0\le3^{-(H+d+4)/(A_*-1)}$. For
+$L_* =\lfloor\log_3(XY/3)\rfloor-d$ one has
+$L_*-A_*\log_3Y\ge H+2$.
+Lemma~\ref{ep:mean} and Markov's inequality show that at least half
+the shell, denoted $G$, has $R_N(L_*)\le1/2$ for all sufficiently large $X$.
+
+For $L_N=\lfloor\log_3(NX)\rfloor$, count multiples of $N$ of the form
+$z=c+3^dw$, $w\in\D_{L_N-d}$. Orthogonality, permutation of residues
+by $3^d$, and monotonicity of $f_l$ give at least
+\[
+ {2^{L_N-d}\over N}(1-R_N(L_N-d))
+ \ge2^{-d-2}X^sN^{s-1}
+\]
+such multiples. They are positive and less than $NX$, and $z/N$ lies
+in the required residue class. Consequently
+\begin{equation}\label{ep:first}
+ \sum_{N\in G}|A_N(X)|\gg_d X^sY^{2s-1}.
+\end{equation}
+The exact inequalities~\eqref{ep:cert} imply
+$\alpha_*<\alpha_0=1161/5000$ and
+$g-s+\alpha_0(1+\tau-g-2s)<0$.
+The coefficient $1+\tau-g-2s$ is positive, since
+$\tau\ge4s-1$ and $2s>g$. Hence
+\[
+ g-s+\alpha_*(1+\tau-g-2s)<0.
+\]
+Lemma~\ref{ep:pairs} is thus $o(1)$ times~\eqref{ep:first}.
+Bonferroni's inequality gives
+\[
+ \MC(X)\ge\left|\bigcup_{N\in G}A_N(X)\right|
+ \gg X^sY^{2s-1}\gg X^{s+(2s-1)\alpha_*}=X^{\beta_*}.
+\]
+The positive-witness inclusion proved above transfers the bound to
+$\MH$. This completes the proof of Theorem~\ref{ep:main}.
+The constants can be very small and the threshold very large; no
+practical search threshold or sharp asymptotic is asserted.

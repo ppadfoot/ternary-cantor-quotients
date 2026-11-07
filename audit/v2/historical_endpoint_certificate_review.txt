@@ -1,0 +1,79 @@
+FINAL REVIEW ADDENDUM: NUMERICAL DISPLAY AND CERTIFICATE DEPENDENCIES
+Reviewer cross_chat_critic_20261107. 7 November 2026.
+This is the latest status addendum; earlier reports remain frozen records.
+
+1. FINAL NUMERICAL DISPLAY BINDING
+The averaged-resonance proof has a numerical-display correction only:
+beta_new=.6033324560257417261936195266... rather than the double-rounded
+.6033324560257416 printed earlier. The exact defining formula and every
+proof step are unchanged. The prior affirmative review therefore applies
+to the final source bound below. The affine rational-height note now uses
+the corrected display and is bound by the separately refreshed complete
+review affine_fourier_rational_height_review.txt. Its sharp real height
+exponent remains .1507708609231343259... .
+
+2. ENDPOINT CERTIFICATE IS NOW AVAILABLE AND RERUN
+The initial strength/dependency review correctly said this critic had
+not independently reproduced the earlier block (112,128) energy certificate.
+That is no longer a missing verification in the combined task: the root
+agent downloaded the full endpoint package and ran its checker in a
+separate verification copy, preserving the archived sources. I read the
+resulting summary. It reports PASS, including:
+ - 113-state, block-length128 exact energy certificate;
+ - full-depth backward verification and unrestricted negative control;
+ - 4 exact sign certificates;
+ - 30 independent direct cases and 4,194,300 pair products;
+ - 486,400 block-extension equivalences and 21,780 affine Fibonacci cases.
+The endpoint algebra checks also pass. The certificate is a finite exact
+input to the analytically reviewed endpoint proof, whose positive verdict
+was conditional on this input. The task has now verified that input;
+no user-facing synthesis should call it unavailable. This reviewer did
+not personally run that checker and does not claim to have re-proved the
+full certificate-generating algorithm from first principles.
+
+3. OTHER REUSED CERTIFICATES RERUN
+The rational lane's cofactor rerun reports PASS for 4,374 cofactors,
+65,610 phase certificates, 27,822 finite cases, plus the independent
+log-series and necessary phase-modulus 152 checks. This verifies the
+stated bounded-cofactor exclusion, not the entire x0 orbit.
+
+The root's real three-term progression checker has completed all 20
+systems with 881,084 states and 881,088 edges. Its ratio 31 and corrupt-rank
+negative controls report PASS. This verifies only the stated steps 1--20;
+it does not imply that an arbitrary sparse set of visits contains such
+a progression.
+
+The root's new affine finite checks report PASS for 294 affine sets,
+1,176 exact projections,1,008 exact derivative fibres,40 rational grids,
+875 real transfers and1,400 leading-cylinder cases. The universal
+Fourier/rational theorem rests on the complete proof reviewed separately,
+not an extrapolation from these examples.
+
+4. FINAL STRENGTH VERDICT
+There is no identified defect in the accepted new counting, affine
+transfer, sparse-pair or bounded-template theorems. Goal1 remains open.
+The direct quantitative improvement at 1 has exponent .6033324560...;
+the real rational simultaneous-height exponent becomes .1507708609...;
+the p-adic height exponent .1974619451 is a union-bound corollary.
+The exact {0,2,8} return list is for the new irrational eta_6 (or lambda_6),
+not for the integer initial point 1. None of the reused certificates or
+new theorems changes the universal statuses of E1/E2/L1/L2/L3/L4/L5.
+L5's endpoint lower bound is a verified progress theorem, not exact growth.
+
+EXACT FILE BINDINGS
+work/cross_chat_synthesis_2026-11-07/counting/averaged_resonance_improvement.txt
+  SHA256 ab75bacc8bdf0cfecf6350dea35c2f35773b721a5d587329de7b42dcaa5d0c70
+work/cross_chat_synthesis_2026-11-07/counting/audit_and_strength.txt
+  SHA256 ab820e8e4122c1ccb28574ff3530143c0ab6185ca9fd449ef2649f8b0c9566a6
+work/cross_chat_synthesis_2026-11-07/affine_fourier_rational_height.txt
+  SHA256 617e8079656031df5dd2475a43220d7d9ffa2eae49ebf0d6ad1bc1683194d9b0
+work/cross_chat_synthesis_2026-11-07/verification/endpoint/results/summary.json
+  SHA256 9b3ab862e5fd5b611bc22a8c5662442144e33efaf051207ed0254b2cc8dc1fbd
+work/cross_chat_synthesis_2026-11-07/verification/endpoint/dependencies/certificates/energy112_128.json
+  SHA256 f4faa4e2189cd089d3caeb06ded80fc8976142b06c9e06df85b40522ce0d50db
+work/cross_chat_synthesis_2026-11-07/rational/cofactor_rerun.json
+  SHA256 569874678860c65550d50e0e8894258d5520e61143a047abc294536facb4b193
+work/cross_chat_synthesis_2026-11-07/root_checks/real_ap_rerun.json
+  SHA256 6ed06b0378719df642a2ad49de941f3537b5f11afe8029eddf818f9dd656d18d
+work/cross_chat_synthesis_2026-11-07/root_checks/affine_fourier_checks.json
+  SHA256 e1e1e4b6d977cb09dea4bcd05bd0341ecc3ea9b3d23da7e829c9c7fec5c7e9b9

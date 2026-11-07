@@ -30,7 +30,7 @@
 \title{Integer quotients of ternary Cantor numbers:\\
 a power lower bound and an infinite exceptional family}
 \author{Timofei Iuzhakov}
-\date{6 November 2026\\Version 1.0.0}
+\date{8 November 2026\\Version 2.0.0}
 \begin{document}
 \maketitle
 
@@ -39,11 +39,14 @@ Let $\D$ be the nonnegative integers whose ternary digits belong to
 $\{0,1\}$. We prove two results about positive integer quotients of
 members of $\D$. First, the number $\MC(X)$ of integers $1\le M\le X$
 with $N,MN\in\D$ for some positive integer $N$ satisfies
-$\MC(X)\gg X^\beta$, where, writing $s=\log_3 2$ and
-$g=\log_3((1+\sqrt5)/2)$,
 \[
- \beta=s+(2s-1)\frac{s-g}{1+g}=0.6660585297\ldots>s.
+ \MC(X)\gg X^{\beta_*},\qquad
+ \beta_*={(1+s)^2\over7-5s}=0.691726633148796\ldots,
+ \quad s=\log_3 2.
 \]
+Version 2 improves the original exponent $0.6660585297\ldots$,
+without an epsilon loss, by an endpoint mean-discrepancy estimate
+and an exact fixed-residue-class energy certificate.
 The same bound holds for the number of positive-dimensional
 intersections of the $3$-adic Cantor set with its inverse integer
 dilates. Second, for every $k\ge0$, the integer
@@ -54,10 +57,21 @@ is infinite. The first proof combines Fourier sampling over
 Cantor-restricted denominators with a finite-word Fibonacci estimate
 and a sum over $3$-adic distances. The second constructs an explicit
 predecessor-closed carry certificate of $38k+50$ states for $k\ge1$,
-with a separate certificate for $k=0$. Both arguments are given in full.
+with a separate certificate for $k=0$. The original proofs and the new improvement are given in full.
 \end{abstract}
 
 \section{The quotient problem and the two main results}
+
+\paragraph{Version history.}
+Version 1 (6 November 2026) established Theorems~\ref{thm:power}
+and~\ref{thm:family}. Version 2 (8 November 2026) retains their full
+proofs and adds Theorem~\ref{ep:main} in Section~\ref{ep:section},
+raising the exponent from $0.6660585297\ldots$ to
+$0.691726633148796\ldots$ without an epsilon loss.
+The article title, sole author, and citation key
+\texttt{iuzhakov2026cantorquotients} are unchanged.
+The sharp growth of $\MC$ and Erd\H{o}s Problem 406 remain open here.
+
 
 Put
 \[
@@ -828,7 +842,18 @@ The numbers $621\cdot3^{4k}-20$ are distinct and unbounded, proving
 that $\F$ is infinite.
 \end{proof}
 
+\input{endpoint_bound.tex}
 \section{Verification and scope}
+
+For the new bound, \texttt{code/endpoint/run\_checks.py} independently
+recomputes the exact 113-state energy forwards and backwards, checks
+the integer sign certificates, and tests block lifting, affine tails,
+and endpoint algebra. These are finite inputs and consistency checks;
+the limiting estimates are proved in Section~\ref{ep:section}.
+The underlying archived arguments had internal reviews; the new
+English section received a focused integration review. The retained
+version-1 proof bodies are not represented as freshly re-reviewed.
+
 
 All estimates for the power lower bound, including the required
 uniformity and limiting arguments, are proved in the text. The
@@ -857,7 +882,7 @@ certificate and makes redundant integer instantiations to detect
 indexing or transcription errors. Both programs use only the Python
 standard library and exact integer or rational arithmetic.
 
-Theorems~\ref{thm:power} and~\ref{thm:family} give a power lower bound
+Theorems~\ref{ep:main} and~\ref{thm:family} give a power lower bound
 and an explicit infinite sporadic family, respectively. They do not
 give a full asymptotic, a density theorem, or a classification of all
 nonrepresentable multipliers. The known positive-witness construction

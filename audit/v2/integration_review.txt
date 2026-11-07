@@ -1,0 +1,15 @@
+Focused mathematical review of v2 endpoint_bound.tex (2026-11-08)
+
+Verdict: PASS; no fatal mathematical or quantifier error found in the new section.
+
+Checked against original endpoint PROOF_RU.md §§2–3 and block-coset PROOF_RU.md §§2–3. The new section correctly preserves:
+- The affine (not merely homogeneous) Fibonacci estimate. The carry independence and forced-position induction work for arbitrary 3-adic shifts, including e>m.
+- Fixed low blocks 1,c,1,c in the multiplicative-to-linear energy reduction. Quadratic terms vanish for m>=d. Replacing the original partial-block bound by 16^d is harmless because d=128 is fixed.
+- All first-difference classes, including arbitrarily close pairs. The injective M map, affine conditional tail, and geometric factor 8/(phi*lambda)<1 are correct.
+- Boundary mean quantifiers: H is fixed first, C_* is independent of H, and arbitrary integer L>=A_* log_3 Y+H is permitted. Powers-of-two ranges with final D<2Y are valid. Dominated convergence for long ranges and the geometric sum for remaining ranges give the claimed limsup.
+- Exact endpoint choice: fixed H, then fixed c0, then X->infinity; shell size, Markov step, fixed product residue, first moment, and negligible pair term yield beta_* with no epsilon loss. Positivity of 1+tau-g-2s is explicitly justified.
+- Constants depending on d are absolute since d is fixed. Y<X and k>d hold for all sufficiently large X.
+
+Independent exact verification performed: recomputed the 128-step carry count C; checked C^1161*3^148608*phi^491392 < 2^937216 via Fibonacci integers and a quadratic comparison; checked 2^20805 < 3^13127. All PASS. Decimal C in the new section matches the computed value.
+
+Integration rechecked after completion: the main file defines the required macros, proves MH>=MC by positive witnesses, inputs endpoint_bound.tex before Verification and scope, and states the same beta_* in the abstract and version history. The original author and citation key are preserved. Final LaTeX build/label resolution is for the parent agent. No article or GitHub files were edited by this reviewer.
