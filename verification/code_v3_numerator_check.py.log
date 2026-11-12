@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "python": "3.12.14",
+  "scope": "Complete coefficient-level carry certificate for289; finite k-family regression tests supplement the symbolic proof. Not proof-assistant verification.",
+  "universal_289": {
+    "states": 32,
+    "edges": 42,
+    "return_core_states": 20,
+    "closed_discarded_states": 12,
+    "core_polynomial_identities": 26,
+    "independent_digit_pair_tests": 580,
+    "exact_return_words": 256,
+    "negative_controls": 2,
+    "explicit_witness": [
+      280,
+      80920
+    ]
+  },
+  "explicit_family": {
+    "integer_witnesses": 64,
+    "exact_nonzero_remainders": 63,
+    "telescoping_identities": 126,
+    "coefficient_comparisons": 91581
+  }
+}

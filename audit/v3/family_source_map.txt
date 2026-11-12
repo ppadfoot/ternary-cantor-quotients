@@ -1,0 +1,71 @@
+VERSION 3: POSITIVE DIMENSION OF THE SPORADIC FAMILY
+Prepared 12 November 2026. Mathematical author: Timofei Iuzhakov.
+
+Publication source: paper/family_positive_dimension.tex
+Section label: familypos:section
+Main theorem label: familypos:main
+The sole external internal reference is thm:family, the unchanged
+all-k finite-nonrepresentation theorem already included in this article.
+Existing bibliography keys Lagarias and BMRS suffice; no new macros or
+bibliography entries are required.
+
+RESULT AND SCOPE
+
+For M_k = 621*3^(4k)-20, every k >= 0, construct a reachable carry
+with two return words of lengths (m_k,L_k)=(3,12) for k=0 and
+(4k+3,12k+6) for k>=1. Their first digits differ. The resulting compact
+subsystem has exact Hausdorff dimension d_k, where
+3^(-m_k*d_k)+3^(-L_k*d_k)=1. Hence dim_H C(1,M_k)>=d_k>0.
+Combining this independently proved positivity with the retained
+nonrepresentation theorem puts this specific family in H minus V.
+The theta-root inequality is a consequence of L_k <= 4m_k.
+
+No equality for the dimension of the full intersection is asserted.
+No uniform positive lower bound, sharp quotient-count asymptotic,
+or conclusion about the prescribed point 1 in E_2 is asserted.
+
+DEVELOPMENT PROVENANCE
+
+The development note family_positive_dimension.txt (6 November 2026)
+contains the exact carry construction and variable-length dimension
+argument. Its two development reviews are family_positive_dimension_review.txt
+and family_positive_cross_review.txt. The publication-selection review of
+12 November 2026 independently reconstructed the geometry in its section5.
+These filenames identify provenance only: the complete mathematical proof
+is included in the publication source and has no private-note dependency.
+Fresh independent review of the final English section is recorded separately.
+
+RECONSTRUCTION IN THE PUBLICATION SOURCE
+
+1. Integer path identity and digitwise carry lemma, including nonnegative
+   intermediate carries and infinite 3-adic telescoping.
+2. Three explicit paths at M=601, with all six word values.
+3. The all-k reachable prefix P, its output polynomial q and the base81
+   digit proof, separating k=1 from k>=2 and treating empty sums.
+4. The two all-k return words, their exact values and output identities;
+   the long output's base81 decomposition and the k=1 overlap to digit28.
+5. Reachability from the actual initial state, not merely recurrence in an
+   inaccessible component.
+6. A complete all-depth mass-distribution proof for the prefix-free
+   variable-length code and a stopping-cylinder upper cover. A fixed
+   entry prefix preserves the subsystem dimension by similarity.
+7. The root bound is used as the primary estimate, with the theta-bound
+   as a consequence, rather than presenting only the weaker equal-length
+   AB/BA construction from the development note.
+
+PRIMARY-SOURCE ATTRIBUTION CHECKED DURING PREPARATION
+
+Bai, Meleshko, Riasat and Shallit, Integers22 (2022), A96, section1.4,
+printed page4, propose the family 621*3^(4k)-20 as sporadic nonquotients.
+https://math.colgate.edu/~integers/w96/w96.pdf
+
+Lagarias, arXiv math/0512006v4, printed pages5-6, distinguishes finite
+positive integer witnesses from positive-dimensional intersections and
+already records M=52 as illustrating strict inclusion. Thus the global
+strict-inclusion phenomenon and the existence of infinite families
+obtained by multiplying an example by powers of3 are not claimed new.
+https://arxiv.org/pdf/math/0512006v4
+
+The proposed addition is the explicit all-k subsystem and quantitative
+lower bound for this particular primitive sporadic family. This source map
+does not certify exhaustive worldwide priority or external peer review.

@@ -1,0 +1,153 @@
+INDEPENDENT FINAL CRITICAL REVIEW — QUOTIENT MANUSCRIPT VERSION 3
+Date: 12 November 2026
+Mathematical author: Timofei Iuzhakov
+
+VERDICT: PASS FOR THE SOURCE SNAPSHOT IDENTIFIED BELOW
+
+I independently reviewed the complete final English arguments in the two
+new sections, their integration into the main manuscript, the README,
+changelog and citation metadata. No unresolved mathematical or publication-
+scope defect was found in this snapshot. I did not author either new
+section. This is an internal independent mathematical review, not external
+peer review, proof-assistant verification, or a guarantee of global priority.
+
+The selection review in selection_critical_review.txt records the separate
+reconstruction from the development arguments and direct primary-source
+checks. This final review additionally checks the actual English text and
+its binding to the packaged certificate, rather than inheriting a PASS
+from those development notes.
+
+1. NEW MATHEMATICAL ARGUMENTS
+
+Section 10: For every k>=0, the entry path and two separated return words
+are exhibited. I checked their lengths, integer values, carries and binary
+ternary output expansions, including the exceptional k=0 and merged-digit
+k=1 cases. The argument for k>=1 is symbolic and covers the whole parameter
+range. Concatenation gives a valid 3-adic invariant subsystem after a fixed
+entry prefix. The first digits of the return words differ; this supplies
+the separation required by the variable-length construction. The cylinder
+mass and stopping-word covering arguments prove that this subsystem has
+the unique positive dimension d satisfying 3^(-m*d)+3^(-L*d)=1.
+
+The article consistently restricts that exact formula to the constructed
+subsystem. Its conclusion for the full intersection is the lower bound
+by d, not an equality. The theta comparison follows from L<=4m and the
+monotonicity of the defining equation. Together with the old exclusion
+from finite quotients, this gives a family-specific positive-dimensional
+intersection without a finite integer witness. It neither improves the
+counting exponent nor establishes pointwise orbit finiteness.
+
+Section 11: I independently reconstructed the 289 multiplication graph
+from all 580 possible digit pairs on carries 0,...,144. It has 32 reachable
+states and 42 edges. The 20 states with a return path to zero are separated
+from a closed set of 12 nonreturn states. I derived the polynomial potentials
+from shortest return paths and checked all 26 internal edge identities
+coefficient by coefficient. The telescoping proof therefore applies to
+arbitrary finite path length, including zero padding; it does not rest on
+sampling a bounded set of representations. A nonzero explicit polynomial
+product verifies that the assertion is nonvacuous.
+
+The final TeX table itself was parsed and compared with the JSON certificate:
+all 32 state rows, all 42 edges and all 20 polynomial potentials match.
+Consequently the printed certificate is bound to the independently checked
+graph. The general potential lemma and the specialization prove that every
+finite representation of 289 is universal, not merely those tested by code.
+
+For the explicit local family N_k=4*3^k-2, I independently checked the block-
+sum identities and disjoint supports of P_k and Q_k. For k>=2 the nonzero
+remainder R_k vanishes at 3 and has degree k<k^2-1=deg Q_k. This proves
+nondivisibility in Q[t], while P_k(3)=N_k Q_k(3). The special k=1 case is
+correctly identified as universal. The text makes no shortest-witness or
+all-representations-local claim. Its N_k notation is distinct from the
+sporadic family M_k of Section 10.
+
+2. PRIMARY ATTRIBUTION AND CLAIM BOUNDARIES
+
+I checked the original papers directly:
+- Bai, Meleshko, Riasat and Shallit, Integers 22 (2022), A96, section 1.4:
+  https://math.colgate.edu/~integers/w96/w96.pdf
+- Anders, Dawsey, Reznick and Sisneros-Thiry, arXiv:2308.07252v1,
+  Definition 1.1 and section 4:
+  https://arxiv.org/pdf/2308.07252v1
+
+The old BMRS-family nonrepresentation result is correctly historical;
+the new assertion supplies positive dimension for that same family.
+The ADRS table concerns indecomposable representations. The new all-finite
+289 theorem answers its local-representation entry and is stronger than
+an indecomposable-only statement. The manuscript expressly states that
+scope and does not claim to solve the full classification programme.
+Known carry automata and dimension methods are not presented as invented
+here. These checks establish the relation to the named primary sources;
+they are not an exhaustive search of all later literature.
+
+3. INTEGRATION, VERSION HISTORY AND REPRODUCIBILITY
+
+The abstract, new introduction paragraphs, README and changelog agree on
+what v3 adds. In particular, they preserve the distinction between exact
+subsystem dimension and a lower bound for the full intersection, and
+between the all-finite 289 theorem and the original table question.
+The statement that Erdős 406 and the pointwise exclusion remain open is
+consistent with the proved results.
+
+Relative to public baseline commit
+7fe18681b06b48dd39612776d6fbacf89858a31c, the mathematical body of old
+Sections 2-8 and the entire endpoint_bound.tex section are byte-preserved.
+This review checks preservation and integration; it does not claim a new
+line-by-line recertification of every old proof. The phrase 'For the
+version-2 bound' now accurately identifies the old verification material.
+
+The author remains solely Timofei Iuzhakov. The title and BibTeX key
+ iuzhakov2026cantorquotients
+are preserved. Version/date metadata identify v3.0.0 on 12 November 2026,
+and the README keeps the earlier version history and citation guidance.
+The 24-page README description was confirmed as the final source change;
+PDF build and visual inspection belong to the release coordinator's checks,
+not to the mathematical source review reported here.
+
+Both new verification programs were read. The 289 checker reconstructs the
+graph and verifies coefficient identities, with negative controls; the
+family checker verifies symbolic identities and supplementary digit cases.
+The finite examples are appropriately distinguished from all-parameter
+proofs. The packaged combined_summary.json records successful returns for
+seven verification programs. I checked that all seven recorded SHA256
+values match the current programs; I do not represent the coordinator's
+seven-program run as my own independent run. My separate graph, polynomial
+and final-TeX binding checks are described above and in the selection review.
+
+No release-blocking defect remains in the reviewed mathematical sources or
+claim boundaries. Publication still depends on the coordinator completing
+its separate artifact/build/release checks. This verdict is bound to the
+following exact files; substantive changes require renewed review.
+
+4. SHA256 BINDINGS
+
+paper/family_positive_dimension.tex
+70fdf6ab340d155c218b1434eb8b5394dcd69a7d7a0b1e75239fd7e975cbba4e
+
+paper/universal_numerator.tex
+b6a297150b2151bb6ed4b569880dfa6a4318d4322a9a4e9b701cb28883a51db2
+
+paper/ternary_cantor_quotients.tex
+fc5af57111cd462ae5ba1044a48b026a5f06759e901870bd91248777b6049e3a
+
+README.md
+7a250af4056d7b84f466d31cedf8c719a40849ff7b84d7aa7058d30dc2cd9d78
+
+CHANGELOG.md
+3226d6b8236032737e12b0d8c3eae45d80f6da94fd29af4000934bf382b60304
+
+CITATION.bib
+90114787bfae8fc5495851d05a4c23419de2a1d135b2f832c99d48b3c3d735fe
+
+CITATION.cff
+5b1e43fd23379e4af7bb9ca1b49da64f1a52e8b6dcf0055d82d0d6747f15ea15
+
+code/v3/family/check.py
+22aed89acbad885cf7743daf838ac797da5cdab583bc19d4a464adc5be3ccc30
+
+code/v3/numerator/check.py
+d67310eadb542065977b10f62a0c9f511361678fde3289ce8a0ad88c2c293764
+
+code/v3/numerator/certificates/certificate_289.json
+1b60b11514aa7d0bf30fa51cf81c195a9b3cc3c85df109e0b1be76e3f6c19dc0
+

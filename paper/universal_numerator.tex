@@ -1,0 +1,281 @@
+\section{A universal polynomial quotient at 289}
+\label{numerator:section}
+
+The distinction between finite and infinite digit expansions has a second
+algebraic aspect. For nonzero polynomials $P,Q\in\Z[t]$ with coefficients
+in $\{0,1\}$, a representation $M=P(3)/Q(3)$ is called
+\emph{universal} if $Q$ divides $P$, and \emph{local} otherwise.
+This is the terminology of~\cite[Definition~1.1]{ADRS}, after removing
+any common initial power of $t$. Indeed, for $M\equiv1\pmod3$ the
+least nonzero digits of $P(3)$ and $Q(3)$ occur at the same position;
+removing these equal powers of $t$ gives constant terms~1, without
+changing polynomial divisibility. Since $Q$ is monic, divisibility
+in $\Q[t]$ is equivalent to divisibility in $\Z[t]$.
+The distinction concerns each representation, rather than just its
+integer value.
+
+The catalogue in~\cite[Section~4, pp.~24--25]{ADRS}, specifically
+arXiv version~1, leaves open the existence of a local indecomposable
+representation of~289. We answer this question by proving a stronger
+statement about all finite representations, without an indecomposability
+restriction.
+
+\begin{theorem}[A common polynomial quotient for every representation]
+\label{numerator:main}
+Put
+\[
+ h(t)=1-t^2-t^3+t^4+t^5.
+\]
+For all nonzero polynomials $P,Q\in\Z[t]$ with coefficients in
+$\{0,1\}$,
+\begin{equation}\label{numerator:eq:universal}
+ P(3)=289Q(3)\quad\Longrightarrow\quad P(t)=h(t)Q(t).
+\end{equation}
+In particular, every finite representation of~289 is universal, and
+there is no local representation of~289.
+\end{theorem}
+
+\subsection{Returning carry paths and polynomial potentials}
+
+We give the finite certificate and its all-length interpretation
+explicitly. Let $M>1$ and $M\equiv1\pmod3$. An input digit $a$ and an
+output digit $b$ in $\{0,1\}$ give the carry transition
+\begin{equation}\label{numerator:eq:carry}
+ 3c'=c+Ma-b,\qquad c_0=0.
+\end{equation}
+Along a path, induction gives
+\begin{equation}\label{numerator:eq:invariant}
+ 3^j c_j=M\sum_{i<j}a_i3^i-\sum_{i<j}b_i3^i.
+\end{equation}
+All reachable carries are nonnegative: the only negative numerator
+possible from $c\ge0$ is $c=a=0,b=1$, and it is not divisible by~3.
+The invariant also gives $c_j<M/2$, since
+$\sum_{i<j}a_i3^i\le(3^j-1)/2$.
+For each nonnegative carry all integral transitions are exactly
+\begin{equation}\label{numerator:eq:all-edges}
+\begin{array}{c|l}
+ c\pmod3 & (a,b,c')\\\hline
+ 0 &(0,0,c/3),\quad(1,1,(c+M-1)/3),\\
+ 1 &(0,1,(c-1)/3),\\
+ 2 &(1,0,(c+M)/3).
+\end{array}
+\end{equation}
+These are obtained by checking the four digit pairs modulo~3.
+
+Every finite pair $P(3)=M Q(3)$, padded with high zero digits to a
+common length $n$, determines a path from~0 to~0: its carries are
+integers because each prefix difference is divisible by $3^j$.
+Conversely, a path from~0 to~0 gives this integer equality by
+\eqref{numerator:eq:invariant}. At least one input digit is~1 exactly
+when the witness is positive.
+
+\begin{lemma}[Polynomial potential certificate]
+\label{numerator:potential}
+Suppose $S$ contains every state on every path from~0 back to~0.
+Let $h\in\Z[t]$ satisfy $h(3)=M$. Suppose polynomials
+$H_c\in\Z[t]$, for $c\in S$, satisfy $H_0=0$ and
+\begin{equation}\label{numerator:eq:potential}
+ tH_{c'}=H_c+a h-b
+\end{equation}
+on every transition $c\xrightarrow{a,b}c'$ inside $S$.
+Then every finite witness satisfies $P=hQ$.
+\end{lemma}
+\begin{proof}
+Multiply \eqref{numerator:eq:potential} on the $j$th edge by $t^j$
+and sum along a returning path of length~$n$. The potentials telescope:
+\[
+ t^nH_{c_n}-H_{c_0}
+   =h\sum_{j<n}a_jt^j-\sum_{j<n}b_jt^j.
+\]
+The left side is zero. This is an identity in $\Z[t]$ for each finite
+$n$, with no bound on the witness length.
+\end{proof}
+
+\subsection{The complete certificate for 289}
+
+For $M=289$, define the disjoint sets
+\begin{align*}
+ S={}&\{0,1,4,11,12,32,33,37,44,48,96,100,107,111,112,\\
+     &\hspace{18mm}132,133,140,143,144\},\\
+ D={}&\{5,14,15,16,43,46,98,101,128,129,130,139\}.
+\end{align*}
+Table~\ref{numerator:tab:certificate} lists all transitions out of
+$S\cup D$, using \eqref{numerator:eq:all-edges}, and gives the
+polynomials $H_c$ on~$S$. A dash marks a state in~$D$.
+Every listed destination is in $S\cup D$, so this set contains all
+states reachable from~0. Every transition out of $D$ stays in $D$,
+and $0\notin D$. Consequently a returning path cannot enter $D$;
+it stays in $S$.
+
+\begin{table}[tbp]
+\centering
+\small
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{rll}
+\toprule
+Carry $c$ & Potential $H_c(t)$ & All transitions $(a,b):c'$\\
+\midrule
+0 & $0$ & $(0,0):0;\quad (1,1):96$ \\
+1 & $1$ & $(0,1):0$ \\
+4 & $1+t$ & $(0,1):1$ \\
+5 & $\text{--}$ & $(1,0):98$ \\
+11 & $-1+t+t^{2}$ & $(1,0):100$ \\
+12 & $t+t^{2}$ & $(0,0):4;\quad (1,1):100$ \\
+14 & $\text{--}$ & $(1,0):101$ \\
+15 & $\text{--}$ & $(0,0):5;\quad (1,1):101$ \\
+16 & $\text{--}$ & $(0,1):5$ \\
+32 & $-1-t+t^{2}+t^{3}$ & $(1,0):107$ \\
+33 & $-t+t^{2}+t^{3}$ & $(0,0):11;\quad (1,1):107$ \\
+37 & $1+t^{2}+t^{3}$ & $(0,1):12$ \\
+43 & $\text{--}$ & $(0,1):14$ \\
+44 & $-1+2t^{2}+t^{3}$ & $(1,0):111$ \\
+46 & $\text{--}$ & $(0,1):15$ \\
+48 & $t+2t^{2}+t^{3}$ & $(0,0):16;\quad (1,1):112$ \\
+96 & $-t-t^{2}+t^{3}+t^{4}$ & $(0,0):32;\quad (1,1):128$ \\
+98 & $\text{--}$ & $(1,0):129$ \\
+100 & $1-t^{2}+t^{3}+t^{4}$ & $(0,1):33$ \\
+101 & $\text{--}$ & $(1,0):130$ \\
+107 & $-1+t^{3}+t^{4}$ & $(1,0):132$ \\
+111 & $t+t^{3}+t^{4}$ & $(0,0):37;\quad (1,1):133$ \\
+112 & $1+t+t^{3}+t^{4}$ & $(0,1):37$ \\
+128 & $\text{--}$ & $(1,0):139$ \\
+129 & $\text{--}$ & $(0,0):43;\quad (1,1):139$ \\
+130 & $\text{--}$ & $(0,1):43$ \\
+132 & $-t+2t^{3}+t^{4}$ & $(0,0):44;\quad (1,1):140$ \\
+133 & $1-t+2t^{3}+t^{4}$ & $(0,1):44$ \\
+139 & $\text{--}$ & $(0,1):46$ \\
+140 & $-1-t+t^{2}+2t^{3}+t^{4}$ & $(1,0):143$ \\
+143 & $-1+t^{2}+2t^{3}+t^{4}$ & $(1,0):144$ \\
+144 & $t^{2}+2t^{3}+t^{4}$ & $(0,0):48;\quad (1,1):144$ \\
+\bottomrule
+\end{tabular}
+\caption{A closed carry certificate for $M=289$. The 32 rows list
+all 42 edges out of the displayed states. Potentials are assigned
+exactly on $S$; the other 12 states form the closed set $D$.}
+\label{numerator:tab:certificate}
+\end{table}
+
+For each of the 26 edges with both endpoints in $S$, the displayed
+polynomials satisfy \eqref{numerator:eq:potential}. This is checked
+by subtracting the two sides coefficient by coefficient, with
+$h=1-t^2-t^3+t^4+t^5$. For example, the edges from~0, 4 and~144 give
+\[
+ tH_{96}=h-1,\qquad tH_1=H_4-1,\qquad
+ tH_{144}=H_{144}+h-1.
+\]
+The table is therefore a finite, explicit certificate for every
+hypothesis of Lemma~\ref{numerator:potential}. Merely checking
+$H_c(3)=c$ would not suffice; the full polynomial identities are the
+input to the lemma.
+
+\begin{proof}[Proof of Theorem~\ref{numerator:main}]
+We have $h(3)=289$ and $H_0=0$. The preceding closure checks show that
+all returning paths stay in~$S$, and the table verifies the potential
+identity on every edge they can use. Apply
+Lemma~\ref{numerator:potential}.
+\end{proof}
+
+The theorem is not vacuous. Direct multiplication gives
+\begin{equation}\label{numerator:eq:witness}
+ (1-t^2-t^3+t^4+t^5)(1+t^2+t^3+t^5)
+       =1+t^7+t^9+t^{10},
+\end{equation}
+which at $t=3$ is $289\cdot280=80920$.
+The accompanying verifier independently constructs all allowable
+transitions in the a priori range $0\le c\le144$, checks closure and
+all polynomial coefficients, and checks \eqref{numerator:eq:witness}.
+Its tests of additional long returning paths are regression tests;
+the all-length conclusion follows from the displayed certificate and
+telescoping argument.
+
+\subsection{An explicit family of local finite representations}
+
+The same polynomial viewpoint produces a family for which a specified
+representation is local. To distinguish it from the sporadic family
+$M_k$ in Theorem~\ref{thm:family}, write
+\[
+ N_k=4\cdot3^k-2\qquad(k\ge1).
+\]
+
+\begin{theorem}[Explicit finite witnesses]
+\label{numerator:local-family}
+For every $k\ge1$, $N_k\in\mathcal V$. There are $0,1$ polynomials
+$P_k,Q_k$ with
+\[
+ P_k(3)=N_k Q_k(3),\qquad
+ \deg Q_k=k^2-1,\qquad\deg P_k=k(k+1).
+\]
+For $k\ge2$, the representation specified below is local.
+\end{theorem}
+\begin{proof}
+Set
+\begin{equation}\label{numerator:eq:q-family}
+ Q_k(t)=\sum_{j=0}^{k-1}t^{(k+1)j}
+                         \sum_{i=0}^{k-j-1}t^i.
+\end{equation}
+The exponent intervals in the outer sum are disjoint, and the final
+one ends at $(k+1)(k-1)=k^2-1$. Thus $Q_k$ is a $0,1$ polynomial
+of the asserted degree, with constant term~1.
+For $k=1$, take $P_1=1+t^2$ and $Q_1=1$.
+For $k\ge2$, put $n=k(k+1)$ and set
+\begin{equation}\label{numerator:eq:p-family}
+ P_k(t)=1+\sum_{i=2}^{k}t^{ki}
+       +\sum_{j=1}^{k-2}t^{k+(k+1)j}+t^{n-1}+t^n.
+\end{equation}
+The exponents in the second sum have distinct nonzero residues
+$1,\ldots,k-2$ modulo~$k$; the exponents in the first sum are
+multiples of~$k$. The final two exponents exceed all preceding ones.
+Hence all displayed exponents are distinct, so $P_k$ is also a
+$0,1$ polynomial, of degree~$n$.
+
+Write $S_k(t)=\sum_{i=0}^{k-1}t^i$. Shifting the blocks in
+\eqref{numerator:eq:q-family} and subtracting successive blocks gives
+\begin{equation}\label{numerator:eq:telescoping-one}
+ (t^{k+1}-1)Q_k=\sum_{i=2}^{k+1}t^{ki}-S_k.
+\end{equation}
+A second identity is
+\begin{equation}\label{numerator:eq:telescoping-two}
+ (t^k-1)Q_k=\sum_{j=0}^{k-1}t^{k+(k+1)j}-S_k.
+\end{equation}
+For completeness, multiplying \eqref{numerator:eq:q-family} by $t-1$
+gives
+\[
+ (t-1)Q_k=\sum_{i=1}^{k}t^{ki}
+                     -\sum_{j=0}^{k-1}t^{(k+1)j}.
+\]
+Multiplication by $t^k-1$, followed by
+\[
+ (t^k-1)\sum_{i=1}^{k}t^{ki}=t^{k(k+1)}-t^k,
+ \qquad
+ (t^{k+1}-1)\sum_{j=0}^{k-1}t^{(k+1)j}=t^{k(k+1)}-1,
+\]
+proves \eqref{numerator:eq:telescoping-two} after cancellation of the
+nonzero polynomial $t-1$.
+Adding \eqref{numerator:eq:telescoping-one} and
+\eqref{numerator:eq:telescoping-two}, and separating their extreme
+terms, now gives
+\begin{equation}\label{numerator:eq:division}
+ \begin{split}
+ P_k&=(t^{k+1}+t^k-2)Q_k+R_k,\\
+ R_k&=3+2\sum_{i=1}^{k-1}t^i-t^k.
+ \end{split}
+\end{equation}
+At $t=3$, the remainder is zero, so
+$P_k(3)=(4\cdot3^k-2)Q_k(3)$.
+But $R_k$ is a nonzero polynomial with
+$\deg R_k=k<k^2-1=\deg Q_k$ for every $k\ge2$.
+Thus \eqref{numerator:eq:division} is polynomial division with a
+nonzero remainder. The displayed representation is local.
+\end{proof}
+
+\begin{remark}[Scope of the two conclusions]
+Theorem~\ref{numerator:main} determines the type of \emph{every}
+representation of one integer. Theorem~\ref{numerator:local-family}
+constructs \emph{one} representation for each member of an infinite
+family; it does not exclude other universal representations or claim
+minimal witness length. The output length is $k(k+1)+1$, hence
+$O((\log N_k)^2)$ on this family. Since the family has only
+$O(\log X)$ members up to~$X$, this construction does not improve
+the counting exponent of Theorem~\ref{ep:main}. Neither conclusion
+proves the finiteness of good powers of two.
+\end{remark}

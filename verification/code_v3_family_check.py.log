@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "symbolic_polynomial_identities": 7,
+  "scope": "Symbolic identities prove all k with digit-pattern argument; finite digitwise checks are supplemental.",
+  "samples": [
+    {
+      "k": 0,
+      "M": 601,
+      "prefix_length": 10,
+      "loop_lengths": [
+        3,
+        12
+      ],
+      "simple_lower_bound": 0.0420619835714305,
+      "moran_lower_bound": 0.09778536653173253
+    },
+    {
+      "k": 1,
+      "M": 50281,
+      "prefix_length": 20,
+      "loop_lengths": [
+        7,
+        18
+      ],
+      "simple_lower_bound": 0.025237190142858298,
+      "moran_lower_bound": 0.054329634404055194
+    },
+    {
+      "k": 2,
+      "M": 4074361,
+      "prefix_length": 32,
+      "loop_lengths": [
+        11,
+        30
+      ],
+      "simple_lower_bound": 0.015388530574913595,
+      "moran_lower_bound": 0.033425900657704746
+    },
+    {
+      "k": 3,
+      "M": 330024841,
+      "prefix_length": 44,
+      "loop_lengths": [
+        15,
+        42
+      ],
+      "simple_lower_bound": 0.011068943045113288,
+      "moran_lower_bound": 0.024143063151327485
+    },
+    {
+      "k": 4,
+      "M": 26732013721,
+      "prefix_length": 56,
+      "loop_lengths": [
+        19,
+        54
+      ],
+      "simple_lower_bound": 0.008642873336595308,
+      "moran_lower_bound": 0.01889650784574675
+    },
+    {
+      "k": 5,
+      "M": 2165293113001,
+      "prefix_length": 68,
+      "loop_lengths": [
+        23,
+        66
+      ],
+      "simple_lower_bound": 0.0070890983547354765,
+      "moran_lower_bound": 0.015523466798031973
+    }
+  ]
+}

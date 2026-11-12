@@ -1,5 +1,18 @@
 # Manuscript versions
 
+## v3.0.0 — 12 November 2026
+
+**24 pages.** Expanded version of the same article by **Timofei Iuzhakov**. The title and citation key **`iuzhakov2026cantorquotients`** remain unchanged. The complete earlier proofs and their theorem numbers are retained.
+
+- **Section 10:** positive Hausdorff dimension for every member of the nonquotient family `621*3^(4k)-20`. Two explicit return cycles give a quantitative lower bound, defined by an exact root equation. That root is the dimension of the constructed subsystem, not an asserted exact dimension of the full intersection.
+- **Section 11:** every finite representation of 289 is universal, with the same polynomial quotient `1-t^2-t^3+t^4+t^5`. This answers the local-289 question in the table of Anders–Dawsey–Reznick–Sisneros-Thiry, arXiv:2308.07252v1, §4. The all-length proof includes the complete finite carry and polynomial-potential certificate.
+- **Section 11:** explicit local representations for `4*3^k-2`, for every `k>=2`, together with the `k=1` witness. The numerator has `k(k+1)+1` digits. This is a construction, not a minimality theorem or an improved counting exponent.
+- Two new verification programs accompany the earlier five. Separate internal critics review the final English proof sources, graph completeness, all-parameter formulas and attribution.
+
+The counting exponent remains 0.691726633148796…. Strict inclusion of finite-witness multipliers in positive-dimensional multipliers was known; the new statement is for this specified sporadic family. No worldwide priority claim, full multiplier classification or solution of Erdős Problem 406 is asserted.
+
+[PDF](https://github.com/ppadfoot/ternary-cantor-quotients/releases/download/v3.0.0/ternary_cantor_quotients.pdf) · [Release](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v3.0.0) · [Reviews](audit/v3/README.md)
+
 ## v2.0.0 — 8 November 2026
 
 Updated version of the same article, **Integer quotients of ternary Cantor numbers: a power lower bound and an infinite exceptional family**, by **Timofei Iuzhakov**. Citation key: `iuzhakov2026cantorquotients`.

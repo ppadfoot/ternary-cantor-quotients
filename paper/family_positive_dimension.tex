@@ -1,0 +1,284 @@
+\section{Positive dimension for the sporadic family}
+\label{familypos:section}
+
+The absence of a positive finite integer witness does not imply that
+the corresponding $3$-adic intersection has dimension zero. We now
+determine this distinction for every multiplier in
+Theorem~\ref{thm:family}. Put
+\[
+ M_k=621\cdot3^{4k}-20,\qquad
+ (m_k,L_k)=
+ \begin{cases}(3,12),&k=0,\\(4k+3,12k+6),&k\ge1.\end{cases}
+\]
+We use $\mathcal H=\{M\in\N:\dim_H C(1,M)>0\}$ for the
+multiplier set counted by $\MH(X)$; $\mathcal V$ remains the set
+of positive finite-integer quotients counted by $\MC(X)$.
+
+\begin{theorem}[Dimension of an explicit subsystem]
+\label{familypos:main}
+For every $k\ge0$, let $d_k>0$ be the unique solution of
+\begin{equation}\label{familypos:eq:root}
+             3^{-m_kd_k}+3^{-L_kd_k}=1.
+\end{equation}
+There is a compact subset of $C(1,M_k)$ of Hausdorff dimension
+exactly $d_k$. Consequently
+\[
+             \dim_H C(1,M_k)\ge d_k>0,
+             \qquad M_k\in\mathcal H\setminus\mathcal V.
+\]
+If $\vartheta>1$ is the positive root of
+$\vartheta^4-\vartheta^3-1=0$, then
+\begin{equation}\label{familypos:eq:theta}
+ d_k\ge\frac{\log_3\vartheta}{m_k},
+\end{equation}
+with equality for $k=0$ and strict inequality for $k\ge1$.
+\end{theorem}
+
+The exact value in~\eqref{familypos:eq:root} concerns the constructed
+subsystem, not all of $C(1,M_k)$. The conclusion that these multipliers
+are not finite-integer quotients uses Theorem~\ref{thm:family}; the
+positive-dimension construction below is independent of its proof.
+The distinction between positive dimension and finite witnesses is
+already present in Lagarias's work~\cite{Lagarias}, including the
+example $M=52$. Our assertion is the explicit construction and
+dimension bound for this particular sporadic family proposed
+in~\cite[\S1.4]{BMRS}.
+
+\subsection{Words and carry paths}
+
+In this section a word $w=w_0\cdots w_{\ell-1}$ is written
+\emph{least significant digit first}, with
+\[
+ |w|=\ell,\qquad [w]=\sum_{j=0}^{\ell-1}w_j3^j.
+\]
+Juxtaposition denotes concatenation, so $[uv]=[u]+3^{|u|}[v]$.
+All displayed input and output words have digits in $\{0,1\}$.
+A carry transition for multiplication by $M\in\N$ is
+\begin{equation}\label{familypos:eq:carry}
+             Ma_j+c_j=b_j+3c_{j+1}.
+\end{equation}
+
+\begin{lemma}[An integer identity certifies a path]
+\label{familypos:lem:path}
+Let $c,d\ge0$ be integers, and let $w,v$ be binary words of
+the same length $\ell$. If
+\begin{equation}\label{familypos:eq:path}
+                 M[w]+c=[v]+3^\ell d,
+\end{equation}
+then digitwise multiplication gives an admissible path from carry
+$c$ to carry $d$, with input $w$ and output $v$.
+\end{lemma}
+
+\begin{proof}
+Reduction modulo $3$ identifies the first output digit with $v_0$.
+Since $Mw_0+c\ge0$, the quotient after removing this residue is a
+nonnegative integer. Subtract the first-digit equality from
+\eqref{familypos:eq:path} and divide by $3$. Repetition proves the
+claim at every digit, including the prescribed final carry.
+\end{proof}
+
+Suppose a fixed admissible prefix from carry $0$ reaches $c$, and
+two words $A,B$ return $c$ to itself. Any infinite concatenation of
+these two words, appended to the prefix, is an admissible input
+$x\in\Sigma$. Its output digits also lie in $\{0,1\}$, and they
+represent $Mx$: telescoping~\eqref{familypos:eq:carry} through the
+first $n$ digits leaves the error $3^nc_n$, which tends to zero in
+$\Z_3$ because $c_n$ is an integer. Thus the whole construction
+lies in $C(1,M)$. It is essential here that the return carry is
+reachable from $0$.
+
+\subsection{The initial multiplier}
+
+For $k=0$ we have $M_0=601$. Take $c=69$ and the following paths:
+\[
+\begin{array}{c|c|c|c}
+ &\text{input}&\text{output}&\text{carries}\\\hline
+ \text{prefix}&1110010010&1011001101&0\longrightarrow69\\
+ A&010&001&69\longrightarrow69\\
+ B&101110010010&110101101101&69\longrightarrow69
+\end{array}
+\]
+The respective input values are $6817,3,61354$, and the output
+values are $22636,9,204394$. The three exact identities are
+\begin{align*}
+ 601\cdot6817&=22636+69\cdot3^{10},\\
+ 601\cdot3+69&=9+69\cdot3^3,\\
+ 601\cdot61354+69&=204394+69\cdot3^{12}.
+\end{align*}
+Lemma~\ref{familypos:lem:path} therefore supplies a reachable
+carry with two return words of lengths $3$ and $12$, starting
+with different digits.
+
+\subsection{A reachable carry for every positive parameter}
+
+Fix $k\ge1$ and write
+\[
+ t=81^k,\quad m=4k+3,\quad L=12k+6,\quad
+ M=621t-20=23\cdot3^m-20,\quad c=69t.
+\]
+The prefix
+\begin{equation}\label{familypos:eq:prefix}
+        P=(1100)^k\,111\,0^{4k}\,1\,0^{4k+2}
+\end{equation}
+has length $L$. Its value is
+\[
+ p=[P]=\frac{t-1}{20}+13t+27t^2
+       =\frac{540t^2+261t-1}{20}.
+\]
+Using $3^L=729t^3$, direct multiplication gives
+\begin{equation}\label{familypos:eq:prefix-output}
+ q:=Mp-23\cdot3^L
+      =\frac{151281t^2-5841t+20}{20}.
+\end{equation}
+We next verify that $q$ is the value of a binary ternary word of
+length $L$, allowing zeros at its high end. For $k=1$, its base-$81$
+digits in least-significant-first order are
+\[
+                         (1,36,27,12,1).
+\]
+For $k\ge2$ they are
+\[
+ \bigl(1,\underbrace{0,\ldots,0}_{k-1},36,0,
+       \underbrace{4,\ldots,4}_{k-2},31,12,1\bigr).
+\]
+Indeed, the latter digit list is the identity
+\begin{align*}
+ q={}&1+36\cdot81^k
+       +4\sum_{j=k+2}^{2k-1}81^j\\
+    &+31\cdot81^{2k}+12\cdot81^{2k+1}+81^{2k+2},
+\end{align*}
+which follows from the geometric sum formula and
+\eqref{familypos:eq:prefix-output}; an empty sum is zero.
+Every listed base-$81$ digit belongs to
+$\{0,1,4,12,27,31,36\}$ and hence has four ternary digits
+in $\{0,1\}$ after padding. The highest nonzero base-$81$ digit
+is $1$ in position $2k+2$, so the ternary length is at most
+$8k+9\le L$. Thus $P$ reaches carry $23$.
+
+The input $10$ with output $01$ then reaches $c$, since
+\begin{equation}\label{familypos:eq:entry}
+                  M+23=3+9c.
+\end{equation}
+Consequently the binary prefix $P10$ reaches $c=69t$ from the
+initial carry $0$.
+
+\subsection{Two return cycles}
+
+The short cycle is
+\[
+ A=0^{m-2}10,\qquad |A|=m,\qquad [A]=3^{m-2}=3t.
+\]
+Its output is $0^{m-1}1$, because
+\begin{equation}\label{familypos:eq:short-cycle}
+                    M[A]+c=3^{m-1}+3^mc.
+\end{equation}
+For the long cycle, put
+\begin{equation}\label{familypos:eq:long-word}
+ B=(1100)^{k-1}\,11010110\,(0110)^{k-1}\,01\,
+                              0^{4k+2}\,10.
+\end{equation}
+The lengths of its six successive pieces sum to $L$. To compute
+its value, write $r=81^{k-1}=t/81$ and use concatenation:
+\begin{align*}
+ b=[B]
+   &=\frac{r-1}{20}+1003r
+      +\frac{19683}{20}r(r-1)+3t^2+81t^3\\
+   &=81t^3+\frac{63}{20}t^2+\frac7{30}t-\frac1{20}.
+\end{align*}
+Here $[11010110]=1003$ and $[0110]=12$; the two geometric
+sums account for the repeated four-digit pieces.
+The required output value is
+\begin{equation}\label{familypos:eq:long-output}
+ z:=Mb+c-3^Lc
+       =\frac{20169t^3+4914t^2+1997t+60}{60}.
+\end{equation}
+For every $k\ge1$, the geometric sum formula gives the exact
+base-$81$ expression
+\begin{align*}
+ z={}&1+27\cdot81^{k-1}+37\cdot81^k
+      +4\sum_{j=k+1}^{2k-1}81^j\\
+    &+13\cdot81^{2k}+13\cdot81^{2k+1}
+      +12\sum_{j=2k+2}^{3k}81^j+4\cdot81^{3k+1}.
+\end{align*}
+For $k\ge2$ the nonoverlapping terms give the digit list
+\[
+ \bigl(1,\underbrace{0,\ldots,0}_{k-2},27,37,
+       \underbrace{4,\ldots,4}_{k-1},13,13,
+       \underbrace{12,\ldots,12}_{k-1},4\bigr).
+\]
+For $k=1$ only the first two terms overlap, combining to $28$;
+the list is $(28,37,13,13,4)$. All the digits in either list
+belong to $\{0,1,4,12,13,27,28,37\}$, each of which has only
+$0,1$ as ternary digits. The highest digit $4=(11)_3$ is in
+base-$81$ position $3k+1$ and occupies ternary positions
+$L-2,L-1$. Therefore $z<3^L$ and $z$ is a valid length-$L$
+output word.
+
+Lemma~\ref{familypos:lem:path}, applied to
+\eqref{familypos:eq:short-cycle} and
+\eqref{familypos:eq:long-output}, proves that both $A$ and $B$
+return to $c$. Their first digits are respectively $0$ and $1$.
+These identities and digit patterns apply to all $k\ge1$; no
+extrapolation from finitely many carry graphs is used.
+
+\subsection{Dimension of the return-word construction}
+
+We give the dimension argument explicitly, including the differing
+word lengths. For either construction above, let $K\subset\Z_3$
+be the set of all infinite concatenations of $A$ and $B$ without
+the fixed entry prefix. This is compact, and
+\[
+        K=([A]+3^mK)\ \cup\ ([B]+3^LK).
+\]
+The two pieces have different first ternary digits. In particular,
+the two-word code is prefix-free, its infinite addresses are
+unique, and these similarities have disjoint images on $K$.
+Let $d>0$ solve $3^{-md}+3^{-Ld}=1$. Existence and uniqueness
+follow from strict monotonicity: the left side decreases from
+$2$ to $0$ as $d$ increases from $0$ to infinity.
+
+Give the independent choices $A,B$ probabilities $3^{-md}$ and
+$3^{-Ld}$. The induced measure $\mu$ on $K$ assigns mass
+$3^{-ds}$ to an address cylinder whose completed blocks have
+total ternary length $s$. Consider a $3$-adic ball of radius
+$3^{-n}$ that meets $K$, so its first $n$ ternary digits are
+fixed. The distinct first digits of $A$ and $B$ allow one to
+parse from these digits every completed block before depth $n$.
+That completed-block prefix is shared by all addresses in the
+ball. Its length $s$ satisfies $s\ge n-L$, since each block
+has length at most $L$. Hence
+\begin{equation}\label{familypos:eq:mass}
+                \mu(B)\le3^{-ds}\le3^{dL}3^{-dn}.
+\end{equation}
+The mass distribution principle yields $\dim_H K\ge d$.
+
+For the reverse inequality, stop each address at the first
+completed block of total length at least $n$. The stopped
+lengths lie in $[n,n+L-1]$. These finitely many address cylinders
+partition the address space, so the sum of their masses is $1$.
+Their image diameters are at most $3^{-s}$, and thus the sum
+of the $d$th powers of those diameters is at most $1$.
+They cover $K$ at arbitrarily small scales. It follows that
+$\mathcal H^d(K)\le1$ and $\dim_H K\le d$.
+
+Appending the reachable entry prefix maps $K$ by a fixed
+$3$-adic similarity into $C(1,M_k)$, and therefore preserves
+its dimension. We have proved the subsystem assertion in
+Theorem~\ref{familypos:main}; Theorem~\ref{thm:family} supplies
+$M_k\notin\mathcal V$.
+
+Finally $L_k\le4m_k$, with equality only for $k=0$.
+Since $\vartheta^{-1}+\vartheta^{-4}=1$, at
+$d=(\log_3\vartheta)/m_k$ the left side of
+\eqref{familypos:eq:root} is at least $1$, and is strictly
+larger for $k\ge1$. Monotonicity proves
+\eqref{familypos:eq:theta} and its asserted strictness.
+
+\begin{remark}[Scope]
+This result describes an explicit positive-dimensional subset for
+every member of the sporadic nonquotient family. Its lower bound
+depends on $k$; no uniform positive lower bound or exact dimension
+of the full intersection is asserted. It neither determines the
+sharp asymptotics of $\MC(X)$ nor excludes the point $1$ from
+the exceptional set for powers of two.
+\end{remark}

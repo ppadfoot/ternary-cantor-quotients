@@ -26,6 +26,16 @@
       "program": "certificate/history_model_verifier.py",
       "returncode": 0,
       "sha256": "42e15b7967d38cae107d6960914e35836da1ed9459c95119c294afbc27ec8d6a"
+    },
+    {
+      "program": "code/v3/family/check.py",
+      "returncode": 0,
+      "sha256": "22aed89acbad885cf7743daf838ac797da5cdab583bc19d4a464adc5be3ccc30"
+    },
+    {
+      "program": "code/v3/numerator/check.py",
+      "returncode": 0,
+      "sha256": "d67310eadb542065977b10f62a0c9f511361678fde3289ce8a0ad88c2c293764"
     }
   ]
 }

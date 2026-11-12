@@ -15,6 +15,7 @@
 \newcommand{\D}{\mathcal D}
 \newcommand{\T}{\mathbb T}
 \newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
 \newcommand{\N}{\mathbb N}
 \newcommand{\MC}{M_{\mathrm C}}
 \newcommand{\MH}{M_{\mathrm H}}
@@ -30,14 +31,13 @@
 \title{Integer quotients of ternary Cantor numbers:\\
 a power lower bound and an infinite exceptional family}
 \author{Timofei Iuzhakov}
-\date{8 November 2026\\Version 2.0.0}
+\date{12 November 2026\\Version 3.0.0}
 \begin{document}
 \maketitle
 
 \begin{abstract}
 Let $\D$ be the nonnegative integers whose ternary digits belong to
-$\{0,1\}$. We prove two results about positive integer quotients of
-members of $\D$. First, the number $\MC(X)$ of integers $1\le M\le X$
+$\{0,1\}$. We study positive integer quotients of members of $\D$. First, the number $\MC(X)$ of integers $1\le M\le X$
 with $N,MN\in\D$ for some positive integer $N$ satisfies
 \[
  \MC(X)\gg X^{\beta_*},\qquad
@@ -57,10 +57,17 @@ is infinite. The first proof combines Fourier sampling over
 Cantor-restricted denominators with a finite-word Fibonacci estimate
 and a sum over $3$-adic distances. The second constructs an explicit
 predecessor-closed carry certificate of $38k+50$ states for $k\ge1$,
-with a separate certificate for $k=0$. The original proofs and the new improvement are given in full.
+with a separate certificate for $k=0$. The original proofs and the version-2 improvement are retained in full.
+Version 3 proves that every member of this nonquotient family nevertheless
+has a positive-dimensional $3$-adic Cantor intersection, with an explicit
+lower bound given by two return cycles of unequal lengths.
+It also proves that every finite representation of $289$ has the same
+polynomial quotient $1-t^2-t^3+t^4+t^5$, answering the local-representation
+question in the specified version of Anders--Dawsey--Reznick--Sisneros-Thiry.
+An explicit family of local representations completes the new section.
 \end{abstract}
 
-\section{The quotient problem and the two main results}
+\section{The quotient problem and the main results}
 
 \paragraph{Version history.}
 Version 1 (6 November 2026) established Theorems~\ref{thm:power}
@@ -70,6 +77,11 @@ raising the exponent from $0.6660585297\ldots$ to
 $0.691726633148796\ldots$ without an epsilon loss.
 The article title, sole author, and citation key
 \texttt{iuzhakov2026cantorquotients} are unchanged.
+Version 3 (12 November 2026) adds the positive-dimension theorem for the
+same sporadic family in Section~\ref{familypos:section}, and the
+universal-numerator theorem for $289$, with an explicit local family,
+in Section~\ref{numerator:section}. These additions do not change the
+counting exponent. Earlier releases retain their own manuscripts and dates.
 The sharp growth of $\MC$ and Erd\H{o}s Problem 406 remain open here.
 
 
@@ -173,7 +185,7 @@ register with a carry in a fixed set of $22$ integers. An explicit
 predecessor-closed set separates the initial state from the only
 nontrivial predecessor of an accepting state.
 
-\subsection{Relation between the two arguments}
+\subsection{Relation between the arguments}
 
 The quotient problem is also studied directly by Anders, Dawsey,
 Reznick and Sisneros-Thiry~\cite{ADRS}. Multiplicative intersections
@@ -182,12 +194,16 @@ of our counting proof is related to work on the distribution of
 integers with missing digits~\cite{Konyagin,MS}, but no external
 uniformity estimate is used without proof.
 
-The two main theorems are logically independent. The first proves
+The two original main theorems are logically independent. The first proves
 abundance among all positive integers; the second gives specified
 integers which fail to be quotients despite the elementary necessary
 conditions. The exceptional family is not a matching upper bound for
 $\MC(X)$, and its nonrepresentation does not by itself determine
 $\dim_H C(1,M)$ for those multipliers.
+Section~\ref{familypos:section} supplies a separate explicit positive-dimension
+construction for every member of the family. Section~\ref{numerator:section}
+then studies universal and local finite representations through polynomial
+carry potentials.
 
 Neither theorem concerns the number of exponents $n$ for which
 $2^n\in\D$. In particular, neither proves the pointwise assertion in
@@ -843,9 +859,24 @@ that $\F$ is infinite.
 \end{proof}
 
 \input{endpoint_bound.tex}
+\input{family_positive_dimension.tex}
+\input{universal_numerator.tex}
 \section{Verification and scope}
 
-For the new bound, \texttt{code/endpoint/run\_checks.py} independently
+The two new sections received independent internal mathematical reviews
+of their final English sources. The family
+program checks seven exact symbolic identities and digitwise examples;
+the all-parameter dimension argument is supplied in the text. The
+numerator program independently reconstructs the complete reachable
+carry graph, verifies the nonreturn component and every coefficient of
+all internal polynomial-potential identities. It also tests the explicit
+local family. The finite graph certificate, together with telescoping,
+covers returning paths of every length; sampling long paths alone would
+not establish this conclusion. The older proof sections and their review
+records retain their original scope.
+
+
+For the version-2 bound, \texttt{code/endpoint/run\_checks.py} independently
 recomputes the exact 113-state energy forwards and backwards, checks
 the integer sign certificates, and tests block lifting, affine tails,
 and endpoint algebra. These are finite inputs and consistency checks;
@@ -920,8 +951,8 @@ Integers \textbf{22} (2022), A96.
 \bibitem{ADRS}
 K. Anders, M. L. Dawsey, B. Reznick and S. Sisneros-Thiry,
 \emph{Representations of integers as quotients of sums of distinct powers
-of three}, preprint, 2023.
-\url{https://arxiv.org/abs/2308.07252}.
+of three}, arXiv:2308.07252v1, 14 August 2023.
+\url{https://arxiv.org/abs/2308.07252v1}.
 \bibitem{Konyagin}
 S. Konyagin,
 \emph{Arithmetic properties of integers with missing digits:

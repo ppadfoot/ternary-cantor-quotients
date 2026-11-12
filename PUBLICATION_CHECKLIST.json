@@ -1,15 +1,63 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
+  "date": "2026-11-12",
   "author": "Timofei Iuzhakov",
   "citation_key": "iuzhakov2026cantorquotients",
   "same_article_title": true,
-  "v1_release_preserved": true,
-  "v1_proof_sections_2_to_8_byte_identical": true,
-  "new_result": "Theorem 9.1: exponent (1+s)^2/(7-5s), no epsilon loss",
-  "focused_internal_review": "PASS",
-  "five_verification_programs": "PASS",
-  "pdf_pages": 16,
-  "pdf_visual_check": "PASS: all 16 pages rendered, full contact sheet and detailed title/certificate inspection",
+  "v1_v2_releases_preserved": true,
+  "retained_proof_sections_2_to_8_byte_identical": true,
+  "retained_endpoint_section_9_byte_identical": true,
+  "old_theorem_numbers_preserved": true,
+  "new_results": [
+    "Theorem10.1: positive dimension for every621*3^(4k)-20; exact root for constructed subsystem",
+    "Theorem11.1: common polynomial quotient for all finite289representations",
+    "Theorem11.3: explicit finite witnesses for4*3^k-2; displayed representationlocalfork>=2"
+  ],
+  "independent_final_source_reviews": "PASS",
+  "seven_verification_programs": "PASS",
+  "python": "3.12.14",
+  "dependencies": "Python standard library only",
+  "pdf_pages": 24,
+  "tectonic": "0.17.0",
+  "tex_engine_warnings": [],
+  "pdf_visual_check": "PASS: all24 pages rendered and inspected in four contact sheets; individual detailed inspection pages17,21,22; no clipping, overflow or missing table rows.",
+  "internal_references_resolve": true,
+  "readme_local_links_resolve": true,
+  "counting_exponent_unchanged": true,
+  "full_intersection_exact_dimension_claimed": false,
+  "shortest_local_witness_claimed": false,
   "erdos406_claimed_solved": false,
-  "sharp_quotient_growth_claimed": false
+  "sharp_quotient_growth_claimed": false,
+  "worldwide_priority_certified": false,
+  "external_peer_review": false,
+  "review_record": [
+    {
+      "path": "audit/v3/final_critical_review.txt",
+      "sha256": "75b944c672d30b15eca4fa4d51a04d52112375d0e2d21b89f08785380e4effd9"
+    },
+    {
+      "path": "audit/v3/final_family_review.txt",
+      "sha256": "72c0f8f102a741be8fbbc138d80b8a9f4f86516c11f8466cf19fa94dc1e58126"
+    },
+    {
+      "path": "audit/v3/final_numerator_review.txt",
+      "sha256": "3cb2d2b578da52f88ed202e597ad8385fa8b9be76cd4606aea034b1d9ae2ebcf"
+    },
+    {
+      "path": "audit/v3/root_integration_review.txt",
+      "sha256": "4eb90c0660dbe3b6842a2e8d2de0a7d8b15f86f8919a4ce99dd26b3b63888555"
+    },
+    {
+      "path": "audit/v3/selection_critical_review.txt",
+      "sha256": "a1f9894511a1c2aaa74508b9be2ba0087917f018cc75c05257beb18500ab8c86"
+    }
+  ],
+  "source_hashes": {
+    "paper/endpoint_bound.tex": "6d775f2bab21d9f1d5b4fb29d5acf935a5742c97e80e4f92664fd87ca05c5eb1",
+    "paper/family_positive_dimension.tex": "70fdf6ab340d155c218b1434eb8b5394dcd69a7d7a0b1e75239fd7e975cbba4e",
+    "paper/ternary_cantor_quotients.pdf": "16715e51e1ef89182f36eb5865702b409abbd01b5f585406cda7199693caac91",
+    "paper/ternary_cantor_quotients.tex": "fc5af57111cd462ae5ba1044a48b026a5f06759e901870bd91248777b6049e3a",
+    "paper/universal_numerator.tex": "b6a297150b2151bb6ed4b569880dfa6a4318d4322a9a4e9b701cb28883a51db2"
+  },
+  "scope": "Prepublication checks. Remote commit, release and asset checks are recorded separately in a publication receipt."
 }

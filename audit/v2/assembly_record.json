@@ -1,0 +1,9 @@
+{
+  "version": "2.0.0",
+  "date": "2026-11-08",
+  "author": "Timofei Iuzhakov",
+  "citation_key": "iuzhakov2026cantorquotients",
+  "retained_v1_sections_2_through_8_byte_identical": true,
+  "new_result": "Theorem 9.1: M_C(X) >= c X^((1+s)^2/(7-5s)) without epsilon loss",
+  "historical_review_scope": "Prior analytical review; fresh exact certificate rerun and focused English integration review, not external peer review"
+}

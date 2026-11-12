@@ -1,0 +1,146 @@
+INDEPENDENT FINAL-SOURCE REVIEW: UNIVERSAL NUMERATOR AND LOCAL FAMILY
+Date: 12 November 2026
+Manuscript: ternary-cantor-quotients, version3.0.0
+
+Reviewed source: paper/universal_numerator.tex
+SHA-256: b6a297150b2151bb6ed4b569880dfa6a4318d4322a9a4e9b701cb28883a51db2
+
+VERDICT: PASS within the scope below. No unresolved mathematical defect
+was found in this complete source review.
+
+The reviewer did not author the reviewed section. The reviewer authored
+the separate positive-dimension section in this same release. This is an
+independent internal AI-assisted mathematical cross-review, not external
+journal peer review, formal proof-assistant verification, or an exhaustive
+assessment of worldwide priority. It does not certify later source edits
+or every retained proof in the manuscript.
+
+1. DEFINITIONS AND EXACT SOURCE QUESTION
+
+Read ADRS arXiv2308.07252v1 directly, including Definition1.1 and the
+catalogue introduction and 289 row on printed pages24-25.
+https://arxiv.org/pdf/2308.07252v1
+
+Their definition uses normalized Newman polynomials with constant term1;
+universal means that the denominator divides the numerator as a polynomial.
+For M congruent to1 modulo3, finite binary-ternary P,Q satisfying
+P(3)=M Q(3) have the same lowest nonzero exponent. Cancelling their common
+power of t gives exactly the normalized definition, and cancellation
+does not change whether Q divides P. Monicity makes divisibility over
+Q[t] equivalent to divisibility over Z[t]. The publication source's
+normalization and usage are correct.
+
+The cited catalogue concerns indecomposable representations and marks
+the local type of289 with a question mark. The manuscript correctly fixes
+the citation to arXiv version1 and proves the stronger all-representation
+statement. It does not claim a classification for every integer or assert
+that no later external literature has addressed this question.
+
+2. CARRY GRAPH AND ALL-LENGTH INTERPRETATION
+
+The transition 3c'=c+Ma-b yields the exact invariant
+3^j c_j=M*sum_(i<j)a_i3^i-sum_(i<j)b_i3^i.
+Nonnegativity is preserved: the only possible negative numerator is -1
+from c=a=0,b=1, which is not divisible by3. The prefix bound gives
+c_j<M/2 for every reachable carry. At M=289 the a priori range is
+therefore the integers0 through144.
+
+Enumerating the four pairs (a,b) recovers precisely the three residue
+cases displayed in the source. The finite equality gives an integral
+carry at every prefix by reduction modulo3^j. Padding both polynomials
+with high zero digits gives a path from0 back to0. Conversely every such
+path telescopes to the finite equality. There is no assumed witness-
+length bound, and at least one input1 is equivalent to a positive witness.
+
+The potential identity tH_c'=H_c+a h-b, multiplied by t^j and summed,
+has telescoping left side t^n H_c_n-H_c_0. Both endpoint potentials
+are zero for a returning path. Hence h Q-P=0 as a polynomial, not merely
+after specialization at3. This proves the all-length theorem from a
+finite coefficient-level certificate.
+
+3. INDEPENDENT CHECK OF THE EXACT PRINTED TABLE
+
+The reviewer parsed all32 rows directly from the final LaTeX table,
+without importing the author's certificate JSON. For each displayed
+state, all four digit pairs were independently tested modulo3 and
+their destinations regenerated. The full edge lists agree exactly:
+32 states,42 directed labelled edges.
+
+Closure of S union D and closure of D were verified. In addition, an
+independent forward reachability pass from0 reached exactly all32 rows,
+and a reverse reachability pass to0 recovered exactly the20 states of S.
+The other12 states are precisely D. The proof requires only the weaker
+closed-set statements it explicitly provides; they suffice to exclude
+D from any returning path. No undisplayed edge can enter or escape the
+certificate in a way relevant to the proof.
+
+Each displayed H_c(t) was independently parsed into integer coefficients.
+For every edge whose endpoints are in S, the coefficient difference
+tH_c'-H_c-a(1-t^2-t^3+t^4+t^5)+b was computed. All26 differences vanish
+identically. In particular, the potentially fragile entries H_4=1+t
+and H_144=t^2+2t^3+t^4 have the required identities, including the
+nontrivial self-loop at144. The checks are polynomial coefficient
+equalities, not the insufficient condition H_c(3)=c.
+
+Finally, h(3)=289 and H_0=0. All hypotheses of the potential lemma are
+established, so every finite representation has the common quotient h.
+The example
+ h(t)*(1+t^2+t^3+t^5)=1+t^7+t^9+t^10
+was independently multiplied coefficientwise; at3 it is289*280=80920.
+Thus the universal assertion is not vacuous.
+
+4. THE INFINITE FAMILY N_k=4*3^k-2
+
+The review reconstructed both telescoping identities symbolically for
+arbitrary k, rather than inferring them from numerical examples.
+
+For Q_k, the jth exponent interval begins at(k+1)j and ends at kj+k-1.
+Consecutive intervals are disjoint. The highest endpoint is k^2-1 and
+the constant term is1. For k>=2, the P_k exponents from the first sum
+are multiples of k; those from the second sum have residues1 through
+k-2 modulo k. The final exponents n-1,n exceed every earlier one.
+Therefore both polynomials have only0,1 coefficients and the asserted
+degrees; no hidden coefficient2 occurs.
+
+Shifting Q by k+1 and subtracting cancels successive blocks and leaves
+the powers t^(ki), i=2,...,k+1, minus S_k. Independently,
+(t-1)Q=sum_(i=1)^k t^(ki)-sum_(j=0)^(k-1)t^((k+1)j).
+Multiplication by t^k-1 and the two finite geometric identities displayed
+in the source yield the second telescoping identity after cancellation
+of t-1 in Z[t]. Adding the identities and isolating the two endpoint
+terms gives exactly
+ P_k=(t^(k+1)+t^k-2)Q_k+R_k,
+ R_k=3+2*sum_(i=1)^(k-1)t^i-t^k.
+
+Here R_k(3)=0 but R_k is not the zero polynomial. For k>=2 its degree
+k is strictly below k^2-1=deg Q_k. Thus polynomial division has a
+nonzero remainder, proving that the specified representation is local.
+This is stronger than showing that one proposed quotient polynomial
+fails; the degree bound precludes any polynomial quotient.
+
+The k=1 case is separately and correctly treated by Q_1=1 and
+P_1=1+t^2, giving10. It is not claimed local. The k=2 boundary case
+has Q_2=1+t+t^3, P_2=1+t^4+t^5+t^6 and R_2=3+2t-t^2; the empty
+internal sum and the strict remainder-degree inequality both hold.
+Supplemental independent exact polynomial checks for k=1 through25
+confirmed both telescoping identities, the final decomposition and
+the equality at3. These are regression checks supporting the symbolic
+all-k argument, not its replacement.
+
+5. SCOPE AND PUBLICATION FIT
+
+The numerator theorem classifies every representation of289. The local
+family theorem constructs one representation per N_k and correctly
+does not classify all other representations of those integers or claim
+minimal witness length. The numerator degree gives output length
+k(k+1)+1=O((log N_k)^2). Because only O(log X) family members lie belowX,
+this does not improve the global quotient-count exponent.
+
+The section is a coherent arithmetic addition to a quotient paper: one
+complete answer to the specifically cited catalogue question, one general
+potential-certificate lemma used in that answer, and a complementary
+explicit construction. Neither conclusion is presented as solving
+Erdos406, excluding1 from E_2, or proving global counting asymptotics.
+
+No changes were requested to the reviewed mathematical source. The
+reviewed SHA-256 was rechecked after the independent table computation.

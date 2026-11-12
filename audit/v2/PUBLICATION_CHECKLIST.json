@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "author": "Timofei Iuzhakov",
+  "citation_key": "iuzhakov2026cantorquotients",
+  "same_article_title": true,
+  "v1_release_preserved": true,
+  "v1_proof_sections_2_to_8_byte_identical": true,
+  "new_result": "Theorem 9.1: exponent (1+s)^2/(7-5s), no epsilon loss",
+  "focused_internal_review": "PASS",
+  "five_verification_programs": "PASS",
+  "pdf_pages": 16,
+  "pdf_visual_check": "PASS: all 16 pages rendered, full contact sheet and detailed title/certificate inspection",
+  "erdos406_claimed_solved": false,
+  "sharp_quotient_growth_claimed": false
+}

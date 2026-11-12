@@ -1,0 +1,49 @@
+ROOT INTEGRATION, BUILD AND LAYOUT CHECK — QUOTIENTS VERSION3
+Date: 12 November 2026. Author: Timofei Iuzhakov.
+
+PASS within this integration scope. This is an internal AI-assisted review,
+not external peer review or formal verification of the entire manuscript.
+
+1. The retained main proof body (Sections2–8) is byte-identical to public
+   main-branch baseline7fe18681b06b48dd39612776d6fbacf89858a31c. The endpoint
+   source (Section9) is also byte-identical. Theorems1.1,1.2,9.1 retain their
+   numbering. Introduction/abstract/verification explain the new additions.
+2. New Section10 gives exact dimension only for the constructed subsystem,
+   and a lower bound for C(1,M_k). The old no-finite-witness theorem is an
+   explicit retained dependency. Neither strict inclusion in general nor
+   the original nonrepresentation statement is relabelled a new v3 result.
+3. Section11 proves all finite289 representations have the same polynomial
+   quotient. The coefficient identities and complete carry graph, not only
+   values at3 or sampled return paths, supply the all-length certificate.
+   The explicit family for4*3^k-2 is local only as stated, with no shortest
+   witness assertion or counting improvement. ADRSv1 question is identified
+   precisely; no complete classification or worldwide-first claim is made.
+4. All seven packaged verification programs passed with Python3.12.14,
+   standard library only, assertions enabled. The current recorded code
+   hashes agree with the programs. The checks supplement the written proofs.
+5. Tectonic0.17.0 compiled the24-page PDF without engine warnings. Internal
+   labels are unique and references resolve. PDF text has no unresolved
+   question-mark references. All24 rendered pages were inspected as four
+   contact sheets; pages17,21,22 were additionally inspected individually.
+   No clipped equations, overlapping text or missing table rows observed.
+6. The complete32-row potential table fits on page21 and is readable. The
+   source and packaged JSON are separately checked by the independent critics.
+7. The README is expanded in its previous table/explanation/history style.
+   Version1 and2 explanations remain, and the newSection10/11 statements
+   are separated clearly from the unchanged exponent0.691726633148796...
+8. Sole author, article title and key iuzhakov2026cantorquotients are kept.
+   Version/date/current links are updated. Earlier releases and tags are
+   preserved; old assembly/checklist records are copied under audit/v2.
+9. Unrelated counting/Fourier/sparse-automata research and denominator4561
+   material are excluded. No raw chat exports or missing private proof
+   dependencies are introduced. Erdős406 and1 notinE2 remain unresolved.
+
+SHA-256 bindings for this integration check:
+paper/ternary_cantor_quotients.tex: fc5af57111cd462ae5ba1044a48b026a5f06759e901870bd91248777b6049e3a
+paper/ternary_cantor_quotients.pdf: 16715e51e1ef89182f36eb5865702b409abbd01b5f585406cda7199693caac91
+paper/endpoint_bound.tex: 6d775f2bab21d9f1d5b4fb29d5acf935a5742c97e80e4f92664fd87ca05c5eb1
+paper/family_positive_dimension.tex: 70fdf6ab340d155c218b1434eb8b5394dcd69a7d7a0b1e75239fd7e975cbba4e
+paper/universal_numerator.tex: b6a297150b2151bb6ed4b569880dfa6a4318d4322a9a4e9b701cb28883a51db2
+README.md: 7a250af4056d7b84f466d31cedf8c719a40849ff7b84d7aa7058d30dc2cd9d78
+CITATION.bib: 90114787bfae8fc5495851d05a4c23419de2a1d135b2f832c99d48b3c3d735fe
+CITATION.cff: 5b1e43fd23379e4af7bb9ca1b49da64f1a52e8b6dcf0055d82d0d6747f15ea15

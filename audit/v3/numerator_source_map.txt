@@ -1,0 +1,59 @@
+V3 SOURCE AND ATTRIBUTION MAP: UNIVERSAL POLYNOMIAL QUOTIENT AT 289
+Prepared 12 November 2026. Mathematical author: Timofei Iuzhakov.
+
+Public proof: paper/universal_numerator.tex.
+Main labels: numerator:section; numerator:main; numerator:potential;
+numerator:tab:certificate; numerator:local-family.
+No new packages, macros or bibliography keys are needed. Existing ADRS
+entry should explicitly identify arXiv:2308.07252v1.
+
+PRIMARY SOURCE QUESTION CHECKED DIRECTLY
+K. Anders, M. Locus Dawsey, B. Reznick and S. Sisneros-Thiry,
+Representations of integers as quotients of sums of distinct powers of
+three, arXiv:2308.07252v1, 14 August 2023.
+https://arxiv.org/pdf/2308.07252v1
+Definition1.1, printed p.3, defines universal/local by divisibility of
+normalized 0,1 polynomials. Section4, printed p.24, says its table concerns
+indecomposable representations and that the only unknown local entry is
+289. The printed p.25 table shows universal existence and a question mark
+for local289. Our theorem covers all finite representations, not only
+indecomposable ones. No exhaustive later-literature priority claim is made.
+
+DEVELOPMENT PROVENANCE, NOT PROOF DEPENDENCIES
+The numerator-universality note of6November2026, PROOF_RU.md §§1--4,
+provided the proof and certificate selected in the12November publication
+audit. Its §5--6 material on denominator4561 is not included here.
+The two fresh arithmetic publication-selection reviews identified the
+289 theorem and local witness family for the quotient article.
+These development identifiers are provenance only. All mathematical
+steps needed for the two included assertions appear in the public proof.
+
+INCLUDED PROOF CONTENT
+1. Complete finite-witness/returning-carry-path equivalence, all four
+   digit-pair possibilities, and the a priori carry range.
+2. General polynomial-potential sufficiency lemma, telescoped in Z[t].
+3. All32states,42edges,20potentials,12closed nonreturn states, and the
+   full coefficient identity for each of26internal edges. The explicit
+   table is enough to check the finite certificate without external data.
+4. Nonzero universal witness (input280,output80920).
+5. Explicit P_k,Q_k for N_k=4*3^k-2, disjoint supports, exact degrees,
+   two telescoping identities and a polynomial division remainder.
+   The notation N_k avoids conflict with earlier sporadic M_k.
+
+CODE PACKAGE RECOMMENDATION
+Copy certificate_289.json and the arithmetic verify_289/verify_family
+routines from the source package, retaining exact coefficient checks
+and the negative control H_96 -> H_96+(t-3). No4561certificate or rational
+orbit verification is needed by this section. Additional random returning
+paths and finite k samples are regression tests, not all-length proofs.
+
+SCOPE
+All finite representations of289 have the same polynomial quotient.
+Only the displayed N_k representation is asserted local for k>=2.
+There is no minimality claim, no claim that N_k has no universal
+representation, no new overall counting exponent, and no pointwise406
+conclusion. The graph/potential and finite-word methods use known carry
+representations; the contribution is the explicit complete certificate
+and the stated all-length consequences.
+
+Final independent review is required for the exact English source.

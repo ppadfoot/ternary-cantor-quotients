@@ -1,12 +1,55 @@
 # Ternary Cantor quotients: more representations, infinitely many exceptions
 
-**Timofei Iuzhakov** · Research preprint · **Version 2.0.0 — 8 November 2026**
+**Timofei Iuzhakov** · Research preprint · **Version 3.0.0 — 12 November 2026**
 
 **Which integers are ratios of two positive integers whose base-3 digits are all 0 or 1? This paper proves a stronger power lower bound for how many integers have such a representation, and proves an explicit infinite family of exceptions proposed by Bai, Meleshko, Riasat and Shallit.**
 
-[**Read the current paper · 16 pages**](https://github.com/ppadfoot/ternary-cantor-quotients/releases/download/v2.0.0/ternary_cantor_quotients.pdf) · [Release and complete archive](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v2.0.0) · [LaTeX source](paper/ternary_cantor_quotients.tex) · [How to cite](#citation)
+[**Read the current paper · 24 pages**](https://github.com/ppadfoot/ternary-cantor-quotients/releases/download/v3.0.0/ternary_cantor_quotients.pdf) · [v3 release and archive](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v3.0.0) · [Previous v2](https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v2.0.0) · [LaTeX source](paper/ternary_cantor_quotients.tex) · [How to cite](#citation)
 
-## What version 2 adds
+## What version 3 adds
+
+**The same article, two complete new proof sections.** The title, sole author and citation key `iuzhakov2026cantorquotients` stay the same. All v1–v2 proofs remain included, and the counting exponent remains **0.691726633148796…**.
+
+| New result | What is proved | Why it matters |
+| --- | --- | --- |
+| **Positive dimension for every sporadic-family member — Section 10** | Each $`M_k=621\cdot3^{4k}-20`$ has $`\dim_H C(1,M_k)\ge d_k>0`$, although none has a positive finite integer witness. | Completes the geometric picture of the family proved unrepresentable in v1: every member belongs to $`\mathcal M_H\setminus\mathcal M_C`$. |
+| **Every representation of 289 is universal — Section 11** | If nonzero 0/1 polynomials satisfy $`P(3)=289Q(3)`$, then $`P(t)=(1-t^2-t^3+t^4+t^5)Q(t)`$. | Rules out all local representations of 289 and answers the corresponding question in Anders–Dawsey–Reznick–Sisneros-Thiry, arXiv v1. |
+| **An explicit family of local representations — Section 11** | Every $`4\cdot3^k-2`$, $`k\ge1`$, has an explicit finite witness with $`k(k+1)+1`$ numerator digits; the constructed representation is local for $`k\ge2`$. | Provides a uniform construction contrasting with the rigidity of 289. No shortest-length or counting improvement is asserted. |
+
+### 1. No finite witness, but a positive-dimensional intersection
+
+The family already established in v1 has a stronger description in v3:
+
+```math
+\boxed{M_k\notin\mathcal M_C,\qquad\dim_H C(1,M_k)\ge d_k>0
+\quad\text{for every }k\ge0.}
+```
+
+The lower bound is explicit. Let $`d_k`$ be the unique positive solution of
+
+```math
+3^{-m_kd_k}+3^{-L_kd_k}=1,\qquad
+(m_0,L_0)=(3,12),\quad(m_k,L_k)=(4k+3,12k+6)\ (k\ge1).
+```
+
+**Why this matters.** A finite integer witness is sufficient for positive dimension, but it is not necessary. Strict inclusion was already known in the literature; v3 establishes this stronger description for **every member of the specific sporadic family**. The proof constructs a reachable carry and two return cycles with different first digits, producing a disjoint self-similar subset. Its dimension is exactly $`d_k`$; the full intersection is only proved to have dimension **at least** $`d_k`$.
+
+### 2. A complete answer for the representations of 289
+
+A representation is **universal** when its denominator polynomial divides its numerator polynomial; otherwise it is **local**. Version 3 proves
+
+```math
+\boxed{P(3)=289Q(3)\quad\Longrightarrow\quad
+P(t)=(1-t^2-t^3+t^4+t^5)Q(t).}
+```
+
+This is not vacuous: $`289=80920/280`$, and both numerator and denominator have only ternary digits 0 and 1.
+
+**Why this matters.** The table in §4 of [Anders–Dawsey–Reznick–Sisneros-Thiry, arXiv:2308.07252v1](https://arxiv.org/abs/2308.07252v1) leaves local representations of 289 as a question. Our theorem covers **all finite representations**, not only indecomposable ones. A complete carry graph and polynomial potentials prove the assertion for arbitrary word length. The certificate verifies polynomial coefficients, not merely equality after substituting $`t=3`$.
+
+[New proof sections](paper/) · [Version-3 source map and independent internal reviews](audit/v3/README.md) · [Exact verification code](code/v3/) · [Version history](CHANGELOG.md)
+
+## What version 2 added
 
 **The same article, a stronger counting theorem.** The title, sole author and citation key `iuzhakov2026cantorquotients` are retained. The original exceptional-family theorem and its complete proof are unchanged.
 
@@ -113,9 +156,9 @@ The resulting digit recurrence has a finite carry range and a register storing e
 
 **Where to read the proof:** **Sections 6–8**, especially **Proposition 7.1 and Tables 1–3**. Symbolic identities establish the certificate for every $`k`$; exact verification code checks the carry images and register identities.
 
-## New related result — dimension manuscript v3
+## Related results in the dimension manuscript
 
-The updated [dimension article, v3.0.0](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0), Theorem 14.1, now proves
+The [dimension article, v3.0.0](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0), Theorem 14.1, proved
 
 ```math
 M_H(X)\asymp X,\qquad
@@ -124,11 +167,11 @@ M_H(X)\asymp X,\qquad
 
 This determines the linear order in Lagarias's second counting problem and shows that finite integer witnesses omit linearly many positive-dimensional intersections. The proof uses summable rational Cantor denominators and a divisibility sieve.
 
-These results belong to the dimension article, cited as `iuzhakov2026lagarias`, v3.0.0. They are distinct from the improved finite-quotient bound in this article's v2.0.0. The exact multiplier asymptotic, the sharp finite-quotient count and Erdős Problem 406 remain open.
+These results first appeared in the dimension article, cited as `iuzhakov2026lagarias`, v3.0.0, and are retained in [its current v4](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v4.0.0). They are distinct from the improved finite-quotient bound in this article's v2.0.0. The exact multiplier asymptotic, the sharp finite-quotient count and Erdős Problem 406 remain open.
 
 ## Scope and relation to the companion paper
 
-The two theorems address abundance and explicit nonrepresentation within the same integer quotient problem. The power bound is a lower bound; the exceptional family does not classify all unrepresentable integers or determine their density. Failure to have a finite integer witness also does not imply that $`C(1,M)`$ has dimension zero.
+The article connects abundance, explicit nonrepresentation, positive-dimensional intersections and the polynomial structure of finite witnesses. The power bound is a lower bound; the exceptional family does not classify all unrepresentable integers or determine their density. Version 3 proves this distinction throughout the sporadic family, with a quantitative dimension lower bound.
 
 Our [companion paper on Lagarias's exceptional sets](https://github.com/ppadfoot/lagarias-zero-dimension) studies repeated multiplication by powers of two and proves dimension results. This paper counts arbitrary integer multipliers and studies finite digit witnesses. Erdős Problem 406 and the assertion $`1\notin E_2`$ remain unresolved here.
 
@@ -136,10 +179,11 @@ Our [companion paper on Lagarias's exceptional sets](https://github.com/ppadfoot
 
 | Resource | Contents |
 | --- | --- |
-| [Paper](paper/ternary_cantor_quotients.pdf) and [source](paper/ternary_cantor_quotients.tex) | All v1 proofs and certificate tables, plus the stronger v2 bound and complete Section 9 |
+| [Paper](paper/ternary_cantor_quotients.pdf) and [source](paper/ternary_cantor_quotients.tex) | Complete v3 article: all v1–v2 proofs, plus positive dimension and universal/local representations in Sections 10–11 |
 | [Counting checks](code/verify_power_gain_lemmas.py) | Exact finite checks of digital energies, finite-word bounds and divisor/valuation estimates |
 | [Parametric certificate](certificate/verify_parametric_certificate.py) | 18 symbolic row variants, 384 carry/digit choices, formal register identities and all 260 predecessor choices in the base case |
 | [Independent symbolic check](certificate/hostile_symbolic_check.py) and [model verifier](certificate/history_model_verifier.py) | Additional checks of the exceptional-family certificate |
+| [New v3 checks](code/v3/) | Exact symbolic cycle identities, the full 289 carry graph and coefficient-level polynomial potentials, plus finite local-family tests |
 | [Recorded results](verification/combined_summary.json) and [internal reviews](audit/README.md) | Program outcomes, review scope and exact source hashes |
 | [Version history](CHANGELOG.md) and [publication checklist](PUBLICATION_CHECKLIST.json) | Versioned manuscript contents and release checks |
 
@@ -156,11 +200,11 @@ cd paper
 tectonic ternary_cantor_quotients.tex
 ```
 
-The v2 run passes five verification programs, including a fresh exact 113-state certificate calculation and endpoint algebra checks. A focused internal reviewer checked the new English section and independently recomputed its energy and sign certificates. Earlier review files retain their original scope. Finite tests supplement the written proofs. The exceptional-family certificate uses exact symbolic identities for the parameter; numerical examples are additional checks. AI assistance was used in mathematical development, editing, code and internal review. The reviews are **not external peer review or proof-assistant verification**. Sole author: **Timofei Iuzhakov**.
+The full v3 run includes the five retained verification programs and two new programs. The two new proof sections receive independent internal cross-reviews, with a separate critical review of the integrated claims and attribution. Earlier review files retain their original scope. Finite tests supplement the written proofs. The exceptional-family certificate uses exact symbolic identities for the parameter; numerical examples are additional checks. AI assistance was used in mathematical development, editing, code and internal review. The reviews are **not external peer review or proof-assistant verification**. Sole author: **Timofei Iuzhakov**.
 
 ## Citation
 
-**Keep the citation key `iuzhakov2026cantorquotients` and specify the version.** Cite **v2.0.0, Theorem 9.1**, for the exponent 0.691726633148796…; cite **v1.0.0, Theorem 1.1**, for the original exponent. The exceptional-family theorem is Theorem 1.2 in both versions. Each versioned release fixes its own PDF and archive; the main README can receive explanatory updates.
+**Keep the citation key `iuzhakov2026cantorquotients` and specify the version.** Cite **v2.0.0, Theorem 9.1**, for the exponent 0.691726633148796…; cite **v1.0.0, Theorem 1.1**, for the original exponent. The exceptional-family theorem remains Theorem 1.2. Cite **v3.0.0, Sections 10–11**, for the new positive-dimension and universal/local representation results. Each versioned release fixes its own PDF and archive; the main README can receive explanatory updates.
 
 [CITATION.cff](CITATION.cff) and [CITATION.bib](CITATION.bib) provide the citation:
 
@@ -169,8 +213,8 @@ The v2 run passes five verification programs, including a fresh exact 113-state 
   author = {Timofei Iuzhakov},
   title = {Integer quotients of ternary Cantor numbers: a power lower bound and an infinite exceptional family},
   year = {2026},
-  note = {Version 2.0.0; research preprint},
-  url = {https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v2.0.0}
+  note = {Version 3.0.0; research preprint},
+  url = {https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v3.0.0}
 }
 ```
 

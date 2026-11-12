@@ -1,9 +1,16 @@
 {
-  "version": "2.0.0",
-  "date": "2026-11-08",
+  "version": "3.0.0",
+  "date": "2026-11-12",
   "author": "Timofei Iuzhakov",
   "citation_key": "iuzhakov2026cantorquotients",
-  "retained_v1_sections_2_through_8_byte_identical": true,
-  "new_result": "Theorem 9.1: M_C(X) >= c X^((1+s)^2/(7-5s)) without epsilon loss",
-  "historical_review_scope": "Prior analytical review; fresh exact certificate rerun and focused English integration review, not external peer review"
+  "baseline_commit": "7fe18681b06b48dd39612776d6fbacf89858a31c",
+  "retained_sections_2_through_8_byte_identical": true,
+  "retained_endpoint_section_9_byte_identical": true,
+  "new_results": [
+    "Theorem10.1: positive-dimensional subsystem throughout621*3^(4k)-20 with explicit root bound",
+    "Theorem11.1: every finite289 representation has the same polynomial quotient",
+    "Theorem11.3: explicit local witnesses for4*3^k-2,k>=2, plusk1witness"
+  ],
+  "counting_exponent_unchanged": true,
+  "review_scope": "Independent final-source internal reviews of additions; retained earlier proofs not all freshly recertified."
 }

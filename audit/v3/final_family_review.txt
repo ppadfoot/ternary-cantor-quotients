@@ -1,0 +1,118 @@
+INDEPENDENT FINAL-SOURCE REVIEW: POSITIVE DIMENSION OF THE SPORADIC FAMILY
+Date: 12 November 2026
+Manuscript version: 3.0.0
+
+VERDICT: PASS within the scope described below. No unresolved mathematical
+defect was found in the reviewed proof.
+
+Reviewed source: paper/family_positive_dimension.tex
+SHA-256: 70fdf6ab340d155c218b1434eb8b5394dcd69a7d7a0b1e75239fd7e975cbba4e
+
+The reviewer did not author this section. The entire English source was
+read and its arithmetic and Hausdorff-dimension arguments independently
+reconstructed. This is an internal AI-assisted mathematical review, not
+external peer review, a proof-assistant certificate, or a worldwide
+priority determination. The assertion that each M_k is not a finite
+quotient invokes the retained earlier Theorem1.2; its entire proof is
+not freshly recertified by this report.
+
+1. COMPLETE LOGICAL SCOPE
+
+For M_k=621*3^(4k)-20, the section constructs a compact subset of C(1,M_k)
+of dimension exactly d_k, where3^(-m_k*d_k)+3^(-L_k*d_k)=1. The source
+carefully asserts only a lower bound for the dimension of the whole
+intersection. Positivity, together with the separate retained finite
+nonrepresentation theorem, places this particular family in H minus V.
+The known strict inclusion itself is not claimed as new, and there is
+no assertion excluding the prescribed starting point1.
+
+2. CARRY LEMMA AND REACHABILITY
+
+The integer identity M[w]+c=[v]+3^ell*d forces the output prefix digit by
+digit. Reduction modulo3 identifies b_0, and subtraction/division leaves
+nonnegative integral carries because c>=0 and the input digits are
+nonnegative. Iteration gives the prescribed final carry. This is enough
+to certify each displayed path without assuming reachability from an
+unrelated component of the full carry graph.
+
+For k=0, I independently evaluated all three words and the three exact
+identities. They give a length10 path from0 to69 and two return paths
+of lengths3,12. Their first digits differ. All arithmetic is exact.
+
+For k>=1, I reconstructed P=(1100)^k 111 0^(4k)1 0^(4k+2).
+Its length is L=12k+6 and its value is
+ (t-1)/20+13t+27t^2, t=81^k.
+Multiplication by621t-20 gives the stated q after subtraction of
+23*729t^3. For k>=2 the geometric sum4*sum_(k+2)^(2k-1)81^j equals
+(t^2-6561t)/20, which proves every coefficient of the given q formula.
+The k=1 digit list was checked separately. Its maximal ternary position
+is8k+8, and8k+9<=12k+6 for allk>=1, so high zero padding is legitimate.
+All listed base81 digits use only ternary0,1. Thus the prefix reaches23,
+and M+23=3+9*(69t) then reaches the proposed return carry.
+
+3. BOTH LOOPS FOR ALL PARAMETERS
+
+The short loop has input value3t and yields output9t. Both sides of its
+identity are1863t^2+9t.
+For the long loop, I independently tracked all six concatenation offsets.
+The block11010110 has value1003 and block0110 has value12. With r=t/81,
+these offsets give exactly
+ (r-1)/20+1003r+(19683/20)r(r-1)+3t^2+81t^3.
+Combining coefficients gives the stated b. On multiplying by M, the
+leading50301t^4 term cancels3^L*c; the remaining coefficients are
+20169/60,4914/60,1997/60,1. These agree with the claimed z.
+
+I separately reconstructed the geometric-sum expression for z. The first
+sum is(t^2-81t)/20 and the second is(243t^3-19683t^2)/20. Substitution
+gives the same polynomial in t for everyk>=1, including empty sums.
+For k>=2 its supports are disjoint. At k=1 the only overlap is1+27=28
+in position0; there is no base81 carry. The top digit4 occupies exactly
+ternary positionsL-2,L-1. Every digit appearing in either list is a
+four-digit ternary0,1 block. Thus z is a permissible output of lengthL,
+and the carry lemma applies. A and B start in0 and1, respectively.
+
+4. INFINITE PATHS AND DIMENSION
+
+Appending arbitrary loop concatenations to the fixed reachable prefix
+produces infinite admissible input/output words. The telescoping error
+3^n*c_n tends to0 in Z_3 for all integer carries c_n, since its3-adic
+norm is at most3^(-n); no unproved ordinary-height bound is needed.
+Hence the embedded subsystem really lies in C(1,M_k).
+
+The prefix code has distinct first digits, so its two similarity images
+are disjoint and each infinite address is unique. Compactness follows
+from the continuous coding of the compact binary address space. The
+root d exists uniquely by strict monotonicity. Assigning probabilities
+3^(-md),3^(-Ld) gives an address-cylinder mass3^(-ds).
+
+For a ball fixing n digits, all completed blocks before depthn are
+uniquely parsed and shared; their total length is at least n-L. The ball
+mass bound3^(dL)3^(-dn) is therefore valid even if the ball ends inside
+the longer block. The mass distribution principle gives dimension>=d.
+The finite stopping-prefix partition at the first completed length>=n
+has total mass1, lengths between n and n+L-1, and image diameters no more
+than3^(-s). It gives Hausdorff d-content at most1 at every sufficiently
+small scale, hence dimension<=d. A fixed entry prefix is a similarity,
+so it preserves dimension rather than merely giving an upper bound.
+
+Finally, L<=4m, with equality onlyk=0. The identity
+vartheta^(-1)+vartheta^(-4)=1 and monotonicity prove the theta corollary,
+including strictness fork>=1. Its bound decays withk; the source does not
+assert a uniform positive dimension or equality for the full C(1,M_k).
+
+5. INDEPENDENT FINITE REGRESSION CHECK
+
+In a separate exact Python calculation, I generated words directly and
+ran digitwise carries for k=0,1,2,3,7,15,31,64,100. All word lengths,
+input values, output values, start/end carries and base81 digit lists
+passed. This is supplementary to the all-k geometric-sum reconstruction
+above; it is not used to extrapolate beyond those finite samples.
+
+6. PUBLICATION LIMITS
+
+No new formula for the exact dimension of the full intersection, no
+improved counting exponent, no solution of all Lagarias counting
+questions and no solution of Erdős406 follows from this argument.
+The text makes these boundaries explicit and attributes the earlier
+finite nonrepresentation to its own retained theorem. No blocking
+correction is requested for the hash identified above.

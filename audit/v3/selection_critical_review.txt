@@ -1,0 +1,166 @@
+INDEPENDENT CRITICAL SELECTION REVIEW — QUOTIENT MANUSCRIPT VERSION 3
+Date: 12 November 2026
+Mathematical author: Timofei Iuzhakov
+
+VERDICT
+
+The two proposed additions, with the short local-representation family,
+pass this independent mathematical selection review. No unresolved defect
+was found in the source arguments reviewed below. This is not yet a review
+of the final integrated English manuscript, nor external peer review or
+proof-assistant verification. The reviewer did not author these arguments
+or the new English sections. Prior PASS records were not used as proofs.
+
+The new material belongs in this quotient article. It concerns the
+geometric content of its existing sporadic family, and the algebraic type
+of finite quotient representations. Unrelated actual-power counting,
+sparse-automaton bounds, rational denominator exclusions and strategies
+for excluding the point 1 should not be appended to this release merely
+because they occur in the same research archive.
+
+1. POSITIVE DIMENSION FOR THE SPORADIC FAMILY
+
+I reconstructed the carry identities and the dimension argument for
+M_k = 621*3^(4k)-20 for every k >= 0.
+
+The carry-path lemma is valid: the complete binary output word identifies
+all output prefixes modulo 3^j; the integer recurrence yields nonnegative
+carries. For a fixed pair of return words, all carries range over a finite
+set, so the terminal carry disappears in the 3-adic limit. A fixed entry
+prefix acts by a 3-adic similarity and preserves dimension.
+
+For k=0 the three displayed paths enter carry 69 and give return words of
+lengths 3 and 12, with distinct first input digits. For k>=1 I checked:
+- the entry word has length L=12k+6 and value
+  (540t^2+261t-1)/20, where t=81^k;
+- its output is (151281t^2-5841t+20)/20 and final carry 23;
+- the given base-81 output expression uses only ternary-binary digits,
+  fits within L positions, and treats k=1 separately;
+- the additional input10/output01 segment reaches c=69t;
+- the short return word has length m=4k+3 and value3t, satisfying
+  (621t-20)*3t+69t = 9t+(27t)*69t;
+- the concatenated long return word has length L, and direct geometric
+  summation gives 81t^3+(63/20)t^2+(7/30)t-1/20;
+- its asserted output follows by substituting this expression in
+  M*b+c-3^L*c. The digit expansion fits L positions, including the k=1
+  merged digit28, and every base-81 digit has ternary digits0,1.
+
+The two return words start with different input digits. This makes them
+prefix-distinguishable, which is the actual separation needed for the
+variable-length construction. The disjoint subsystem has dimension d_k
+specified by 3^(-m_k*d_k)+3^(-L_k*d_k)=1. The positive solution is unique
+because the left side decreases continuously from2 to0. For the lower
+bound, give a block of length ell weight3^(-ell*d_k). A ternary cylinder
+of depth n determines the common completed-block prefix; its length is
+at least n-max(m_k,L_k). This gives a uniform Frostman estimate. Stopping
+at the first block crossing n gives the converse bound for this subsystem.
+A fixed entry prefix preserves its dimension.
+
+The exactness claim MUST remain restricted to the constructed subsystem.
+For the full C(1,M_k), the conclusion is only dim_H C(1,M_k)>=d_k>0.
+The theta corollary is valid: theta^(-1)+theta^(-4)=1 and L_k<=4m_k,
+so d_k>=log_3(theta)/m_k; for k>=1 the inequality is strict.
+
+The old nonrepresentation theorem supplies M_k outside the finite-witness
+set. Thus the new result places every specific M_k in the positive-dimension
+set minus the finite-witness set. A global linear count of that difference
+does not already imply this family-specific conclusion. Conversely, this
+family has only logarithmically many members up to X and does not improve
+the counting exponent or settle its sharp asymptotic.
+
+2. ALL FINITE REPRESENTATIONS OF 289
+
+I rebuilt the complete multiplication graph independently from
+3*c' = c+289*a-b, using all580 input/output pairs for0<=c<=144.
+Breadth-first reachability gives32 states and42 edges, exactly matching
+the proposed certificate. Reverse reachability gives20 return states;
+the remaining12 states form a closed set disjoint from0. Consequently
+all finite0-to0 paths remain in the20-state return set, with no bound on
+path length required.
+
+I derived every polynomial potential independently from a shortest return
+path: for a path from c to0 with tail polynomials Q_c,P_c, use
+H_c=P_c-hQ_c, h=1-t^2-t^3+t^4+t^5. These independently derived coefficient
+arrays match all supplied potentials. Every one of the26 edges inside
+the return set satisfies the polynomial identity
+ t H_c' = H_c + a h - b
+coefficient by coefficient. The test did not merely evaluate at t=3.
+The certificate thereby telescopes along every finite return and proves
+P=hQ for all finite representations P(3)=289Q(3).
+
+There is no lost case from constant terms zero: append high zero digits
+to equalize word lengths; common low zero digits can also be removed
+without changing the quotient or its local/universal type. Nonzero0/1
+polynomials evaluate positively at3. Nonvacuity follows from the exact
+product h*(1+t^2+t^3+t^5)=1+t^7+t^9+t^10, checked independently.
+
+The graph representation is a known general technique. The proposed
+contribution is the explicit global polynomial potential and resulting
+classification at289, not invention of multiplication automata or a
+claim about all integers.
+
+3. CONSTRUCTIVE LOCAL FAMILY
+
+For k>=2 the intervals defining Q_k have disjoint supports and degree
+k^2-1. The listed supports of P_k are pairwise distinct: one group is
+0 modulo k, another has residues1 through k-2, and the two final powers
+are larger than all preceding ones. Thus P_k,Q_k are0/1 polynomials.
+
+I independently rederived the identities for (t^(k+1)-1)Q_k and
+(t^k-1)Q_k by shifting the block sums. Adding them gives
+ P_k=(t^(k+1)+t^k-2)Q_k+R_k,
+ R_k=3+2*(t+...+t^(k-1))-t^k.
+Here R_k(3)=0, R_k is nonzero, and deg R_k=k<deg Q_k for every k>=2.
+This proves the stated local representation of4*3^k-2. The k=1 case
+must remain separate: Q_1=1 and P_1=1+t^2 give a universal representation.
+The output length is exactly k(k+1)+1 for the displayed witnesses.
+No minimality or assertion that all other witnesses are local follows.
+
+Independent finite coefficient checks for k=2,...,34 passed. These are
+supplementary to the all-k block-sum proof, not its justification.
+
+4. PRIMARY SOURCES AND ATTRIBUTION
+
+Bai, Meleshko, Riasat and Shallit, Quotients of palindromic and
+antipalindromic numbers, Integers22(2022), A96, §1.4, printed p.4:
+https://math.colgate.edu/~integers/w96/w96.pdf
+This source poses the infinitude question for sporadic Cantor-quotient
+exceptions and proposes621*3^(4k)-20. The repository already proved that
+nonrepresentation statement in v1. Version3 must not relabel it as new;
+its contribution here is positive dimension for the same family.
+
+Anders, Dawsey, Reznick and Sisneros-Thiry, Representations of integers
+as quotients of sums of distinct powers of three, arXiv:2308.07252v1:
+https://arxiv.org/pdf/2308.07252v1
+Definition1.1 on printed p.3 defines universal versus local by polynomial
+divisibility. Section4 on printed pp.24–25 explains that its table concerns
+indecomposable representations and that the unique unresolved table entry
+is local representation of289. The all-finite-representations theorem above
+answers that entry and is stronger than an indecomposable-only statement.
+It does not solve the whole classification programme. The arXiv abstract
+page inspected on this date lists only v1, submitted14August2023.
+
+These direct source checks substantiate the named source questions, not
+an exhaustive worldwide search or a global priority guarantee. The known
+general carry/IFS/Frostman methods should be attributed as such; the new
+explicit identities and applications are the concrete content selected.
+
+5. SOURCE BINDINGS AND PUBLICATION GATE
+
+Original development note, family_positive_dimension.txt, SHA256:
+9bf75f7c91f118602f20cabf831fdee2b1984b56a93f20aa4be89528c4a7e9c8
+Original development note, numerator-universality PROOF_RU.md, SHA256:
+fad0f91731499c6fdf18ee47f9f8be8bbbfbf0f0dd7fd46cb7179965bf665316
+Original coefficient certificate, certificate_289.json, SHA256:
+1b60b11514aa7d0bf30fa51cf81c195a9b3cc3c85df109e0b1be76e3f6c19dc0
+These identifiers document what was checked, not external dependencies
+of the final article. All mathematical arguments selected for publication
+must be reproduced in the new English sections with the complete finite
+table/certificate and corresponding verification code.
+
+Before release, independently review the final English source, confirm
+these quantifiers in abstract and README, bind reports to its hashes,
+run the packaged checks, build/render the PDF, and preserve the old
+citation key and release history. A source-level pass in this report
+alone is not permission to skip those final checks. The pointwise
+assertion1 notin E_2 remains unproved by these additions.
